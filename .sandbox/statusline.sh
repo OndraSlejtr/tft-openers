@@ -1,5 +1,5 @@
 #!/bin/bash
-# Status line: 📁 branch · model (effort) · context bar · 💰 cost · 🕒 5h limit · 📅 7d limit
+# Status line: repo · 📁 branch · model (effort) · context bar · 💰 cost · 🕒 5h limit · 📅 7d limit
 input=$(cat)
 
 eval "$(echo "$input" | jq -r '
@@ -22,7 +22,7 @@ eval "$(echo "$input" | jq -r '
 WARN_PCT=80
 CTX_BAR_WIDTH=10
 
-RESET=$'\e[0m' DIM=$'\e[2m' GREEN=$'\e[32m' RED=$'\e[31m'
+RESET=$'\e[0m' CYAN=$'\e[36m' DIM=$'\e[2m' GREEN=$'\e[32m' RED=$'\e[31m'
 SEP=" $DIM·$RESET "
 
 fmt_tokens() {
@@ -70,6 +70,10 @@ fmt_limit() {
 }
 
 parts=()
+
+# Repo name, skipped in the sandbox where the repo is always /workspace
+repo_root=$(git --no-optional-locks -C "$cwd" rev-parse --show-toplevel 2>/dev/null)
+[ -n "$repo_root" ] && [ "$repo_root" != "/workspace" ] && parts+=("$CYAN${repo_root##*/}$RESET")
 
 branch=$(git --no-optional-locks -C "$cwd" branch --show-current 2>/dev/null)
 [ -n "$branch" ] && parts+=("📁 $GREEN$branch$RESET")
