@@ -7,6 +7,7 @@ Static web app for looking up Teamfight Tactics Set 18 openers and the comps the
 - Read the issue and the spec sections it touches before writing code.
 - Branch from `main` as `<issue number>-<short-slug>`, for example `2-champion-grid`.
 - Never push to `main`. Open a pull request whose body contains `Closes #<issue number>`.
+- Never merge pull requests. The user reviews and merges them.
 - Keep the PR to the issue's scope. Note anything out of scope as a comment on the issue instead of building it.
 - If the issue is ambiguous or conflicts with the spec, stop and comment on the issue with the question and your recommended answer. Don't guess on decisions that change the data model or user-facing behavior.
 - If you hit an unforeseen problem with the agreed approach, stop and explain it in a comment instead of working around it.
