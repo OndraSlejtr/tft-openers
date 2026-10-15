@@ -1,0 +1,60 @@
+image:
+  oci: "ghcr.io/ondraslejtr/tft-openers/agent-sandbox:latest"
+  upper_size: "10G"
+pull_policy: always
+cpus: 2
+memory: "4G"
+workdir: "/workspace"
+user: "node"
+security: restricted
+network:
+  allow:
+    - "api.anthropic.com"
+    - "downloads.claude.ai"
+    # Data sources for `pnpm run import`
+    - "raw.communitydragon.org"
+    - "tftacademy.com"
+    # Issues, branches and PRs for this repo
+    - "github.com"
+    - "api.github.com"
+  dns:
+    rebind_protection: true
+  tls:
+    enabled: true
+  strict: true
+secrets:
+  CLAUDE_CODE_OAUTH_TOKEN:
+    allow: ["api.anthropic.com"]
+    substitution:
+      headers: true
+    require_tls_identity: true
+  # Fine-grained token scoped to this repo only. Basic auth (git push) follows the header setting.
+  GH_TOKEN:
+    allow: ["github.com", "api.github.com"]
+    substitution:
+      headers: true
+    require_tls_identity: true
+# Host git identity, set by `pnpm sandbox:create`
+env:
+  GIT_AUTHOR_NAME: "${SANDBOX_GIT_NAME}"
+  GIT_AUTHOR_EMAIL: "${SANDBOX_GIT_EMAIL}"
+  GIT_COMMITTER_NAME: "${SANDBOX_GIT_NAME}"
+  GIT_COMMITTER_EMAIL: "${SANDBOX_GIT_EMAIL}"
+mounts:
+  # Project
+  - bind: "."
+    target: "/workspace"
+  # Personal skills. ~/.claude/skills links into ~/.agents/skills, so both are mounted.
+  - bind: "${HOME}/.claude/skills"
+    target: "/home/node/.claude/skills"
+    noexec: true
+    readonly: true
+  - bind: "${HOME}/.agents/skills"
+    target: "/home/node/.agents/skills"
+    noexec: true
+    readonly: true
+  # Protect node_modules from edits. No noexec, native addons (esbuild, rolldown) must load.
+  # `pnpm sandbox:create` creates the folder, msb fails on a missing bind path.
+  - bind: "./node_modules"
+    target: "/workspace/node_modules"
+    readonly: true
