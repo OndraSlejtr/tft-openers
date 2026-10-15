@@ -8,7 +8,7 @@ Personal web app for creating, saving and quickly looking up Teamfight Tactics S
 - pnpm 10 (pinned in `packageManager`)
 
 ```bash
-nvm use
+nvm use                # or `fnm use`, both read .nvmrc
 pnpm install
 ```
 
@@ -51,7 +51,7 @@ pnpm sandbox:stop         # stops the sandbox, conversations are kept
 pnpm sandbox:remove       # deletes the sandbox and everything on its disk
 ```
 
-Each worktree gets its own sandbox. The repo is mounted live at `/workspace`, so host edits and sandbox edits share the working tree. Commits made in the sandbox use your host git name and email, read when the sandbox is created.
+Each worktree gets its own sandbox. The repo is mounted live at `/workspace`, so host edits and sandbox edits share the working tree. Commits made in the sandbox use your host git name and email, read when the sandbox is created. `.env` and `.env.local` are masked with `.env.example`, so the agent never sees real values. Other `.env.*` files (for example `.env.production.local`) are not masked, so keep secrets in those two.
 
 > [!NOTE]
 > Secrets are read when the sandbox starts. After changing a secret, run `pnpm sandbox:stop` and then `pnpm sandbox`. After adding a new secret to `msb-config.yaml` and `.sandbox/with-secrets.sh`, recreate the sandbox with `pnpm sandbox:remove` and `pnpm sandbox:create`.

@@ -53,6 +53,15 @@ mounts:
     target: "/home/node/.agents/skills"
     noexec: true
     readonly: true
+  # Hide .env files. The sandbox sees .env.example instead of the real values.
+  - bind: "./.env.example"
+    target: "/workspace/.env"
+    noexec: true
+    readonly: true
+  - bind: "./.env.example"
+    target: "/workspace/.env.local"
+    noexec: true
+    readonly: true
   # Protect node_modules from edits. No noexec, native addons (esbuild, rolldown) must load.
   # `pnpm sandbox:create` creates the folder, msb fails on a missing bind path.
   - bind: "./node_modules"
