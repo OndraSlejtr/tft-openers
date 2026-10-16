@@ -1,14 +1,24 @@
-import type { AugmentCategory, BacklineDamage, Opener, RequiredItems } from "../data/types.ts";
+import type { AugmentCategory, BacklineDamage, ItemCategory, Opener, RequiredItems } from "../data/types.ts";
+
+// A category set the user chose, replacing the bundled guess.
+export type CategoryOverride<Category extends string> = {
+  id: string;
+  categories: Category[];
+  editedAtPatch: string;
+};
 
 // Everything the user changed, stored on top of the bundled defaults.
 export type Overlay = {
   version: 1;
   openers: Opener[];
+  itemOverrides: CategoryOverride<ItemCategory>[];
+  augmentOverrides: CategoryOverride<AugmentCategory>[];
 };
 
-export const emptyOverlay = (): Overlay => ({ version: 1, openers: [] });
+export const emptyOverlay = (): Overlay => ({ version: 1, openers: [], itemOverrides: [], augmentOverrides: [] });
 
 const AUGMENT_CATEGORIES: AugmentCategory[] = ["econ", "item", "combat", "special"];
+const ITEM_CATEGORIES: ItemCategory[] = ["AD", "AP", "tanky", "utility"];
 const BACKLINE_VALUES: BacklineDamage[] = ["AD", "AP", "flexible"];
 
 type UnknownRecord = Record<string, unknown>;
@@ -75,13 +85,41 @@ const readOpener = (value: unknown, path: string): Opener => {
   };
 };
 
+const readOverrides = <Category extends string>(
+  data: UnknownRecord,
+  key: string,
+  allowed: readonly Category[],
+): CategoryOverride<Category>[] => {
+  const value = data[key];
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) return fail(`overlay.${key}`, "a list");
+  return value.map((entry: unknown, index) => {
+    const path = `${key}[${index}]`;
+    if (!isRecord(entry)) return fail(path, "an object");
+    const categories = readStringList(entry, "categories", path);
+    if (!categories.every((category) => allowed.some((option) => option === category))) {
+      return fail(`${path}.categories`, `categories out of ${allowed.join(", ")}`);
+    }
+    return {
+      id: readString(entry, "id", path),
+      categories: [...new Set(categories)] as Category[],
+      editedAtPatch: readString(entry, "editedAtPatch", path),
+    };
+  });
+};
+
 // Parses stored or imported JSON text. Throws on any mismatch, nothing is applied partially.
 export const parseOverlay = (text: string): Overlay => {
   const data: unknown = JSON.parse(text);
   if (!isRecord(data)) return fail("overlay", "an object");
   if (data.version !== 1) return fail("overlay.version", "1");
   if (!Array.isArray(data.openers)) return fail("overlay.openers", "a list");
-  return { version: 1, openers: data.openers.map((opener: unknown, index) => readOpener(opener, `openers[${index}]`)) };
+  return {
+    version: 1,
+    openers: data.openers.map((opener: unknown, index) => readOpener(opener, `openers[${index}]`)),
+    itemOverrides: readOverrides(data, "itemOverrides", ITEM_CATEGORIES),
+    augmentOverrides: readOverrides(data, "augmentOverrides", AUGMENT_CATEGORIES),
+  };
 };
 
 export const serializeOverlay = (overlay: Overlay) => JSON.stringify(overlay);

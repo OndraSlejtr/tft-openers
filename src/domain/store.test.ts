@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import type { Comp, DataBundle, Opener } from "../data/types.ts";
-import { serializeOverlay } from "./overlay.ts";
+import { emptyOverlay, serializeOverlay } from "./overlay.ts";
 import { createStore } from "./store.ts";
 import { type StorageAdapter, createMemoryStorage } from "./storage.ts";
 
@@ -153,7 +153,7 @@ const opener = (id: string, overrides: Partial<Opener> = {}): Opener => ({
 });
 
 const storeWithOpeners = (openers: Opener[]) =>
-  createStore(bundle, createMemoryStorage(serializeOverlay({ version: 1, openers })));
+  createStore(bundle, createMemoryStorage(serializeOverlay({ ...emptyOverlay(), openers })));
 
 const rankedIds = (store: ReturnType<typeof createStore>) => store.rankedOpeners().map(({ opener: { id } }) => id);
 
@@ -549,7 +549,7 @@ describe("opener detail", () => {
   };
 
   const detailStore = (openers: Opener[]) =>
-    createStore(detailBundle, createMemoryStorage(serializeOverlay({ version: 1, openers })));
+    createStore(detailBundle, createMemoryStorage(serializeOverlay({ ...emptyOverlay(), openers })));
 
   const aliveRow = (store: ReturnType<typeof createStore>, openerId: string, index = 0) => {
     const row = store.openerDetail(openerId)?.compRows[index];
@@ -601,5 +601,78 @@ describe("opener detail", () => {
   it("includes the opener and its display name", () => {
     const store = detailStore([opener("a", { name: "", coreChampionIds: ["azir"] })]);
     expect(store.openerDetail("a")).toMatchObject({ displayName: "Azir" });
+  });
+});
+
+describe("category overrides", () => {
+  const guessedBundle: DataBundle = {
+    ...bundle,
+    items: bundle.items.map((item) => (item.id === "bf" ? { ...item, categories: ["AD" as const] } : item)),
+    augments: bundle.augments.map((augment) => (augment.id === "rich" ? { ...augment, categories: ["econ" as const] } : augment)),
+  };
+  const itemOf = (store: ReturnType<typeof createStore>, id: string) => store.getState().items.find((item) => item.id === id);
+  const augmentOf = (store: ReturnType<typeof createStore>, id: string) => store.getState().augments.find((augment) => augment.id === id);
+
+  it("keeps the bundled guess without an override", () => {
+    const store = createStore(guessedBundle);
+    expect(itemOf(store, "bf")).toMatchObject({ categories: ["AD"], guessed: true });
+    expect(augmentOf(store, "rich")).toMatchObject({ categories: ["econ"], guessed: true });
+  });
+
+  it("replaces the guess with an override and marks it confirmed", () => {
+    const store = createStore(guessedBundle);
+    store.setItemCategories("bf", ["AD", "tanky"]);
+    store.setAugmentCategories("rich", ["econ", "item"]);
+    expect(itemOf(store, "bf")).toMatchObject({ categories: ["AD", "tanky"], guessed: false });
+    expect(augmentOf(store, "rich")).toMatchObject({ categories: ["econ", "item"], guessed: false });
+  });
+
+  it("confirms an uncategorized entry by giving it categories", () => {
+    const store = createStore(guessedBundle);
+    store.setItemCategories("rabadon", ["AP"]);
+    expect(itemOf(store, "rabadon")).toMatchObject({ categories: ["AP"], guessed: false });
+  });
+
+  it("replaces an earlier override and removes duplicate categories", () => {
+    const store = createStore(guessedBundle);
+    store.setItemCategories("bf", ["AP", "AP"]);
+    store.setItemCategories("bf", ["utility"]);
+    expect(itemOf(store, "bf")?.categories).toEqual(["utility"]);
+  });
+
+  it("clears an override back to the guessed default", () => {
+    const store = createStore(guessedBundle);
+    store.setItemCategories("bf", ["AP"]);
+    store.setAugmentCategories("rich", ["combat"]);
+    store.clearItemCategories("bf");
+    store.clearAugmentCategories("rich");
+    expect(itemOf(store, "bf")).toMatchObject({ categories: ["AD"], guessed: true });
+    expect(augmentOf(store, "rich")).toMatchObject({ categories: ["econ"], guessed: true });
+  });
+
+  it("persists overrides across a reload", () => {
+    const storage = createMemoryStorage();
+    const first = createStore(guessedBundle, storage);
+    first.setItemCategories("bf", ["tanky"]);
+    first.setAugmentCategories("ticket", ["special"]);
+    const reloaded = createStore(guessedBundle, storage);
+    expect(itemOf(reloaded, "bf")).toMatchObject({ categories: ["tanky"], guessed: false });
+    expect(augmentOf(reloaded, "ticket")).toMatchObject({ categories: ["special"], guessed: false });
+  });
+
+  it("loads saved data from before overrides existed", () => {
+    const store = createStore(guessedBundle, createMemoryStorage(JSON.stringify({ version: 1, openers: [] })));
+    expect(store.getState().storageError).toBeNull();
+  });
+
+  it("rejects unknown ids", () => {
+    const store = createStore(guessedBundle);
+    expect(() => store.setItemCategories("nope", ["AD"])).toThrow(/Unknown item id "nope"/);
+    expect(() => store.setAugmentCategories("nope", ["econ"])).toThrow(/Unknown augment id "nope"/);
+  });
+
+  it("shows an error for saved overrides with an invalid category", () => {
+    const saved = JSON.stringify({ version: 1, openers: [], itemOverrides: [{ id: "bf", categories: ["magic"], editedAtPatch: "18.4b" }] });
+    expect(createStore(guessedBundle, createMemoryStorage(saved)).getState().storageError).toMatch(/itemOverrides\[0\]\.categories/);
   });
 });

@@ -1,11 +1,14 @@
-import type { Augment, AugmentCategory, Champion, Comp, CompletedItem, Component, DataBundle, Opener } from "../data/types.ts";
-import { type Overlay, emptyOverlay, parseOverlay, serializeOverlay } from "./overlay.ts";
+import type { Augment, AugmentCategory, Champion, Comp, CompletedItem, Component, DataBundle, ItemCategory, Opener } from "../data/types.ts";
+import { type CategoryOverride, type Overlay, emptyOverlay, parseOverlay, serializeOverlay } from "./overlay.ts";
 import { type StorageAdapter, createMemoryStorage } from "./storage.ts";
 
 export type StoreState = {
   selectedChampionIds: readonly string[];
   // Every opener, bundled defaults first, then the user's.
   openers: readonly Opener[];
+  // Bundled items and augments with the user's category overrides applied. Overridden entries are not guessed.
+  items: readonly CompletedItem[];
+  augments: readonly Augment[];
   // Set when reading or writing storage failed, shown to the user until dismissed.
   storageError: string | null;
 };
@@ -76,6 +79,12 @@ export type Store = {
   setAugmentPriority: (openerId: string, priority: AugmentCategory[]) => void;
   addKeyAugment: (openerId: string, augmentId: string) => void;
   removeKeyAugment: (openerId: string, augmentId: string) => void;
+  // Replaces the bundled guess with the given categories and marks them confirmed.
+  setItemCategories: (itemId: string, categories: ItemCategory[]) => void;
+  setAugmentCategories: (augmentId: string, categories: AugmentCategory[]) => void;
+  // Restores the bundled guess.
+  clearItemCategories: (itemId: string) => void;
+  clearAugmentCategories: (augmentId: string) => void;
   linkComp: (openerId: string, compSlug: string) => void;
   // Also works for links to comps that no longer exist.
   unlinkComp: (openerId: string, compSlug: string) => void;
@@ -119,6 +128,23 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
   const compsBySlug = new Map(bundle.comps.map((comp) => [comp.slug, comp]));
   const listeners = new Set<() => void>();
 
+  const applyOverrides = <Entry extends { id: string; categories: string[]; guessed: boolean }, Category extends string>(
+    entries: readonly Entry[],
+    overrides: readonly CategoryOverride<Category>[],
+  ): Entry[] =>
+    entries.map((entry) => {
+      const override = overrides.find(({ id }) => id === entry.id);
+      return override === undefined ? entry : { ...entry, categories: override.categories, guessed: false };
+    });
+
+  function effectiveData({ openers, itemOverrides, augmentOverrides }: Overlay) {
+    return {
+      openers,
+      items: applyOverrides(bundle.items, itemOverrides),
+      augments: applyOverrides(bundle.augments, augmentOverrides),
+    };
+  }
+
   const loadOverlay = (): { overlay: Overlay; error: string | null } => {
     try {
       const text = storage.read();
@@ -130,7 +156,11 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
 
   const loaded = loadOverlay();
   let overlay = loaded.overlay;
-  let state: StoreState = { selectedChampionIds: [], openers: overlay.openers, storageError: loaded.error };
+  let state: StoreState = {
+    selectedChampionIds: [],
+    ...effectiveData(overlay),
+    storageError: loaded.error,
+  };
 
   const setState = (next: StoreState) => {
     state = next;
@@ -146,7 +176,7 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
     } catch (error) {
       storageError = `Could not save your changes: ${errorMessage(error)}`;
     }
-    setState({ ...state, openers: nextOverlay.openers, storageError: storageError ?? state.storageError });
+    setState({ ...state, ...effectiveData(nextOverlay), storageError: storageError ?? state.storageError });
   };
 
   const displayName = ({ name, coreChampionIds }: Opener) => {
@@ -307,6 +337,20 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
     },
     removeKeyAugment: (openerId, augmentId) =>
       updateExisting(openerId, (opener) => ({ ...opener, keyAugmentIds: opener.keyAugmentIds.filter((id) => id !== augmentId) })),
+    setItemCategories: (itemId, categories) => {
+      if (!itemIds.has(itemId)) throw new Error(`Unknown item id "${itemId}"`);
+      const entry = { id: itemId, categories: [...new Set(categories)], editedAtPatch: bundle.patch };
+      saveOverlay({ ...overlay, itemOverrides: [...overlay.itemOverrides.filter(({ id }) => id !== itemId), entry] });
+    },
+    setAugmentCategories: (augmentId, categories) => {
+      if (!augmentIds.has(augmentId)) throw new Error(`Unknown augment id "${augmentId}"`);
+      const entry = { id: augmentId, categories: [...new Set(categories)], editedAtPatch: bundle.patch };
+      saveOverlay({ ...overlay, augmentOverrides: [...overlay.augmentOverrides.filter(({ id }) => id !== augmentId), entry] });
+    },
+    clearItemCategories: (itemId) =>
+      saveOverlay({ ...overlay, itemOverrides: overlay.itemOverrides.filter(({ id }) => id !== itemId) }),
+    clearAugmentCategories: (augmentId) =>
+      saveOverlay({ ...overlay, augmentOverrides: overlay.augmentOverrides.filter(({ id }) => id !== augmentId) }),
     linkComp: (openerId, compSlug) => {
       if (!compsBySlug.has(compSlug)) throw new Error(`Unknown comp "${compSlug}"`);
       updateExisting(openerId, (opener) =>
