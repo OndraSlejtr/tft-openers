@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
-import type { Comp, DataBundle } from "../data/types.ts";
+import type { Comp, DataBundle, Opener } from "../data/types.ts";
+import { serializeOverlay } from "./overlay.ts";
 import { createStore } from "./store.ts";
+import { type StorageAdapter, createMemoryStorage } from "./storage.ts";
 
 const champion = (id: string) => ({ id, name: id, cost: 1 as const, icon: null, variantIds: [id], traitIds: [] });
 
@@ -122,5 +124,189 @@ describe("comps with selected champions", () => {
     store.toggleChampion("azir");
     store.toggleChampion("azir");
     expect(slugs(store)).toEqual([]);
+  });
+});
+
+const opener = (id: string, overrides: Partial<Opener> = {}): Opener => ({
+  id,
+  name: id,
+  coreChampionIds: [],
+  targetChampionIds: [],
+  backline: "flexible",
+  requiredItems: [],
+  augmentPriority: ["econ", "item", "combat", "special"],
+  keyAugmentIds: [],
+  compSlugs: [],
+  notes: "",
+  source: "user",
+  status: "active",
+  editedAtPatch: "18.4b",
+  ...overrides,
+});
+
+const storeWithOpeners = (openers: Opener[]) =>
+  createStore(bundle, createMemoryStorage(serializeOverlay({ version: 1, openers })));
+
+const rankedIds = (store: ReturnType<typeof createStore>) => store.rankedOpeners().map(({ opener: { id } }) => id);
+
+describe("create opener from selection", () => {
+  it("saves an active user opener with the selection as core", () => {
+    const store = createStore(bundle);
+    store.toggleChampion("azir");
+    store.toggleChampion("karma");
+    const id = store.createOpenerFromSelection();
+    const created = store.getState().openers.find((entry) => entry.id === id);
+    expect(created).toMatchObject({
+      coreChampionIds: ["azir", "karma"],
+      targetChampionIds: [],
+      source: "user",
+      status: "active",
+      editedAtPatch: "18.4b",
+    });
+  });
+
+  it("rejects an empty selection", () => {
+    expect(() => createStore(bundle).createOpenerFromSelection()).toThrow(/Select at least one champion/);
+  });
+
+  it("survives a reload through the storage adapter", () => {
+    const storage = createMemoryStorage();
+    const first = createStore(bundle, storage);
+    first.toggleChampion("azir");
+    const id = first.createOpenerFromSelection();
+    const reloaded = createStore(bundle, storage);
+    expect(reloaded.getState().openers.map((entry) => entry.id)).toEqual([id]);
+    expect(reloaded.getState().storageError).toBeNull();
+  });
+
+  it("generates a display name from the core champions", () => {
+    const store = createStore(bundle);
+    store.toggleChampion("azir");
+    store.toggleChampion("karma");
+    store.createOpenerFromSelection();
+    expect(store.rankedOpeners()[0].displayName).toBe("azir + karma");
+  });
+});
+
+describe("ranked openers", () => {
+  it("returns nothing without a selection", () => {
+    expect(rankedIds(storeWithOpeners([opener("a", { coreChampionIds: ["azir"] })]))).toEqual([]);
+  });
+
+  it("ranks by core matches, and a core match beats any target matches", () => {
+    const store = storeWithOpeners([
+      opener("targets", { targetChampionIds: ["azir", "karma", "teemo"] }),
+      opener("core", { coreChampionIds: ["azir"] }),
+    ]);
+    for (const id of ["azir", "karma", "teemo"]) store.toggleChampion(id);
+    expect(rankedIds(store)).toEqual(["core", "targets"]);
+  });
+
+  it("raises the rank for held target champions", () => {
+    const store = storeWithOpeners([
+      opener("plain", { coreChampionIds: ["azir"] }),
+      opener("with-target", { coreChampionIds: ["azir"], targetChampionIds: ["karma"] }),
+    ]);
+    store.toggleChampion("azir");
+    store.toggleChampion("karma");
+    expect(rankedIds(store)).toEqual(["with-target", "plain"]);
+  });
+
+  it("breaks ties by the best linked comp tier", () => {
+    const store = storeWithOpeners([
+      opener("b-tier", { coreChampionIds: ["azir"], compSlugs: ["azir-b"] }),
+      opener("no-comp", { coreChampionIds: ["azir"] }),
+      opener("s-tier", { coreChampionIds: ["azir"], compSlugs: ["azir-b", "azir-karma"] }),
+    ]);
+    store.toggleChampion("azir");
+    expect(rankedIds(store)).toEqual(["s-tier", "b-tier", "no-comp"]);
+  });
+
+  it("ignores dead comp links when picking the best tier", () => {
+    const store = storeWithOpeners([
+      opener("dead", { coreChampionIds: ["azir"], compSlugs: ["gone"] }),
+      opener("live", { coreChampionIds: ["azir"], compSlugs: ["azir-b"] }),
+    ]);
+    store.toggleChampion("azir");
+    expect(rankedIds(store)).toEqual(["live", "dead"]);
+  });
+
+  it("excludes drafts and openers without a match", () => {
+    const store = storeWithOpeners([
+      opener("draft", { coreChampionIds: ["azir"], status: "draft" }),
+      opener("other", { coreChampionIds: ["teemo"] }),
+      opener("match", { coreChampionIds: ["azir"] }),
+    ]);
+    store.toggleChampion("azir");
+    expect(rankedIds(store)).toEqual(["match"]);
+  });
+
+  it("updates instantly when the selection changes", () => {
+    const store = storeWithOpeners([opener("a", { coreChampionIds: ["azir"] })]);
+    store.toggleChampion("azir");
+    expect(rankedIds(store)).toEqual(["a"]);
+    store.toggleChampion("azir");
+    expect(rankedIds(store)).toEqual([]);
+  });
+
+  it("reports match counts and the best tier", () => {
+    const store = storeWithOpeners([
+      opener("a", { coreChampionIds: ["azir", "karma"], targetChampionIds: ["teemo"], compSlugs: ["azir-reroll"] }),
+    ]);
+    store.toggleChampion("azir");
+    store.toggleChampion("teemo");
+    expect(store.rankedOpeners()[0]).toMatchObject({ coreMatchCount: 1, targetMatchCount: 1, bestTier: "A" });
+  });
+});
+
+describe("storage failures", () => {
+  const failingStorage = (overrides: Partial<StorageAdapter>): StorageAdapter => ({
+    read: () => null,
+    write: () => undefined,
+    ...overrides,
+  });
+
+  it("shows an error when saving fails and keeps the opener in memory", () => {
+    const store = createStore(
+      bundle,
+      failingStorage({
+        write: () => {
+          throw new Error("quota exceeded");
+        },
+      }),
+    );
+    store.toggleChampion("azir");
+    store.createOpenerFromSelection();
+    expect(store.getState().storageError).toMatch(/Could not save your changes: quota exceeded/);
+    expect(store.getState().openers).toHaveLength(1);
+  });
+
+  it("shows an error when reading fails", () => {
+    const store = createStore(
+      bundle,
+      failingStorage({
+        read: () => {
+          throw new Error("denied");
+        },
+      }),
+    );
+    expect(store.getState().storageError).toMatch(/Could not load your saved data: denied/);
+  });
+
+  it("shows an error for corrupt saved data and starts empty", () => {
+    const store = createStore(bundle, createMemoryStorage("{not json"));
+    expect(store.getState().storageError).toMatch(/Could not load your saved data/);
+    expect(store.getState().openers).toEqual([]);
+  });
+
+  it("shows an error for saved data with the wrong shape", () => {
+    const store = createStore(bundle, createMemoryStorage(JSON.stringify({ version: 1, openers: [{ id: 1 }] })));
+    expect(store.getState().storageError).toMatch(/openers\[0\]/);
+  });
+
+  it("clears the error when dismissed", () => {
+    const store = createStore(bundle, createMemoryStorage("{not json"));
+    store.dismissStorageError();
+    expect(store.getState().storageError).toBeNull();
   });
 });
