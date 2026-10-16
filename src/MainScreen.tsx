@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import { useMemo, useState } from "react";
 import { ChampionGrid } from "./components/ChampionGrid.tsx";
+import { RankedOpeners } from "./components/RankedOpeners.tsx";
+import { StorageErrorBanner } from "./components/StorageErrorBanner.tsx";
 import { CompsWithChampions } from "./components/CompsWithChampions.tsx";
 import { bundle } from "./data/bundle.ts";
 import { filterChampions } from "./domain/filterChampions.ts";
@@ -10,7 +12,7 @@ const traitsById = new Map(bundle.traits.map((trait) => [trait.id, trait]));
 const sortedTraits = bundle.traits.toSorted((a, b) => a.name.localeCompare(b.name));
 
 export const MainScreen = () => {
-  const { selectedChampionIds } = useStoreState();
+  const { selectedChampionIds, storageError } = useStoreState();
   const [searchText, setSearchText] = useState("");
   const [traitId, setTraitId] = useState<string | null>(null);
   const visibleChampions = useMemo(
@@ -31,6 +33,7 @@ export const MainScreen = () => {
           </span>
         </div>
       </header>
+      {storageError !== null && <StorageErrorBanner message={storageError} onDismiss={store.dismissStorageError} />}
       <div className="mb-4 flex flex-wrap gap-2">
         <input
           type="search"
@@ -64,14 +67,25 @@ export const MainScreen = () => {
           />
         </div>
         <div className="flex flex-col gap-4">
-          <button
-            type="button"
-            onClick={store.clearSelection}
-            disabled={selectedChampionIds.length === 0}
-            className="self-start rounded border border-white/10 bg-black/40 px-3 py-1 text-sm disabled:opacity-40"
-          >
-            Clear selection ({selectedChampionIds.length})
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={store.clearSelection}
+              disabled={selectedChampionIds.length === 0}
+              className="rounded border border-white/10 bg-black/40 px-3 py-1 text-sm disabled:opacity-40"
+            >
+              Clear selection ({selectedChampionIds.length})
+            </button>
+            <button
+              type="button"
+              onClick={store.createOpenerFromSelection}
+              disabled={selectedChampionIds.length === 0}
+              className="rounded border border-white/10 bg-black/40 px-3 py-1 text-sm disabled:opacity-40"
+            >
+              Create opener from selection
+            </button>
+          </div>
+          <RankedOpeners rankedOpeners={store.rankedOpeners()} hasSelection={selectedChampionIds.length > 0} />
           <CompsWithChampions
             matches={store.compsWithSelectedChampions()}
             hasSelection={selectedChampionIds.length > 0}

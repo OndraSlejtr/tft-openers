@@ -91,3 +91,30 @@ export type DataBundle = {
   augments: Augment[];
   comps: Comp[];
 };
+
+export type BacklineDamage = "AD" | "AP" | "flexible";
+
+export type RequiredItems = {
+  championId: string;
+  itemIds: string[];
+};
+
+export type Opener = {
+  id: string;
+  // Empty means the name is generated from the core champions.
+  name: string;
+  coreChampionIds: string[];
+  targetChampionIds: string[];
+  backline: BacklineDamage;
+  requiredItems: RequiredItems[];
+  // All four categories, most wanted first.
+  augmentPriority: AugmentCategory[];
+  keyAugmentIds: string[];
+  // Slugs of the linked comps.
+  compSlugs: string[];
+  notes: string;
+  source: "tftacademy" | "user";
+  status: "draft" | "active";
+  // Patch of the last user edit, null for bundled defaults.
+  editedAtPatch: string | null;
+};
