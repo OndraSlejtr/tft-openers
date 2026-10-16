@@ -1,4 +1,4 @@
-import type { ComponentSide, ItemCategory } from "../src/data/types.ts";
+import type { AugmentCategory, ComponentSide, ItemCategory } from "../src/data/types.ts";
 
 // Hand curated starting points. Every entry is imported as guessed until the user confirms it in the app.
 // Items missing here are imported without categories.
@@ -60,3 +60,9 @@ export const ITEM_CATEGORIES: Record<string, ItemCategory[]> = {
 
 // Emblems only grant a trait.
 export const EMBLEM_CATEGORIES: ItemCategory[] = ["utility"];
+
+// Forces the categories of an augment when the wording rules get it wrong. Keyed by augment id.
+export const AUGMENT_CATEGORY_OVERRIDES: Record<string, AugmentCategory[]> = {};
+
+// Items to leave out although they look like craftable items. Keyed by item id.
+export const EXCLUDED_ITEM_IDS: string[] = [];

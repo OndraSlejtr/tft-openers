@@ -329,3 +329,64 @@ describe("transform augments", () => {
     expect(() => transform(broken)).toThrow(/unknown id DA_Missing/);
   });
 });
+
+describe("transform review rules", () => {
+  const champion = (apiName: string) => {
+    const copy = structuredClone(cdragonFixture);
+    return {
+      copy,
+      entry: copy.setData.find(({ mutator }) => mutator === "TFTSet18")!.champions.find((c) => c.apiName === apiName)!,
+    };
+  };
+
+  it("keeps a champion without a usable icon and gives it no icon", () => {
+    const { copy, entry } = champion("DA_18_Azir");
+    Reflect.deleteProperty(entry, "tileIcon");
+    const azir = transform({ ...sources, cdragon: copy }).champions.find(({ id }) => id === "DA_18_Azir");
+    expect(azir).toMatchObject({ name: "Azir", icon: null });
+  });
+
+  it("treats a hash icon as no icon", () => {
+    const { copy, entry } = champion("DA_18_Azir");
+    entry.tileIcon = "{1ae0a111a91a05ab}";
+    expect(transform({ ...sources, cdragon: copy }).champions.find(({ id }) => id === "DA_18_Azir")?.icon).toBeNull();
+  });
+
+  it("fails when a variant has no base champion", () => {
+    const { copy, entry } = champion("DA_Lux18_Base");
+    entry.name = "Lux Prime";
+    expect(() => transform({ ...sources, cdragon: copy })).toThrow(/Lux \(Blackthorn\).*no base champion/);
+  });
+
+  it("makes augments special when the description names a hero", () => {
+    const named = withCatalog((catalog) => {
+      entryOf(catalog, "DA_AdvancedLoan").desc = "Gain an <b>Azir</b> and 10 gold.";
+    });
+    expect(transform(named).augments.find(({ id }) => id === "DA_AdvancedLoan")?.categories).toEqual(["special"]);
+  });
+
+  it("does not read part of a word as a hero name", () => {
+    const named = withCatalog((catalog) => {
+      entryOf(catalog, "DA_AdvancedLoan").desc = "Gain 10 gold for your azirs.";
+    });
+    expect(transform(named).augments.find(({ id }) => id === "DA_AdvancedLoan")?.categories).toEqual(["econ"]);
+  });
+
+  it("excludes radiant items by name", () => {
+    const renamed = withCatalog((catalog) => {
+      entryOf(catalog, "DA_GuinsoosRageblade").name = "Radiant Guinsoo's Rageblade";
+    });
+    expect(transform(renamed).items.map(({ id }) => id)).not.toContain("DA_GuinsoosRageblade");
+  });
+
+  it("detects emblems by name", () => {
+    const renamed = withCatalog((catalog, set18) => {
+      entryOf(catalog, "DA_18_EmblemBlossom").apiName = "DA_18_SpatulaBlossom";
+      set18.items = set18.items.map((id) => (id === "DA_18_EmblemBlossom" ? "DA_18_SpatulaBlossom" : id));
+    });
+    expect(transform(renamed).items.find(({ id }) => id === "DA_18_SpatulaBlossom")).toMatchObject({
+      emblem: true,
+      categories: ["utility"],
+    });
+  });
+});

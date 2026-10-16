@@ -4,8 +4,8 @@ export type Champion = {
   id: string;
   name: string;
   cost: Cost;
-  // Game path of the icon, lowercased with a .png extension.
-  icon: string;
+  // Game path of the icon, lowercased with a .png extension. Null when upstream has no usable icon.
+  icon: string | null;
   // Ids of every source entry this champion stands for (more than one for Lux).
   variantIds: string[];
   traitIds: string[];

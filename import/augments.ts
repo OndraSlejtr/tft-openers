@@ -1,4 +1,5 @@
 import type { Augment, AugmentCategory, Champion } from "../src/data/types.ts";
+import { AUGMENT_CATEGORY_OVERRIDES } from "./curation.ts";
 import { type CatalogEntry, type ItemCatalog, lookup, nameOf, readSetIds } from "./items.ts";
 import { expectString, toIconPath } from "./shape.ts";
 
@@ -17,11 +18,23 @@ const plainText = ({ name, desc }: CatalogEntry) =>
 
 const heroNames = (champions: Champion[]) =>
   champions
-    .map(({ name }) => name.replace(/[^A-Za-z]/g, "").toLowerCase())
-    .filter((name) => name.length >= MIN_HERO_NAME_LENGTH);
+    .map(({ name }) => name.toLowerCase())
+    .filter((name) => name.replace(/[^a-z]/g, "").length >= MIN_HERO_NAME_LENGTH);
+
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// A hero is named in the id or in the readable text of the augment.
+const isTiedToHero = (entry: CatalogEntry, heroes: string[]) => {
+  const id = entry.apiName.toLowerCase();
+  const text = plainText(entry);
+  return heroes.some(
+    (hero) =>
+      id.includes(hero.replace(/[^a-z]/g, "")) || new RegExp(`\\b${escapeRegExp(hero)}\\b`).test(text),
+  );
+};
 
 const isSpecial = (entry: CatalogEntry, heroes: string[]) =>
-  entry.associatedTraits.length > 0 || heroes.some((hero) => entry.apiName.toLowerCase().includes(hero));
+  entry.associatedTraits.length > 0 || isTiedToHero(entry, heroes);
 
 const guessCategory = (entry: CatalogEntry, heroes: string[]): AugmentCategory => {
   if (isSpecial(entry, heroes)) return "special";
@@ -48,7 +61,7 @@ export const buildAugments = (
       id,
       name: nameOf(entry),
       icon: augmentIcon(entry),
-      categories: [guessCategory(entry, heroes)],
+      categories: AUGMENT_CATEGORY_OVERRIDES[id] ?? [guessCategory(entry, heroes)],
       guessed: true,
     };
   });
