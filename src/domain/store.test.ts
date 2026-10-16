@@ -310,3 +310,98 @@ describe("storage failures", () => {
     expect(store.getState().storageError).toBeNull();
   });
 });
+
+describe("opener editing", () => {
+  const openerById = (store: ReturnType<typeof createStore>, id: string) => {
+    const found = store.getState().openers.find((entry) => entry.id === id);
+    if (found === undefined) throw new Error(`Missing opener ${id}`);
+    return found;
+  };
+
+  it("creates an empty active opener", () => {
+    const store = createStore(bundle);
+    const id = store.createOpener();
+    expect(openerById(store, id)).toMatchObject({
+      coreChampionIds: [],
+      targetChampionIds: [],
+      backline: "flexible",
+      status: "active",
+      source: "user",
+    });
+  });
+
+  it("updates name, notes and backline and records the patch", () => {
+    const store = storeWithOpeners([opener("a", { editedAtPatch: "18.1" })]);
+    store.updateOpener("a", { name: "Mine", notes: "Roll at 3-2", backline: "AP" });
+    expect(openerById(store, "a")).toMatchObject({ name: "Mine", notes: "Roll at 3-2", backline: "AP", editedAtPatch: "18.4b" });
+  });
+
+  it("persists updates", () => {
+    const storage = createMemoryStorage();
+    const first = createStore(bundle, storage);
+    const id = first.createOpener();
+    first.updateOpener(id, { notes: "kept" });
+    expect(openerById(createStore(bundle, storage), id).notes).toBe("kept");
+  });
+
+  it("generates a name from the core champions while the name is empty", () => {
+    const store = createStore(bundle);
+    const id = store.createOpener();
+    expect(store.displayName(openerById(store, id))).toBe("Empty opener");
+    store.placeChampion(id, "azir", "core");
+    store.placeChampion(id, "karma", "core");
+    expect(store.displayName(openerById(store, id))).toBe("azir + karma");
+    store.updateOpener(id, { name: "  My plan " });
+    expect(store.displayName(openerById(store, id))).toBe("My plan");
+    store.updateOpener(id, { name: "   " });
+    expect(store.displayName(openerById(store, id))).toBe("azir + karma");
+  });
+
+  it("moves a champion between core and target without duplicating it", () => {
+    const store = storeWithOpeners([opener("a")]);
+    store.placeChampion("a", "azir", "core");
+    store.placeChampion("a", "azir", "target");
+    expect(openerById(store, "a")).toMatchObject({ coreChampionIds: [], targetChampionIds: ["azir"] });
+    store.placeChampion("a", "azir", "core");
+    expect(openerById(store, "a")).toMatchObject({ coreChampionIds: ["azir"], targetChampionIds: [] });
+  });
+
+  it("does not add a champion twice to the same list", () => {
+    const store = storeWithOpeners([opener("a")]);
+    store.placeChampion("a", "azir", "core");
+    store.placeChampion("a", "azir", "core");
+    expect(openerById(store, "a").coreChampionIds).toEqual(["azir"]);
+  });
+
+  it("removes a champion from both lists", () => {
+    const store = storeWithOpeners([opener("a", { coreChampionIds: ["azir"], targetChampionIds: ["karma"] })]);
+    store.placeChampion("a", "azir", null);
+    store.placeChampion("a", "karma", null);
+    expect(openerById(store, "a")).toMatchObject({ coreChampionIds: [], targetChampionIds: [] });
+  });
+
+  it("rejects unknown openers and champions", () => {
+    const store = storeWithOpeners([opener("a")]);
+    expect(() => store.updateOpener("nope", { name: "x" })).toThrow(/Unknown opener id "nope"/);
+    expect(() => store.deleteOpener("nope")).toThrow(/Unknown opener id "nope"/);
+    expect(() => store.placeChampion("a", "nobody", "core")).toThrow(/Unknown champion id "nobody"/);
+  });
+
+  it("deletes an opener and keeps that after a reload", () => {
+    const storage = createMemoryStorage();
+    const store = createStore(bundle, storage);
+    const keep = store.createOpener();
+    const drop = store.createOpener();
+    store.deleteOpener(drop);
+    expect(createStore(bundle, storage).getState().openers.map(({ id }) => id)).toEqual([keep]);
+  });
+
+  it("ranks an edited opener right away", () => {
+    const store = createStore(bundle);
+    const id = store.createOpener();
+    store.toggleChampion("teemo");
+    expect(rankedIds(store)).toEqual([]);
+    store.placeChampion(id, "teemo", "target");
+    expect(rankedIds(store)).toEqual([id]);
+  });
+});

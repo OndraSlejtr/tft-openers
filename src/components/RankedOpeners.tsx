@@ -1,5 +1,6 @@
 import { bundle } from "../data/bundle.ts";
 import type { RankedOpener } from "../domain/store.ts";
+import { OpenerActions } from "./OpenerList.tsx";
 
 const championNameById = new Map(bundle.champions.map(({ id, name }) => [id, name]));
 
@@ -19,6 +20,7 @@ export const RankedOpeners = ({ rankedOpeners, hasSelection }: RankedOpenersProp
           <div className="flex flex-wrap items-center gap-2">
             {bestTier !== null && <span className="rounded bg-white/15 px-1.5 py-0.5 text-xs font-semibold">Tier {bestTier}</span>}
             <span className="text-sm font-medium">{displayName}</span>
+            <OpenerActions openerId={opener.id} />
           </div>
           <p className="mt-1 text-xs text-gray-400">
             Core: {opener.coreChampionIds.map((id) => championNameById.get(id) ?? id).join(", ") || "none"}
