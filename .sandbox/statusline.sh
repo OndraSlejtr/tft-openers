@@ -1,5 +1,5 @@
 #!/bin/bash
-# Status line: 📁 repo · 🔀 branch · model (effort) · context bar · 💰 cost · 🕒 5h limit · 📅 7d limit
+# Status line: 📁 repo · 🔀 branch · model (effort) · context bar · 💰 cost · 🕒 5h limit · 📅 7d limit · (account)
 input=$(cat)
 
 eval "$(echo "$input" | jq -r '
@@ -100,6 +100,13 @@ fi
 
 parts+=("🕒 $(fmt_limit 5h "$five" "$five_reset")")
 parts+=("📅 $(fmt_limit 7d "$week" "$week_reset")")
+
+# Account: CLAUDE_ACCOUNT wins (the sandbox sets it), otherwise the config dir from .zshrc
+account=${CLAUDE_ACCOUNT:-}
+if [ -z "$account" ]; then
+  if [ "${CLAUDE_CONFIG_DIR:-}" = "$HOME/.claude-personal" ]; then account=personal; else account=datamole; fi
+fi
+parts+=("$DIM($account)$RESET")
 
 out=""
 for part in "${parts[@]}"; do out="${out:+$out$SEP}$part"; done
