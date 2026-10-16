@@ -1,6 +1,6 @@
-import { unflatten } from "devalue";
 import type { Champion, Cost, DataBundle, Trait } from "../src/data/types.ts";
 import { buildAugments } from "./augments.ts";
+import { buildComps, readPatch } from "./comps.ts";
 import { buildItems, readItemCatalog } from "./items.ts";
 import { ImportError, expectArray, expectNumber, expectRecord, expectString, toIconPath } from "./shape.ts";
 
@@ -77,16 +77,6 @@ const readTraits = (setEntry: Record<string, unknown>): Trait[] =>
     };
   });
 
-const readPatch = (academy: unknown): string => {
-  const root = expectRecord(academy, "tftacademy response");
-  const [layoutNode] = expectArray(root.nodes, "tftacademy nodes");
-  const layout = expectRecord(layoutNode, "tftacademy nodes[0]");
-  const decoded = expectRecord(unflatten(expectArray(layout.data, "tftacademy nodes[0].data")), "tftacademy layout data");
-  const patch = expectString(decoded.patch, "tftacademy patch");
-  if (patch === "") throw new ImportError("tftacademy patch is empty");
-  return patch;
-};
-
 const costOrder = (a: Champion, b: Champion) => a.cost - b.cost || a.name.localeCompare(b.name);
 
 export const transform = ({ cdragon, academy }: RawSources): DataBundle => {
@@ -113,5 +103,7 @@ export const transform = ({ cdragon, academy }: RawSources): DataBundle => {
   const { components, items } = buildItems(setEntry, catalog);
   const augments = buildAugments(setEntry, catalog, champions);
 
-  return { setNumber: SET_NUMBER, patch: readPatch(academy), traits, champions, components, items, augments };
+  const comps = buildComps(academy, SET_NUMBER, champions, augments, catalog);
+
+  return { setNumber: SET_NUMBER, patch: readPatch(academy), traits, champions, components, items, augments, comps };
 };

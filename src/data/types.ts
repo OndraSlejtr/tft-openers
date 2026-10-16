@@ -56,6 +56,31 @@ export type Augment = {
   guessed: boolean;
 };
 
+export type CompUnit = {
+  championId: string;
+  // Item ids as listed by tftacademy. They can be artifacts or radiants, which are not in the item list.
+  itemIds: string[];
+  stars: number;
+};
+
+export type Comp = {
+  slug: string;
+  title: string;
+  tier: string;
+  style: string;
+  difficulty: string;
+  mainChampionId: string;
+  earlyBoard: CompUnit[];
+  finalBoard: CompUnit[];
+  carouselItemIds: string[];
+  // Only augments that exist in the bundle's augment list.
+  augmentIds: string[];
+  // Augment type priority, for example ITEMS, ECON, COMBAT.
+  augmentTypes: string[];
+  stageTips: { stage: string; tip: string }[];
+  updated: string;
+};
+
 export type DataBundle = {
   setNumber: number;
   patch: string;
@@ -64,4 +89,5 @@ export type DataBundle = {
   components: Component[];
   items: CompletedItem[];
   augments: Augment[];
+  comps: Comp[];
 };
