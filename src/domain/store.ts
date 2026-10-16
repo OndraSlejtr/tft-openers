@@ -44,6 +44,16 @@ export type Store = {
   // A champion is never in both lists.
   placeChampion: (openerId: string, championId: string, list: ChampionList | null) => void;
   deleteOpener: (openerId: string) => void;
+  // The champion must be in the opener. Adding an item the champion already has changes nothing.
+  addRequiredItem: (openerId: string, championId: string, itemId: string) => void;
+  removeRequiredItem: (openerId: string, championId: string, itemId: string) => void;
+  // Must list each of the four augment categories exactly once.
+  setAugmentPriority: (openerId: string, priority: AugmentCategory[]) => void;
+  addKeyAugment: (openerId: string, augmentId: string) => void;
+  removeKeyAugment: (openerId: string, augmentId: string) => void;
+  linkComp: (openerId: string, compSlug: string) => void;
+  // Also works for links to comps that no longer exist.
+  unlinkComp: (openerId: string, compSlug: string) => void;
   // Name to show, generated from the core champions when the opener has no name.
   displayName: (opener: Opener) => string;
 };
@@ -52,11 +62,13 @@ export type ChampionList = "core" | "target";
 
 export type OpenerChanges = Partial<Pick<Opener, "name" | "notes" | "backline">>;
 
+export const MAX_ITEMS_PER_CHAMPION = 3;
+
 // A core match must outweigh any realistic number of target matches.
 const CORE_WEIGHT = 100;
 const TARGET_WEIGHT = 1;
 
-const DEFAULT_AUGMENT_PRIORITY: AugmentCategory[] = ["econ", "item", "combat", "special"];
+const AUGMENT_CATEGORIES: AugmentCategory[] = ["econ", "item", "combat", "special"];
 
 const TIER_ORDER = ["S", "A", "B", "C", "X"];
 
@@ -71,6 +83,8 @@ const errorMessage = (error: unknown) => (error instanceof Error ? error.message
 export const createStore = (bundle: DataBundle, storage: StorageAdapter = createMemoryStorage()): Store => {
   const championIds = new Set(bundle.champions.map(({ id }) => id));
   const championNames = new Map(bundle.champions.map(({ id, name }) => [id, name]));
+  const itemIds = new Set(bundle.items.map(({ id }) => id));
+  const augmentIds = new Set(bundle.augments.map(({ id }) => id));
   const compsBySlug = new Map(bundle.comps.map((comp) => [comp.slug, comp]));
   const listeners = new Set<() => void>();
 
@@ -130,7 +144,7 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
       targetChampionIds: [],
       backline: "flexible",
       requiredItems: [],
-      augmentPriority: DEFAULT_AUGMENT_PRIORITY,
+      augmentPriority: AUGMENT_CATEGORIES,
       keyAugmentIds: [],
       compSlugs: [],
       notes: "",
@@ -190,6 +204,53 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
       requireUserOpener(openerId);
       saveOverlay({ ...overlay, openers: overlay.openers.filter(({ id }) => id !== openerId) });
     },
+    addRequiredItem: (openerId, championId, itemId) => {
+      if (!itemIds.has(itemId)) throw new Error(`Unknown item id "${itemId}"`);
+      updateExisting(openerId, (opener) => {
+        if (![...opener.coreChampionIds, ...opener.targetChampionIds].includes(championId)) {
+          throw new Error(`Champion "${championId}" is not in this opener`);
+        }
+        const current = opener.requiredItems.find((entry) => entry.championId === championId)?.itemIds ?? [];
+        if (current.includes(itemId)) return opener;
+        if (current.length >= MAX_ITEMS_PER_CHAMPION) {
+          throw new Error(`A champion holds at most ${MAX_ITEMS_PER_CHAMPION} items`);
+        }
+        const entry = { championId, itemIds: [...current, itemId] };
+        const others = opener.requiredItems.filter((other) => other.championId !== championId);
+        return { ...opener, requiredItems: [...others, entry] };
+      });
+    },
+    removeRequiredItem: (openerId, championId, itemId) =>
+      updateExisting(openerId, (opener) => ({
+        ...opener,
+        requiredItems: opener.requiredItems
+          .map((entry) =>
+            entry.championId === championId ? { ...entry, itemIds: entry.itemIds.filter((id) => id !== itemId) } : entry,
+          )
+          .filter((entry) => entry.itemIds.length > 0),
+      })),
+    setAugmentPriority: (openerId, priority) => {
+      const isPermutation =
+        priority.length === AUGMENT_CATEGORIES.length && AUGMENT_CATEGORIES.every((category) => priority.includes(category));
+      if (!isPermutation) throw new Error("Augment priority must list econ, item, combat and special once each");
+      updateExisting(openerId, (opener) => ({ ...opener, augmentPriority: [...priority] }));
+    },
+    addKeyAugment: (openerId, augmentId) => {
+      if (!augmentIds.has(augmentId)) throw new Error(`Unknown augment id "${augmentId}"`);
+      updateExisting(openerId, (opener) =>
+        opener.keyAugmentIds.includes(augmentId) ? opener : { ...opener, keyAugmentIds: [...opener.keyAugmentIds, augmentId] },
+      );
+    },
+    removeKeyAugment: (openerId, augmentId) =>
+      updateExisting(openerId, (opener) => ({ ...opener, keyAugmentIds: opener.keyAugmentIds.filter((id) => id !== augmentId) })),
+    linkComp: (openerId, compSlug) => {
+      if (!compsBySlug.has(compSlug)) throw new Error(`Unknown comp "${compSlug}"`);
+      updateExisting(openerId, (opener) =>
+        opener.compSlugs.includes(compSlug) ? opener : { ...opener, compSlugs: [...opener.compSlugs, compSlug] },
+      );
+    },
+    unlinkComp: (openerId, compSlug) =>
+      updateExisting(openerId, (opener) => ({ ...opener, compSlugs: opener.compSlugs.filter((slug) => slug !== compSlug) })),
     displayName,
     rankedOpeners: () =>
       state.openers
