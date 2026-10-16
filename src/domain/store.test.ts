@@ -28,8 +28,16 @@ const bundle: DataBundle = {
   traits: [],
   champions: ["azir", "karma", "teemo", "lux"].map(champion),
   components: [],
-  items: [],
-  augments: [],
+  items: ["bf", "rabadon", "bloodthirster", "guinsoo"].map((id) => ({
+    id,
+    name: id,
+    icon: "",
+    emblem: false,
+    componentIds: ["a", "b"] as [string, string],
+    categories: [],
+    guessed: true,
+  })),
+  augments: ["rich", "ticket"].map((id) => ({ id, name: id, icon: null, categories: [], guessed: true })),
   comps: [
     comp("azir-reroll", "A", ["azir", "teemo"]),
     comp("azir-karma", "S", ["azir", "karma"]),
@@ -403,5 +411,107 @@ describe("opener editing", () => {
     expect(rankedIds(store)).toEqual([]);
     store.placeChampion(id, "teemo", "target");
     expect(rankedIds(store)).toEqual([id]);
+  });
+});
+
+describe("opener items, augments and comps", () => {
+  const openerById = (store: ReturnType<typeof createStore>, id: string) => {
+    const found = store.getState().openers.find((entry) => entry.id === id);
+    if (found === undefined) throw new Error(`Missing opener ${id}`);
+    return found;
+  };
+  const withChampions = () => storeWithOpeners([opener("a", { coreChampionIds: ["azir"], targetChampionIds: ["karma"] })]);
+
+  it("sets required items on core and target champions", () => {
+    const store = withChampions();
+    store.addRequiredItem("a", "azir", "bf");
+    store.addRequiredItem("a", "azir", "rabadon");
+    store.addRequiredItem("a", "karma", "guinsoo");
+    expect(openerById(store, "a").requiredItems).toEqual([
+      { championId: "azir", itemIds: ["bf", "rabadon"] },
+      { championId: "karma", itemIds: ["guinsoo"] },
+    ]);
+  });
+
+  it("ignores a duplicate item and caps a champion at three items", () => {
+    const store = withChampions();
+    store.addRequiredItem("a", "azir", "bf");
+    store.addRequiredItem("a", "azir", "bf");
+    store.addRequiredItem("a", "azir", "rabadon");
+    store.addRequiredItem("a", "azir", "bloodthirster");
+    expect(openerById(store, "a").requiredItems[0].itemIds).toEqual(["bf", "rabadon", "bloodthirster"]);
+    expect(() => store.addRequiredItem("a", "azir", "guinsoo")).toThrow(/at most 3 items/);
+  });
+
+  it("rejects items for champions outside the opener or unknown items", () => {
+    const store = withChampions();
+    expect(() => store.addRequiredItem("a", "teemo", "bf")).toThrow(/not in this opener/);
+    expect(() => store.addRequiredItem("a", "azir", "nope")).toThrow(/Unknown item id "nope"/);
+  });
+
+  it("removes an item and drops the champion entry when it has none left", () => {
+    const store = withChampions();
+    store.addRequiredItem("a", "azir", "bf");
+    store.addRequiredItem("a", "azir", "rabadon");
+    store.removeRequiredItem("a", "azir", "bf");
+    expect(openerById(store, "a").requiredItems).toEqual([{ championId: "azir", itemIds: ["rabadon"] }]);
+    store.removeRequiredItem("a", "azir", "rabadon");
+    expect(openerById(store, "a").requiredItems).toEqual([]);
+  });
+
+  it("drops a champion's items when the champion leaves the opener", () => {
+    const store = withChampions();
+    store.addRequiredItem("a", "azir", "bf");
+    store.placeChampion("a", "azir", null);
+    expect(openerById(store, "a").requiredItems).toEqual([]);
+  });
+
+  it("keeps a champion's items when it moves between core and target", () => {
+    const store = withChampions();
+    store.addRequiredItem("a", "azir", "bf");
+    store.placeChampion("a", "azir", "target");
+    expect(openerById(store, "a").requiredItems).toEqual([{ championId: "azir", itemIds: ["bf"] }]);
+  });
+
+  it("reorders the augment priority and persists it", () => {
+    const storage = createMemoryStorage();
+    const first = createStore(bundle, storage);
+    const id = first.createOpener();
+    first.setAugmentPriority(id, ["combat", "special", "item", "econ"]);
+    expect(openerById(createStore(bundle, storage), id).augmentPriority).toEqual(["combat", "special", "item", "econ"]);
+  });
+
+  it("rejects an augment priority that is not all four categories once", () => {
+    const store = withChampions();
+    expect(() => store.setAugmentPriority("a", ["econ", "item"])).toThrow(/once each/);
+    expect(() => store.setAugmentPriority("a", ["econ", "econ", "item", "combat"])).toThrow(/once each/);
+  });
+
+  it("adds and removes key augments without duplicates", () => {
+    const store = withChampions();
+    store.addKeyAugment("a", "rich");
+    store.addKeyAugment("a", "rich");
+    store.addKeyAugment("a", "ticket");
+    expect(openerById(store, "a").keyAugmentIds).toEqual(["rich", "ticket"]);
+    store.removeKeyAugment("a", "rich");
+    expect(openerById(store, "a").keyAugmentIds).toEqual(["ticket"]);
+    expect(() => store.addKeyAugment("a", "nope")).toThrow(/Unknown augment id "nope"/);
+  });
+
+  it("links and unlinks comps and lets a dead link be removed", () => {
+    const store = storeWithOpeners([opener("a", { compSlugs: ["gone"] })]);
+    store.linkComp("a", "azir-b");
+    store.linkComp("a", "azir-b");
+    expect(openerById(store, "a").compSlugs).toEqual(["gone", "azir-b"]);
+    store.unlinkComp("a", "gone");
+    expect(openerById(store, "a").compSlugs).toEqual(["azir-b"]);
+    expect(() => store.linkComp("a", "nope")).toThrow(/Unknown comp "nope"/);
+  });
+
+  it("ranks by the tier of a newly linked comp", () => {
+    const store = storeWithOpeners([opener("a", { coreChampionIds: ["azir"] }), opener("b", { coreChampionIds: ["azir"] })]);
+    store.toggleChampion("azir");
+    store.linkComp("b", "azir-karma");
+    expect(rankedIds(store)).toEqual(["b", "a"]);
   });
 });
