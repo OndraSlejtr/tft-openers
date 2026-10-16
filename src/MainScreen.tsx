@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useMemo, useState } from "react";
 import { ChampionGrid } from "./components/ChampionGrid.tsx";
+import { OpenerList } from "./components/OpenerList.tsx";
 import { RankedOpeners } from "./components/RankedOpeners.tsx";
 import { StorageErrorBanner } from "./components/StorageErrorBanner.tsx";
 import { CompsWithChampions } from "./components/CompsWithChampions.tsx";
@@ -12,7 +13,8 @@ const traitsById = new Map(bundle.traits.map((trait) => [trait.id, trait]));
 const sortedTraits = bundle.traits.toSorted((a, b) => a.name.localeCompare(b.name));
 
 export const MainScreen = () => {
-  const { selectedChampionIds, storageError } = useStoreState();
+  const { selectedChampionIds, storageError, openers } = useStoreState();
+  const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
   const [traitId, setTraitId] = useState<string | null>(null);
   const visibleChampions = useMemo(
@@ -84,8 +86,16 @@ export const MainScreen = () => {
             >
               Create opener from selection
             </button>
+            <button
+              type="button"
+              onClick={() => navigate(`/opener/${store.createOpener()}/edit`)}
+              className="rounded border border-white/10 bg-black/40 px-3 py-1 text-sm"
+            >
+              New opener
+            </button>
           </div>
           <RankedOpeners rankedOpeners={store.rankedOpeners()} hasSelection={selectedChampionIds.length > 0} />
+          <OpenerList openers={openers} />
           <CompsWithChampions
             matches={store.compsWithSelectedChampions()}
             hasSelection={selectedChampionIds.length > 0}

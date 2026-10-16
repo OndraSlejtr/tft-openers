@@ -1,15 +1,8 @@
 import { PLACEHOLDER_ICON, iconUrl } from "../data/bundle.ts";
+import { BORDER_BY_COST } from "./ChampionTile.tsx";
 import type { Champion, Cost, Trait } from "../data/types.ts";
 
 const COSTS: Cost[] = [1, 2, 3, 4, 5];
-
-const BORDER_BY_COST: Record<Cost, string> = {
-  1: "border-cost-1",
-  2: "border-cost-2",
-  3: "border-cost-3",
-  4: "border-cost-4",
-  5: "border-cost-5",
-};
 
 type ChampionGridProps = {
   champions: Champion[];

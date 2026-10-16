@@ -37,7 +37,20 @@ export type Store = {
   // Active openers that share a champion with the selection, best match first.
   rankedOpeners: () => RankedOpener[];
   dismissStorageError: () => void;
+  // Saves a new active opener with no champions and returns its id.
+  createOpener: () => string;
+  updateOpener: (openerId: string, changes: OpenerChanges) => void;
+  // Puts a champion into the core or target list, or removes it from both with null.
+  // A champion is never in both lists.
+  placeChampion: (openerId: string, championId: string, list: ChampionList | null) => void;
+  deleteOpener: (openerId: string) => void;
+  // Name to show, generated from the core champions when the opener has no name.
+  displayName: (opener: Opener) => string;
 };
+
+export type ChampionList = "core" | "target";
+
+export type OpenerChanges = Partial<Pick<Opener, "name" | "notes" | "backline">>;
 
 // A core match must outweigh any realistic number of target matches.
 const CORE_WEIGHT = 100;
@@ -97,6 +110,38 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
     return generated === "" ? "Empty opener" : generated;
   };
 
+  const requireUserOpener = (openerId: string) => {
+    const existing = overlay.openers.find(({ id }) => id === openerId);
+    if (existing === undefined) throw new Error(`Unknown opener id "${openerId}"`);
+    return existing;
+  };
+
+  const updateExisting = (openerId: string, change: (opener: Opener) => Opener) => {
+    const existing = requireUserOpener(openerId);
+    const updated = { ...change(existing), editedAtPatch: bundle.patch };
+    saveOverlay({ ...overlay, openers: overlay.openers.map((opener) => (opener.id === openerId ? updated : opener)) });
+  };
+
+  const addOpener = (coreChampionIds: readonly string[]) => {
+    const opener: Opener = {
+      id: crypto.randomUUID(),
+      name: "",
+      coreChampionIds: [...coreChampionIds],
+      targetChampionIds: [],
+      backline: "flexible",
+      requiredItems: [],
+      augmentPriority: DEFAULT_AUGMENT_PRIORITY,
+      keyAugmentIds: [],
+      compSlugs: [],
+      notes: "",
+      source: "user",
+      status: "active",
+      editedAtPatch: bundle.patch,
+    };
+    saveOverlay({ ...overlay, openers: [...overlay.openers, opener] });
+    return opener.id;
+  };
+
   const bestTier = ({ compSlugs }: Opener) =>
     compSlugs
       .map((slug) => compsBySlug.get(slug)?.tier)
@@ -122,26 +167,30 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
     clearSelection: () => {
       if (state.selectedChampionIds.length > 0) setState({ ...state, selectedChampionIds: [] });
     },
+    createOpener: () => addOpener([]),
     createOpenerFromSelection: () => {
       if (state.selectedChampionIds.length === 0) throw new Error("Select at least one champion to create an opener");
-      const opener: Opener = {
-        id: crypto.randomUUID(),
-        name: "",
-        coreChampionIds: [...state.selectedChampionIds],
-        targetChampionIds: [],
-        backline: "flexible",
-        requiredItems: [],
-        augmentPriority: DEFAULT_AUGMENT_PRIORITY,
-        keyAugmentIds: [],
-        compSlugs: [],
-        notes: "",
-        source: "user",
-        status: "active",
-        editedAtPatch: bundle.patch,
-      };
-      saveOverlay({ ...overlay, openers: [...overlay.openers, opener] });
-      return opener.id;
+      return addOpener(state.selectedChampionIds);
     },
+    updateOpener: (openerId, changes) => updateExisting(openerId, (opener) => ({ ...opener, ...changes })),
+    placeChampion: (openerId, championId, list) => {
+      if (!championIds.has(championId)) throw new Error(`Unknown champion id "${championId}"`);
+      updateExisting(openerId, (opener) => {
+        const coreChampionIds = opener.coreChampionIds.filter((id) => id !== championId);
+        const targetChampionIds = opener.targetChampionIds.filter((id) => id !== championId);
+        return {
+          ...opener,
+          coreChampionIds: list === "core" ? [...coreChampionIds, championId] : coreChampionIds,
+          targetChampionIds: list === "target" ? [...targetChampionIds, championId] : targetChampionIds,
+          requiredItems: list === null ? opener.requiredItems.filter((entry) => entry.championId !== championId) : opener.requiredItems,
+        };
+      });
+    },
+    deleteOpener: (openerId) => {
+      requireUserOpener(openerId);
+      saveOverlay({ ...overlay, openers: overlay.openers.filter(({ id }) => id !== openerId) });
+    },
+    displayName,
     rankedOpeners: () =>
       state.openers
         .filter(({ status }) => status === "active")
