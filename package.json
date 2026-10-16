@@ -11,7 +11,7 @@
     "sandbox:create": "mkdir -p node_modules && .sandbox/with-secrets.sh msb create --name $(.sandbox/name.sh) --conf msb-config.yaml",
     "sandbox:stop": "msb stop $(.sandbox/name.sh)",
     "sandbox:remove": "msb remove --force $(.sandbox/name.sh)",
-    "test": "vitest run",
+    "test": "vitest run --configLoader native",
     "dev": "vite --configLoader native",
     "build": "vite build --configLoader native",
     "import": "tsx import/run.ts",
