@@ -1,4 +1,437 @@
 {
+  "items": [
+    {
+      "apiName": "DA_Component_BFSword",
+      "name": "B.F. Sword",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_ChainVest",
+      "name": "Chain Vest",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_chainvest.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_FryingPan",
+      "name": "Frying Pan",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_fryingpan.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_GiantsBelt",
+      "name": "Giant's Belt",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_giantsbelt.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_NeedlesslyLargeRod",
+      "name": "Needlessly Large Rod",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_needlesslylargerod.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_NegatronCloak",
+      "name": "Negatron Cloak",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_negatroncloak.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_RecurveBow",
+      "name": "Recurve Bow",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_recurvebow.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_SparringGloves",
+      "name": "Sparring Gloves",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_Spatula",
+      "name": "Spatula",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_spatula.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Component_TearOfTheGoddess",
+      "name": "Tear Of The Goddess",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_tearofthegoddess.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_GuinsoosRageblade",
+      "name": "Guinsoo's Rageblade",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.tex",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed"
+      ]
+    },
+    {
+      "apiName": "DA_RabadonsDeathcap",
+      "name": "Rabadon's Deathcap",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_rabadonsdeathcap.tex",
+      "composition": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower"
+      ]
+    },
+    {
+      "apiName": "DA_WarmogsArmor",
+      "name": "Warmog's Armor",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_warmogsarmor.tex",
+      "composition": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_GiantsBelt"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "Health"
+      ]
+    },
+    {
+      "apiName": "DA_Bloodthirster",
+      "name": "Bloodthirster",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bloodthirster.tex",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_NegatronCloak"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower",
+        "AttackDamage"
+      ]
+    },
+    {
+      "apiName": "DA_18_EmblemBlossom",
+      "name": "Blossom Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blossom.tex",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{ebcd1bac}"
+      ]
+    },
+    {
+      "apiName": "DA_TacticiansCrown",
+      "name": "Tacticians Crown",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.tex",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_Spatula"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{ec243f6b}",
+        "{d304f83b}"
+      ]
+    },
+    {
+      "apiName": "DA_InfinityEdge",
+      "name": "Infinity Edge",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.tex",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_SparringGloves"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "CritChance"
+      ]
+    },
+    {
+      "apiName": "DA_SteraksGage",
+      "name": "Sterak's Gage",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_steraksgage.tex",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_GiantsBelt"
+      ],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "AttackDamage"
+      ]
+    },
+    {
+      "apiName": "DA_GuinsoosRagebladeRadiant",
+      "name": "Radiant Guinsoo's Rageblade",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft5_item_guinsoosragebladeradiant.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackSpeed"
+      ]
+    },
+    {
+      "apiName": "TFT_Item_GuinsoosRageblade",
+      "name": "Guinsoo's Rageblade",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.tex",
+      "composition": [
+        "TFT_Item_RecurveBow",
+        "TFT_Item_NeedlesslyLargeRod"
+      ],
+      "desc": "Gain @AttackSpeedPerStack@% stacking Attack Speed every second.",
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed"
+      ]
+    },
+    {
+      "apiName": "TFT_Item_BFSword",
+      "name": "B.F. Sword",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.tex",
+      "composition": [],
+      "desc": "%i:scaleAD% +@AD*100@% Attack Damage",
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "component"
+      ]
+    },
+    {
+      "apiName": "DA_Consumable_ItemRemover",
+      "name": "Item Remover",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_consumable_itemremover.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "Consumable",
+        "TFT_Consumable_ItemRemover"
+      ]
+    },
+    {
+      "apiName": "DA_Artifact_Fishbones",
+      "name": "Fishbones",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_artifact_fishbones.tex",
+      "composition": [],
+      "desc": null,
+      "associatedTraits": [],
+      "isAugment": false,
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ]
+    },
+    {
+      "apiName": "DA_18_BigGrabBag",
+      "name": "Big Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grab-bag-ii.tex",
+      "composition": [],
+      "desc": "Gain 3 random components, @Gold@ gold, and 1 Reforger.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{ce1fd21c}"
+      ]
+    },
+    {
+      "apiName": "DA_CapitalGainsI",
+      "name": "Capital Gains I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/missing-t1.tex",
+      "composition": [],
+      "desc": "Store gold equal to the interest you earn. On @Stage@-@Round@, gain gold equal to @InterestRatio*100@% of the stored gold. Gain @StartingGold@ gold now.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{d11fd6d5}"
+      ]
+    },
+    {
+      "apiName": "DA_ClearMind",
+      "name": "Clear Mind",
+      "icon": "assets/maps/tft/icons/augments/hexcore/clearmind2.tex",
+      "composition": [],
+      "desc": "If there are no champions on your bench at the end of player combat, gain @XPGain@ XP.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{ce1fd21c}"
+      ]
+    },
+    {
+      "apiName": "DA_18_DuoQueue",
+      "name": "Duo Queue",
+      "icon": "assets/maps/tft/icons/augments/hexcore/duoqueue_ii.tex",
+      "composition": [],
+      "desc": "Gain 2 random 5-cost champions and 2 copies of a random component.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{ce1fd21c}"
+      ]
+    },
+    {
+      "apiName": "DA_18_ResidualMagic",
+      "name": "Residual Magic",
+      "icon": "assets/maps/tft/icons/augments/hexcore/missing-t1.tex",
+      "composition": [],
+      "desc": "Your team gains @InitialHealth@ Health. Each time you purchase a Wisp, increase this by @HealthPerSprite@.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{d11fd6d5}"
+      ]
+    },
+    {
+      "apiName": "DA_18_BlossomTraitAugment",
+      "name": "Blossom's Call",
+      "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
+      "composition": [],
+      "desc": "When you buy a Wisp, gain a random Blossom champion based on the Wisp's cost. Gain a Yunara, a Yorick, and a Karma.",
+      "associatedTraits": [
+        "DA_18_Blossom"
+      ],
+      "isAugment": true,
+      "tags": [
+        "{ce1fd21c}"
+      ]
+    },
+    {
+      "apiName": "TFT9_Augment_DravenSpoilsOfWar",
+      "name": "Spoils of War I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spoils-of-war-legend-i.tex",
+      "composition": [],
+      "desc": "Enemies have a @LootDropChance*100@% chance to drop loot when killed.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{d11fd6d5}",
+        "{b72bd3bf}",
+        "{d12ae4b6}",
+        "{d22ae649}",
+        "{1f815778}",
+        "{7aaa3b47}"
+      ]
+    },
+    {
+      "apiName": "DA_18_WispRebatePlus",
+      "name": "Wisp Rebate",
+      "icon": "assets/maps/tft/icons/augments/hexcore/missing-t1.tex",
+      "composition": [],
+      "desc": "Each time you purchase a Wisp, gain @Gold@ gold. Gain @StartingGold@ gold now.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{d11fd6d5}"
+      ]
+    },
+    {
+      "apiName": "DA_AdvancedLoan",
+      "name": "Advanced Loan",
+      "icon": "assets/maps/tft/icons/augments/hexcore/advancedloan_ii.tex",
+      "composition": [],
+      "desc": "Gain @GoldInstantBasic@ Gold. Your next augment is one tier lower.",
+      "associatedTraits": [],
+      "isAugment": true,
+      "tags": [
+        "{ce1fd21c}"
+      ]
+    }
+  ],
   "setData": [
     {
       "mutator": "TFTSet17",
@@ -19,6 +452,41 @@
       "mutator": "TFTSet18",
       "name": "Set10",
       "number": 18,
+      "items": [
+        "DA_Component_BFSword",
+        "DA_Component_ChainVest",
+        "DA_Component_FryingPan",
+        "DA_Component_GiantsBelt",
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NegatronCloak",
+        "DA_Component_RecurveBow",
+        "DA_Component_SparringGloves",
+        "DA_Component_Spatula",
+        "DA_Component_TearOfTheGoddess",
+        "DA_GuinsoosRageblade",
+        "DA_RabadonsDeathcap",
+        "DA_WarmogsArmor",
+        "DA_Bloodthirster",
+        "DA_18_EmblemBlossom",
+        "DA_TacticiansCrown",
+        "DA_InfinityEdge",
+        "DA_SteraksGage",
+        "DA_GuinsoosRagebladeRadiant",
+        "TFT_Item_GuinsoosRageblade",
+        "TFT_Item_BFSword",
+        "DA_Consumable_ItemRemover"
+      ],
+      "augments": [
+        "DA_18_BigGrabBag",
+        "DA_CapitalGainsI",
+        "DA_ClearMind",
+        "DA_18_DuoQueue",
+        "DA_18_ResidualMagic",
+        "DA_18_BlossomTraitAugment",
+        "TFT9_Augment_DravenSpoilsOfWar",
+        "DA_18_WispRebatePlus",
+        "DA_AdvancedLoan"
+      ],
       "champions": [
         {
           "apiName": "DA_18_Azir",
@@ -90,6 +558,15 @@
           "traits": [
             "Emerald Aspect",
             "Vanguard"
+          ]
+        },
+        {
+          "apiName": "DA_Draven18",
+          "name": "Draven",
+          "cost": 5,
+          "tileIcon": "assets/characters/tft18_draven/tft18_draven_square.tex",
+          "traits": [
+            "Bounty Seeker"
           ]
         },
         {

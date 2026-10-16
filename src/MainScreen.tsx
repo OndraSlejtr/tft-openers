@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useMemo, useState } from "react";
 import { ChampionGrid } from "./components/ChampionGrid.tsx";
 import { bundle } from "./data/bundle.ts";
@@ -18,9 +19,14 @@ export const MainScreen = () => {
     <div className="mx-auto max-w-5xl p-4">
       <header className="mb-4 flex items-baseline justify-between">
         <h1 className="text-xl font-semibold">TFT openers</h1>
-        <span className="text-sm text-gray-400">
-          Set {bundle.setNumber}, patch {bundle.patch}
-        </span>
+        <div className="flex items-baseline gap-4 text-sm text-gray-400">
+          <Link to="/data" className="hover:text-gray-200">
+            Data
+          </Link>
+          <span>
+            Set {bundle.setNumber}, patch {bundle.patch}
+          </span>
+        </div>
       </header>
       <div className="mb-4 flex flex-wrap gap-2">
         <input

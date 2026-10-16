@@ -1047,5 +1047,6310 @@
         "DA_Taric18"
       ]
     }
+  ],
+  "components": [
+    {
+      "id": "DA_Component_BFSword",
+      "name": "B.F. Sword",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png",
+      "side": "both",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemFae",
+        "DA_18_EmblemHunter",
+        "DA_Bloodthirster",
+        "DA_Deathblade",
+        "DA_EdgeOfNight",
+        "DA_GiantSlayer",
+        "DA_HextechGunblade",
+        "DA_InfinityEdge",
+        "DA_SpearOfShojin",
+        "DA_SteraksGage"
+      ]
+    },
+    {
+      "id": "DA_Component_ChainVest",
+      "name": "Chain Vest",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_chainvest.png",
+      "side": "frontline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemElderwood",
+        "DA_18_EmblemVanguard",
+        "DA_BrambleVest",
+        "DA_Crownguard",
+        "DA_EdgeOfNight",
+        "DA_GargoyleStoneplate",
+        "DA_ProtectorsVow",
+        "DA_SteadfastHeart",
+        "DA_SunfireCape",
+        "DA_TitansResolve"
+      ]
+    },
+    {
+      "id": "DA_Component_FryingPan",
+      "name": "Frying Pan",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_fryingpan.png",
+      "side": "frontline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemBrawler",
+        "DA_18_EmblemExecutioner",
+        "DA_18_EmblemHunter",
+        "DA_18_EmblemInvoker",
+        "DA_18_EmblemRapidfire",
+        "DA_18_EmblemSlayer",
+        "DA_18_EmblemSpellweaver",
+        "DA_18_EmblemVanguard",
+        "DA_TacticiansCape",
+        "DA_TacticiansShield"
+      ]
+    },
+    {
+      "id": "DA_Component_GiantsBelt",
+      "name": "Giant's Belt",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_giantsbelt.png",
+      "side": "frontline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemBlackthorn",
+        "DA_18_EmblemBrawler",
+        "DA_Evenshroud",
+        "DA_Morellonomicon",
+        "DA_NashorsTooth",
+        "DA_SpiritVisage",
+        "DA_SteraksGage",
+        "DA_StrikersFlail",
+        "DA_SunfireCape",
+        "DA_WarmogsArmor"
+      ]
+    },
+    {
+      "id": "DA_Component_NeedlesslyLargeRod",
+      "name": "Needlessly Large Rod",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_needlesslylargerod.png",
+      "side": "backline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemBlossom",
+        "DA_18_EmblemSpellweaver",
+        "DA_ArchangelsStaff",
+        "DA_Crownguard",
+        "DA_GuinsoosRageblade",
+        "DA_HextechGunblade",
+        "DA_IonicSpark",
+        "DA_JeweledGauntlet",
+        "DA_Morellonomicon",
+        "DA_RabadonsDeathcap"
+      ]
+    },
+    {
+      "id": "DA_Component_NegatronCloak",
+      "name": "Negatron Cloak",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_negatroncloak.png",
+      "side": "frontline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemSlayer",
+        "DA_18_EmblemSprykin",
+        "DA_AdaptiveHelm",
+        "DA_Bloodthirster",
+        "DA_DragonsClaw",
+        "DA_Evenshroud",
+        "DA_GargoyleStoneplate",
+        "DA_IonicSpark",
+        "DA_KrakensFury",
+        "DA_Quicksilver"
+      ]
+    },
+    {
+      "id": "DA_Component_RecurveBow",
+      "name": "Recurve Bow",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_recurvebow.png",
+      "side": "backline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemInferno",
+        "DA_18_EmblemRapidfire",
+        "DA_GiantSlayer",
+        "DA_GuinsoosRageblade",
+        "DA_KrakensFury",
+        "DA_LastWhisper",
+        "DA_NashorsTooth",
+        "DA_RedBuff",
+        "DA_TitansResolve",
+        "DA_VoidStaff"
+      ]
+    },
+    {
+      "id": "DA_Component_SparringGloves",
+      "name": "Sparring Gloves",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.png",
+      "side": "both",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemExecutioner",
+        "DA_18_EmblemPrimal",
+        "DA_HandOfJustice",
+        "DA_InfinityEdge",
+        "DA_JeweledGauntlet",
+        "DA_LastWhisper",
+        "DA_Quicksilver",
+        "DA_SteadfastHeart",
+        "DA_StrikersFlail",
+        "DA_ThiefsGloves"
+      ]
+    },
+    {
+      "id": "DA_Component_Spatula",
+      "name": "Spatula",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_spatula.png",
+      "side": "both",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemBlackthorn",
+        "DA_18_EmblemBlossom",
+        "DA_18_EmblemElderwood",
+        "DA_18_EmblemFae",
+        "DA_18_EmblemInferno",
+        "DA_18_EmblemLunar",
+        "DA_18_EmblemPrimal",
+        "DA_18_EmblemSprykin",
+        "DA_TacticiansCape",
+        "DA_TacticiansCrown"
+      ]
+    },
+    {
+      "id": "DA_Component_TearOfTheGoddess",
+      "name": "Tear Of The Goddess",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_tearofthegoddess.png",
+      "side": "backline",
+      "guessed": true,
+      "builtInto": [
+        "DA_18_EmblemInvoker",
+        "DA_18_EmblemLunar",
+        "DA_AdaptiveHelm",
+        "DA_ArchangelsStaff",
+        "DA_BlueBuff",
+        "DA_HandOfJustice",
+        "DA_ProtectorsVow",
+        "DA_SpearOfShojin",
+        "DA_SpiritVisage",
+        "DA_VoidStaff"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "DA_18_EmblemBlackthorn",
+      "name": "Blackthorn Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blackthorn.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemBlossom",
+      "name": "Blossom Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blossom.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemBrawler",
+      "name": "Brawler Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_brawler.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemElderwood",
+      "name": "Elderwood Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_elderwood.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_ChainVest"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemExecutioner",
+      "name": "Executioner Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_executioner.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemFae",
+      "name": "Fae Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_fae.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_BFSword"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemHunter",
+      "name": "Hunter Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_hunter.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_BFSword"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemInferno",
+      "name": "Inferno Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_inferno.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_RecurveBow"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemInvoker",
+      "name": "Invoker Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_invoker.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemLunar",
+      "name": "Lunar Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_lunar.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemPrimal",
+      "name": "Primal Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_primal.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemRapidfire",
+      "name": "Rapidfire Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_rapidfire.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_RecurveBow"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemSlayer",
+      "name": "Ravager Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_ravager.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemSpellweaver",
+      "name": "Spellweaver Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_spellweaver.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemSprykin",
+      "name": "Sprykin Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_sprykin.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_EmblemVanguard",
+      "name": "Vanguard Emblem",
+      "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_vanguard.png",
+      "emblem": true,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_ChainVest"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_AdaptiveHelm",
+      "name": "Adaptive Helm",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_adaptivehelm.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "tanky",
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ArchangelsStaff",
+      "name": "Archangel's Staff",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_archangelsstaff.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Bloodthirster",
+      "name": "Bloodthirster",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bloodthirster.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_BFSword",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BlueBuff",
+      "name": "Blue Buff",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bluebuff.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BrambleVest",
+      "name": "Bramble Vest",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bramblevest.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_ChainVest",
+        "DA_Component_ChainVest"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Crownguard",
+      "name": "Crownguard",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_crownguard.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_ChainVest"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Deathblade",
+      "name": "Deathblade",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_deathblade.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_BFSword",
+        "DA_Component_BFSword"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_DragonsClaw",
+      "name": "Dragon's Claw",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_dragonsclaw.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_EdgeOfNight",
+      "name": "Edge of Night",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guardianangel.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_BFSword",
+        "DA_Component_ChainVest"
+      ],
+      "categories": [
+        "AD",
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Evenshroud",
+      "name": "Evenshroud",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_spectralgauntlet.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "tanky",
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GargoyleStoneplate",
+      "name": "Gargoyle Stoneplate",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_ChainVest",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GiantSlayer",
+      "name": "Giant Slayer",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_madredsbloodrazor.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_BFSword"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GuinsoosRageblade",
+      "name": "Guinsoo's Rageblade",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HandOfJustice",
+      "name": "Hand Of Justice",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_unstableconcoction.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HextechGunblade",
+      "name": "Hextech Gunblade",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_hextechgunblade.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_BFSword",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_InfinityEdge",
+      "name": "Infinity Edge",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_BFSword",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_IonicSpark",
+      "name": "Ionic Spark",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_ionicspark.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_JeweledGauntlet",
+      "name": "Jeweled Gauntlet",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_jeweledgauntlet.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_SparringGloves",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_KrakensFury",
+      "name": "Kraken's Fury",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NegatronCloak"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LastWhisper",
+      "name": "Last Whisper",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Morellonomicon",
+      "name": "Morellonomicon",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_morellonomicon.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_NashorsTooth",
+      "name": "Nashor's Tooth",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_leviathan.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ProtectorsVow",
+      "name": "Protector's Vow",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_frozenheart.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_ChainVest",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Quicksilver",
+      "name": "Quicksilver",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_quicksilver.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_RabadonsDeathcap",
+      "name": "Rabadon's Deathcap",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_rabadonsdeathcap.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_RedBuff",
+      "name": "Red Buff",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_rapidfirecannon.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_RecurveBow"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SpearOfShojin",
+      "name": "Spear of Shojin",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_spearofshojin.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_BFSword"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SpiritVisage",
+      "name": "Spirit Visage",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_spiritvisagerr.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SteadfastHeart",
+      "name": "Steadfast Heart",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_nightharvester.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_ChainVest",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SteraksGage",
+      "name": "Sterak's Gage",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_steraksgage.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_BFSword",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "AD",
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_StrikersFlail",
+      "name": "Striker's Flail",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_powergauntlet.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "AD"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SunfireCape",
+      "name": "Sunfire Cape",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_redbuff.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_ChainVest",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TacticiansCape",
+      "name": "Tactician's Cape",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_tacticiansring.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_FryingPan"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TacticiansCrown",
+      "name": "Tacticians Crown",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_Spatula",
+        "DA_Component_Spatula"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TacticiansShield",
+      "name": "Tacticians Shield",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_tacticiansscepter.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_FryingPan",
+        "DA_Component_FryingPan"
+      ],
+      "categories": [
+        "utility"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ThiefsGloves",
+      "name": "Thief's Gloves",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_thiefsgloves.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_SparringGloves",
+        "DA_Component_SparringGloves"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TitansResolve",
+      "name": "Titan's Resolve",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_titansresolve.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_ChainVest"
+      ],
+      "categories": [
+        "AD",
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_VoidStaff",
+      "name": "Void Staff",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_voidstaff.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_RecurveBow",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "categories": [
+        "AP"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_WarmogsArmor",
+      "name": "Warmog's Armor",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_warmogsarmor.png",
+      "emblem": false,
+      "componentIds": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_GiantsBelt"
+      ],
+      "categories": [
+        "tanky"
+      ],
+      "guessed": true
+    }
+  ],
+  "augments": [
+    {
+      "id": "DA_18_BigGrabBag",
+      "name": "Big Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_BlossomTraitAugment",
+      "name": "Blossom's Call",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_BranchingOut",
+      "name": "Branching Out",
+      "icon": "assets/maps/tft/icons/augments/hexcore/branching-out-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_BranchingOutPlus",
+      "name": "Branching Out+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/branching-out-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_CaretakersAlly",
+      "name": "Caretaker's Ally",
+      "icon": "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_CovenTraitAugment",
+      "name": "Coven Acolyte",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_CovenTraitAugment_LootToAP",
+      "name": "Dark Ritual",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_DuoQueue",
+      "name": "Duo Queue",
+      "icon": "assets/maps/tft/icons/augments/hexcore/duoqueue_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_ElderwoodTraitAugment",
+      "name": "Nature's Shelter",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_FOURcing",
+      "name": "FOURcing",
+      "icon": null,
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_FaeTraitAugment",
+      "name": "Embiggen",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_FloraFatalisAugment",
+      "name": "Consuming Flora",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_GoodForSomethingI",
+      "name": "Good For Something I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/good-for-something-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_InfernoTraitAugment",
+      "name": "Flame On",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_LunarTraitAugment",
+      "name": "Sun and Moon",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_LunarTraitAugmentPlus",
+      "name": "Sun and Moon+",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_LuxAugmentII",
+      "name": "Master of All Origins",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_OneTwoFive",
+      "name": "One, Two, Five!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/one-two-five-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_OnesTwosThree",
+      "name": "Ones Two Three",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_PrimalAugmentPlus_Nidalee",
+      "name": "Beast Within+",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_PrimalAugmentPlus_Sivir",
+      "name": "Beast Within+",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_PrimalAugment_Nidalee",
+      "name": "Beast Within",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_PrimalAugment_Sivir",
+      "name": "Beast Within",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_ResidualMagic",
+      "name": "Residual Magic",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_ResidualMagicPlus",
+      "name": "Residual Magic +",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_ResidualMagicPlusPlus",
+      "name": "Residual Magic ++",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_RiftbeastTraitAugment",
+      "name": "Omega Riftbeast",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_RivalsAugment",
+      "name": "Unrivaled",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_SolarTraitAugment",
+      "name": "Chosen of the Sun",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_SprykinAugment",
+      "name": "Small Furry Friend",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_WeightTheWorth",
+      "name": "Weight The Worth",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_WispRebatePlus",
+      "name": "Wisp Rebate",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_18_WispRebatePlusPlus",
+      "name": "Wisp Rebate+",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_AdvancedLoan",
+      "name": "Advanced Loan",
+      "icon": "assets/maps/tft/icons/augments/hexcore/advancedloan_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_AdvancedLoanPlus",
+      "name": "Advanced Loan+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/advancedloan_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ArcaneViktory",
+      "name": "Arcane Viktor-y",
+      "icon": "assets/maps/tft/icons/augments/hexcore/arcaneviktory_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Ascension",
+      "name": "Ascension",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ascension2.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_AugmentedPower",
+      "name": "Augmented Power",
+      "icon": "assets/maps/tft/icons/augments/hexcore/powerup_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BacklineBlueprint",
+      "name": "Backline Blueprint",
+      "icon": "assets/maps/tft/icons/augments/hexcore/backlineblueprint_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BackupBows",
+      "name": "Backup Bows",
+      "icon": "assets/maps/tft/icons/augments/hexcore/recurvewrecker_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BandOfThieves",
+      "name": "Band of Thieves",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BandOfThievesII",
+      "name": "Band of Thieves II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BandOfThievesIIPlus",
+      "name": "Band of Thieves II+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BandOfThievesIIPlusPlus",
+      "name": "Band of Thieves II++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BaronsLair",
+      "name": "Baron's Lair",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thebaronslair_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BeltOverflow",
+      "name": "Belt Overflow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/beltoverflow_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BirthdayPresent",
+      "name": "Birthday Present",
+      "icon": "assets/maps/tft/icons/augments/hexcore/golden-gifts-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BirthdayReunion",
+      "name": "Birthday Reunion",
+      "icon": "assets/maps/tft/icons/augments/hexcore/birthdayreunion_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BlackthornTraitAugment",
+      "name": "Item Extraction",
+      "icon": null,
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BodyguardTraining",
+      "name": "Bodyguard Training",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bodyguardstraining_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BonusGift",
+      "name": "Bonus Gifts",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BonusGiftPlus",
+      "name": "Bonus Gifts+",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BoosterPack",
+      "name": "Booster Pack",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boosterpack1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BoosterPackPlus",
+      "name": "Booster Pack+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boosterpack1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BoosterPackPlusPlus",
+      "name": "Booster Pack++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boosterpack1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BoxingLessons",
+      "name": "Boxing Lessons",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boxinglessons_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BronzeForLifeI",
+      "name": "Bronze For Life I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bronzeforlife_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BronzeForLifeII",
+      "name": "Bronze For Life II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bronzeforlife_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BuildABud",
+      "name": "Build A Bud",
+      "icon": "assets/maps/tft/icons/augments/hexcore/constructacompanion_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_BuriedTreasuresIII",
+      "name": "Buried Treasures III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/buried-treasures-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CalculatedLoss",
+      "name": "Calculated Loss",
+      "icon": "assets/maps/tft/icons/augments/hexcore/calculatedloss2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CallToChaos",
+      "name": "Call To Chaos",
+      "icon": "assets/maps/tft/icons/augments/hexcore/calltochaos_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CalledShot",
+      "name": "Called Shot",
+      "icon": "assets/maps/tft/icons/augments/hexcore/calledshot_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CapitalGainsI",
+      "name": "Capital Gains I",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CapitalGainsII",
+      "name": "Capital Gains II",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CaretakersFavor",
+      "name": "Caretaker's Favor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CarveAPath",
+      "name": "Carve a Path",
+      "icon": "assets/maps/tft/icons/augments/hexcore/carveapath_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CelestialBlessingI",
+      "name": "Celestial Blessing I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/celestialblessing1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CelestialBlessingII",
+      "name": "Celestial Blessing II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/celestialblessing2.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CelestialBlessingIII",
+      "name": "Celestial Blessing III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/celestialblessing3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ChallengersGrace",
+      "name": "Challenger's Grace",
+      "icon": "assets/maps/tft/icons/augments/choiceui/precisiongrace_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ChampDelivery",
+      "name": "Champ Delivery",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ChampDeliveryPlus",
+      "name": "Champ Delivery+",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ChampDeliveryPlusPlus",
+      "name": "Champ Delivery++",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ClearMind",
+      "name": "Clear Mind",
+      "icon": "assets/maps/tft/icons/augments/hexcore/clearmind2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ClockworkAccelerator",
+      "name": "Clockwork Accelerator",
+      "icon": "assets/maps/tft/icons/augments/hexcore/clockworkaccelerator_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ClutteredMind",
+      "name": "Cluttered Mind",
+      "icon": "assets/maps/tft/icons/augments/hexcore/dizzy-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CognitiveOverload",
+      "name": "Cognitive Overload",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cognitiveoverload_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CognitiveTax",
+      "name": "Cognitive Tax",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cognitivetax_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CognitiveTaxPlus",
+      "name": "Cognitive Tax+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cognitivetax_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ComebackStory",
+      "name": "Comeback Story",
+      "icon": "assets/maps/tft/icons/augments/hexcore/comebackstory_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CommerceCore",
+      "name": "Commerce Core",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trade3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ComponentBuffet",
+      "name": "Component Buffet",
+      "icon": "assets/maps/tft/icons/augments/hexcore/the-customer-is-always-right-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ComponentQuest",
+      "name": "Component Quest",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CookingPot",
+      "name": "Cooking Pot",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cookingpot_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Coronation",
+      "name": "Coronation",
+      "icon": "assets/maps/tft/icons/augments/hexcore/coronation_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Corrosion",
+      "name": "Corrosion",
+      "icon": "assets/maps/tft/icons/augments/hexcore/corrosion_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CraftedCrafting",
+      "name": "Crafted Crafting",
+      "icon": "assets/maps/tft/icons/augments/hexcore/craftedcrafting_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CryMeARiver",
+      "name": "Cry Me A River",
+      "icon": "assets/maps/tft/icons/augments/hexcore/crymeariver_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CyberneticImplants_Gold",
+      "name": "Cybernetic Implants",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cybernetic2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_CyberneticUplink_Gold",
+      "name": "Cybernetic Uplink",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cybernetic-uplink-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_DeadlierBlades",
+      "name": "Deadlier Blades",
+      "icon": "assets/maps/tft/icons/augments/hexcore/deadlierblades_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_DeadlierCaps",
+      "name": "Deadlier Caps",
+      "icon": "assets/maps/tft/icons/augments/hexcore/deadliercaps_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_DoubleTrouble",
+      "name": "Double Trouble",
+      "icon": "assets/maps/tft/icons/augments/hexcore/double-trouble-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Dummify",
+      "name": "Dummify",
+      "icon": "assets/maps/tft/icons/augments/hexcore/dummify_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_EarlyLearnings",
+      "name": "Early Learnings",
+      "icon": "assets/maps/tft/icons/augments/hexcore/earlylearning_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ElectrochargeI",
+      "name": "Electrocharge I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/electrocharge-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ElectrochargeII",
+      "name": "Electrocharge II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/electrocharge-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_EpicRolldown",
+      "name": "Epic Rolldown",
+      "icon": "assets/maps/tft/icons/augments/hexcore/epicrolldown_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Epoch",
+      "name": "Epoch",
+      "icon": "assets/maps/tft/icons/augments/hexcore/epoch_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_EpochPlus",
+      "name": "Epoch+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/epoch_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ExclusiveCustomization",
+      "name": "Exclusive Customization",
+      "icon": "assets/maps/tft/icons/augments/hexcore/exclusivecustomization_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ExpectedUnexpectedness",
+      "name": "Expected Unexpectedness",
+      "icon": "assets/maps/tft/icons/augments/hexcore/addicted-to-rolling-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Expedition",
+      "name": "Expedition",
+      "icon": "assets/maps/tft/icons/augments/hexcore/expedition_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ExplosiveGrowth",
+      "name": "Explosive Growth",
+      "icon": "assets/maps/tft/icons/augments/hexcore/explosivegrowth_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ExplosiveGrowthPlus",
+      "name": "Explosive Growth+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/explosivegrowth_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ExtraBuckles",
+      "name": "Extra Buckles",
+      "icon": "assets/maps/tft/icons/augments/hexcore/extrabuckles_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_FeelingLucky",
+      "name": "Feeling Lucky",
+      "icon": "assets/maps/tft/icons/augments/hexcore/feelinglucky_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_FindYourCenter",
+      "name": "Find Your Center",
+      "icon": "assets/maps/tft/icons/augments/hexcore/findyourcenter_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Flexible",
+      "name": "Flexible",
+      "icon": "assets/maps/tft/icons/augments/hexcore/flexible_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_FlowingTears",
+      "name": "Flowing Tears",
+      "icon": "assets/maps/tft/icons/augments/hexcore/griefofthegreatgoddess_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_FocusedFire",
+      "name": "Focused Fire",
+      "icon": "assets/maps/tft/icons/augments/hexcore/marksman_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ForgedInStrength",
+      "name": "Forged In Strength",
+      "icon": "assets/maps/tft/icons/augments/hexcore/forgedinstrength_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_FrontlineFoundation",
+      "name": "Frontline Foundation",
+      "icon": "assets/maps/tft/icons/augments/hexcore/frontlinefoundation_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_FutureFocused",
+      "name": "Future Focused",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GainGold",
+      "name": "Gain 21 Gold",
+      "icon": "assets/maps/tft/icons/augments/hexcore/windfall2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GiantAndMighty",
+      "name": "Giant and Mighty",
+      "icon": "assets/maps/tft/icons/augments/hexcore/giantandmighty_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GildedSteel",
+      "name": "Gilded Steel",
+      "icon": "assets/maps/tft/icons/augments/hexcore/gildedsteel_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GlassCannon_Gold",
+      "name": "Glass Cannon II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/glasscannon_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GlassCannon_Silver",
+      "name": "Glass Cannon I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/glasscannon_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoingLong",
+      "name": "Going Long",
+      "icon": "assets/maps/tft/icons/augments/hexcore/going-long-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoldDestiny",
+      "name": "Gold Destiny",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldendestiny_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoldDestinyPlus",
+      "name": "Gold Destiny+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldendestiny_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoldenEgg",
+      "name": "The Golden Egg",
+      "icon": "assets/maps/tft/icons/augments/hexcore/the-golden-egg-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoldenGamble",
+      "name": "Golden Gamble",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldengamble_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoldenGamblePlus",
+      "name": "Golden Gamble+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldengamble_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GoldenGamblePlusPlus",
+      "name": "Golden Gamble++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldengamble_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GroupHugI",
+      "name": "Group Hug I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grouphug1_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_GroupHugII",
+      "name": "Group Hug II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grouphug2_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HardBargain",
+      "name": "Hard Bargain",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hardbargain_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HardCommit",
+      "name": "Hard Commit",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hardcommit_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HealingOrbsI",
+      "name": "Healing Orbs I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/healing-orbs-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HealingOrbsII",
+      "name": "Healing Orbs II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/healing-orbs-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HeartOfSteel",
+      "name": "Heart of Steel",
+      "icon": "assets/maps/tft/icons/augments/hexcore/healthygains_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HedgeFund",
+      "name": "Hedge Fund",
+      "icon": "assets/maps/tft/icons/augments/hexcore/richgetricher3.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HeroicGrabBag",
+      "name": "Heroic Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HeroicGrabBagPlus",
+      "name": "Heroic Grab Bag+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HeroicGrabBagPlusPlus",
+      "name": "Heroic Grab Bag++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_HoldTheLine",
+      "name": "Hold the Line",
+      "icon": "assets/maps/tft/icons/augments/hexcore/holdtheline_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Hustler",
+      "name": "Hustler",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hyperroll2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_InfinityProtection",
+      "name": "Infinity Protection",
+      "icon": "assets/maps/tft/icons/augments/hexcore/infinityprotection_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_InvestedPlus",
+      "name": "Invested+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/invested-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_InvestedPlusPlus",
+      "name": "Invested++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/invested-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_InvestmentStrategy",
+      "name": "Investment Strategy II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_InvestmentStrategyI",
+      "name": "Investment Strategy I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_IronAssets",
+      "name": "Iron Assets",
+      "icon": "assets/maps/tft/icons/augments/hexcore/iron-assets-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ItemGrabBag",
+      "name": "Item Grab Bag I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/itemgrabbag1.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ItsMeBaby",
+      "name": "It's Me, Baby",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_JeweledLotus_I",
+      "name": "Jeweled Lotus I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/jeweled-lotus-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_JeweledLotus_II",
+      "name": "Jeweled Lotus II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/jeweled-lotus-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_KickStart",
+      "name": "Kick Start",
+      "icon": "assets/maps/tft/icons/augments/hexcore/kickstart_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Kingslayer",
+      "name": "Kingslayer",
+      "icon": "assets/maps/tft/icons/augments/hexcore/kingslayer_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_KnowYourEnemy",
+      "name": "Know Your Enemy",
+      "icon": "assets/maps/tft/icons/augments/hexcore/know-your-enemy-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LateGameScaling",
+      "name": "Late Game Scaling",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lategamescaling_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LateGameSpecialist",
+      "name": "Late Game Specialist",
+      "icon": "assets/maps/tft/icons/augments/hexcore/late-game-specialist-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LatentForge",
+      "name": "Latent Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/long-time-crafting-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LegionOfThrees",
+      "name": "Legion Of Threes",
+      "icon": "assets/maps/tft/icons/augments/hexcore/legionofthrees_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LevelUp",
+      "name": "Level Up!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/levelup3.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LivingForge",
+      "name": "Living Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/living-forge-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LoadedDice",
+      "name": "Loaded Dice",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LuckyGloves",
+      "name": "Lucky Gloves",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lucky-gloves-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LuckyGlovesPlus",
+      "name": "Lucky Gloves+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lucky-gloves-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_LuxurySubscription",
+      "name": "Luxury Subscription",
+      "icon": "assets/maps/tft/icons/augments/hexcore/luxurysubscription_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MagicRoll",
+      "name": "Magic Roll",
+      "icon": "assets/maps/tft/icons/augments/hexcore/a-magical-roll-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MakeshiftArmorI",
+      "name": "Makeshift Armor I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/makeshift1.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MakeshiftArmorII",
+      "name": "Makeshift Armor II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/makeshift2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MaliciousMonetization",
+      "name": "Malicious Monetization",
+      "icon": "assets/maps/tft/icons/augments/hexcore/mirroredmonetization_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MaxBuild",
+      "name": "Max Build",
+      "icon": "assets/maps/tft/icons/augments/hexcore/maxbuild_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Min_Max",
+      "name": "Min-Max",
+      "icon": "assets/maps/tft/icons/augments/hexcore/minmax_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MissedConnections",
+      "name": "Missed Connections",
+      "icon": "assets/maps/tft/icons/augments/hexcore/missed-connections-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MoneyHungryPlus",
+      "name": "Money Hungry+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/moneyhungry2_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MoneyHungry_NotBroken",
+      "name": "Money Hungry",
+      "icon": "assets/maps/tft/icons/augments/hexcore/moneyhungry1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_MoneyMonsoon",
+      "name": "Money Monsoon",
+      "icon": "assets/maps/tft/icons/augments/hexcore/moneymonsoon_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_NestingAnvils",
+      "name": "Nesting Anvils",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_NestingAnvilsPlus",
+      "name": "Nesting Anvils+",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_NoScoutNoPivot",
+      "name": "NO SCOUT NO PIVOT",
+      "icon": "assets/maps/tft/icons/augments/hexcore/noscoutnopivot_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_OneBuffTwoBuff",
+      "name": "One Buff Two Buff",
+      "icon": "assets/maps/tft/icons/augments/hexcore/onebufftwobuff_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PandorasBench",
+      "name": "Pandora's Bench",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandoras-bench-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PandorasItemsI",
+      "name": "Pandora's Items I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandora1.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PandorasItemsII",
+      "name": "Pandora's Items II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandora2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PandorasItemsIII",
+      "name": "Pandora's Items III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandora3.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PartialAscension",
+      "name": "Partial Ascension",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ascension1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PatienceIsAVirtue",
+      "name": "Patience Is A Virtue",
+      "icon": "assets/maps/tft/icons/augments/hexcore/patienceisavirtue_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PatientStudy",
+      "name": "Patient Study",
+      "icon": "assets/maps/tft/icons/augments/hexcore/learning-from-experience-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Pilfer",
+      "name": "Pilfer",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pilfer_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PlotArmor",
+      "name": "Plot Armor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/plotarmor_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PortableForge",
+      "name": "Portable Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/portableforge2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PrismaticDestiny",
+      "name": "Prismatic Destiny",
+      "icon": "assets/maps/tft/icons/augments/hexcore/prismaticdestiny_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PrismaticDestinyPlus",
+      "name": "Prismatic Destiny+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/prismaticdestiny_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PrismaticTicket",
+      "name": "Prismatic Ticket",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldenticket3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_PromisedProtection",
+      "name": "Promised Protection",
+      "icon": "assets/maps/tft/icons/augments/hexcore/promisedprotection_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_QuickStreaks",
+      "name": "Quick Streaks",
+      "icon": null,
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_RadiantRascal",
+      "name": "Radiant Rascal",
+      "icon": "assets/maps/tft/icons/augments/hexcore/roll-the-dice-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_RadiantRelic",
+      "name": "Radiant Relics",
+      "icon": "assets/maps/tft/icons/augments/hexcore/radiantrelic-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Recombobulator",
+      "name": "Recombobulator",
+      "icon": "assets/maps/tft/icons/augments/hexcore/recombobulator-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Replication",
+      "name": "Replication",
+      "icon": "assets/maps/tft/icons/augments/hexcore/replication-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Retribution",
+      "name": "Retribution",
+      "icon": "assets/maps/tft/icons/augments/hexcore/retribution_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_RollingForDays",
+      "name": "Rolling For Days",
+      "icon": "assets/maps/tft/icons/augments/hexcore/rolling-for-days-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SalvageBin",
+      "name": "Salvage Bin",
+      "icon": "assets/maps/tft/icons/augments/hexcore/salvage2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SalvageBinPlus",
+      "name": "Salvage Bin+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/salvage2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SeraphimsStaff",
+      "name": "Seraphim's Staff",
+      "icon": "assets/maps/tft/icons/augments/hexcore/seraphimsstaff_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ShimmerscaleEssence",
+      "name": "Shimmerscale Essence",
+      "icon": "assets/maps/tft/icons/augments/hexcore/shimmerscaleessence_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_ShoppingSpree",
+      "name": "Shopping Spree",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silver-ticket-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SilverDestiny",
+      "name": "Silver Destiny",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SilverDestinyPlus",
+      "name": "Silver Destiny+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SilverDestinyPlusPlus",
+      "name": "Silver Destiny++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SilverSpoon",
+      "name": "Silver Spoon",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silver-spoon-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Slammin",
+      "name": "Slammin'",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slammin_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SlamminPlus",
+      "name": "Slammin'+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slammin_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SliceOfLife",
+      "name": "Slice of Life",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slice_of_life_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SlightlyMagicRoll",
+      "name": "Slightly Magic Roll",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slightlymagicroll_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SmallGrabBag",
+      "name": "Small Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/smallgrabbag_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SoloLeveling",
+      "name": "Solo Leveling",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sololeveling_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SoloPlate",
+      "name": "Solo Plate",
+      "icon": "assets/maps/tft/icons/augments/hexcore/soloplate_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SoulAwakening",
+      "name": "Soul Awakening",
+      "icon": "assets/maps/tft/icons/augments/hexcore/awakenedsoul_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SpeedyDoubleKill",
+      "name": "Speedy Double Kill",
+      "icon": "assets/maps/tft/icons/augments/hexcore/speedydoublekill_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SpiritOfRedemption",
+      "name": "Spirit Of Redemption",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spiritofredemption_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SpreadingRoots",
+      "name": "Spreading Roots",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spreadingroots_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SpreadingRootsPlus",
+      "name": "Spreading Roots+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spreadingroots_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Staffsmith",
+      "name": "Staffsmith",
+      "icon": "assets/maps/tft/icons/augments/hexcore/rodsmith_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_StandUnited",
+      "name": "Stand United",
+      "icon": "assets/maps/tft/icons/augments/hexcore/standunited1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SweetTreats",
+      "name": "Sweet Treats",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sweettreats_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_SwordOverflow",
+      "name": "Sword Overflow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bladeoverflow_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Swordsmith",
+      "name": "Swordsmith",
+      "icon": "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TacticiansKitchen",
+      "name": "Tactician's Kitchen",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tacticianskitchen_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TeamBuilding",
+      "name": "Team Building",
+      "icon": "assets/maps/tft/icons/augments/hexcore/building-an-army-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TheGoldenDragon",
+      "name": "The Golden Dragon",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thegoldendragon_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TheTower",
+      "name": "The Tower",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thetower_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TheTraitTree",
+      "name": "The Trait Tree",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thetraittree_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TheTraitTreePlus",
+      "name": "The Trait Tree+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thetraittree_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TimeSkip",
+      "name": "Time Skip",
+      "icon": "assets/maps/tft/icons/augments/hexcore/timeskip_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TonsOfStatsI",
+      "name": "Tons of Stats!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tons-of-stats-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TonsOfStatsII",
+      "name": "TONS of Stats!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tons-of-stats-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TradeSector",
+      "name": "Trade Sector",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trade2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TradeSectorPlus",
+      "name": "Trade Sector+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trade2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TraitLadder",
+      "name": "Trait Ladder",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_TwinGuardians",
+      "name": "Twin Guardians",
+      "icon": "assets/maps/tft/icons/augments/hexcore/twinguardians_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_URF",
+      "name": "U.R.F",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ultrarapidfire_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_UpwardMobility",
+      "name": "Upward Mobility",
+      "icon": "assets/maps/tft/icons/augments/hexcore/upwardmobility_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_UrfsGrabBag",
+      "name": "Urf's Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/urfs-grab-bag-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_VerticalityI",
+      "name": "Verticality I",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_VerticalityII",
+      "name": "Verticality II",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_VerticalityIII",
+      "name": "Verticality III",
+      "icon": null,
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_WandOverflow",
+      "name": "Wand Overflow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/wandoverflow_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_Warpath",
+      "name": "Warpath",
+      "icon": "assets/maps/tft/icons/augments/hexcore/warpath_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_WeStickTogether",
+      "name": "We Stick Together",
+      "icon": "assets/maps/tft/icons/augments/hexcore/westicktogether_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_WorththeWait",
+      "name": "Worth the Wait",
+      "icon": "assets/maps/tft/icons/augments/hexcore/worththewait_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_WorththeWaitII",
+      "name": "Worth the Wait II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/worththewait_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_WovenMagic",
+      "name": "Woven Magic",
+      "icon": "assets/maps/tft/icons/augments/hexcore/wovenmagic_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "DA_YoungAndWildAndFree",
+      "name": "Young and Wild and Free",
+      "icon": "assets/maps/tft/icons/augments/hexcore/young-and-wild-and-free-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_CrashTestDummies",
+      "name": "Crash Test Dummies",
+      "icon": "assets/maps/tft/icons/augments/hexcore/crash-test-dummies-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_FullyAdapted",
+      "name": "Fully Adapted",
+      "icon": "assets/maps/tft/icons/augments/hexcore/fully-adapted-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_GoingLong",
+      "name": "Going Long",
+      "icon": "assets/maps/tft/icons/augments/hexcore/going-long-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_GoodForSomethingSilver",
+      "name": "Good For Something I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/good-for-something-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_HeroicGrabBag",
+      "name": "Heroic Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_LittleBuddies",
+      "name": "Little Buddies",
+      "icon": "assets/maps/tft/icons/augments/hexcore/little-buddies-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT10_Augment_Scapegoat",
+      "name": "Scapegoat",
+      "icon": "assets/maps/tft/icons/augments/hexcore/the-scapegoat-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_AtWhatCost",
+      "name": "At What Cost",
+      "icon": "assets/maps/tft/icons/augments/hexcore/atwhatcost_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_BloodBank",
+      "name": "Lunch Money",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bloodbank_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Buildabud",
+      "name": "Build a Bud",
+      "icon": "assets/maps/tft/icons/augments/hexcore/constructacompanion_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Calltochaos",
+      "name": "Call to Chaos",
+      "icon": "assets/maps/tft/icons/augments/hexcore/calltochaos_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Epoch",
+      "name": "Epoch",
+      "icon": "assets/maps/tft/icons/augments/hexcore/epoch_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_EpochPlus",
+      "name": "Epoch+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/epoch_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_OverEncumbered",
+      "name": "Over Encumbered",
+      "icon": "assets/maps/tft/icons/augments/hexcore/overencumbered_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Prizefighter",
+      "name": "Prizefighter",
+      "icon": "assets/maps/tft/icons/augments/hexcore/prizefighter_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_RadiantRefactor",
+      "name": "Radiant Refactor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/radiantrefactor_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_RainingGold",
+      "name": "Raining Gold",
+      "icon": "assets/maps/tft/icons/augments/hexcore/raininggold_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_RainingGoldPlus",
+      "name": "Raining Gold+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/raininggold_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Reinfourcement",
+      "name": "ReinFOURcement",
+      "icon": "assets/maps/tft/icons/augments/hexcore/reinfourcement_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_ScoreboardScrapper",
+      "name": "Scoreboard Scrapper",
+      "icon": "assets/maps/tft/icons/augments/hexcore/scoreboardscrapper_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Slammin",
+      "name": "Slammin'",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slammin_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_Slammin_Plus",
+      "name": "Slammin'+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slammin_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT11_Augment_TinyButDeadly",
+      "name": "Tiny, but Deadly",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tinybutdeadly_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT16_Augment_UltraRapidFire",
+      "name": "U.R.F",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ultrarapidfire_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_BandOfThieves2",
+      "name": "Band of Thieves II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_BandOfThieves2Plus",
+      "name": "Band of Thieves II+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_BandOfThieves2PlusPlus",
+      "name": "Band of Thieves II++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_CalculatedLoss",
+      "name": "Calculated Loss",
+      "icon": "assets/maps/tft/icons/augments/hexcore/calculatedloss2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_ClearMind",
+      "name": "Clear Mind",
+      "icon": "assets/maps/tft/icons/augments/hexcore/clearmind2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_CyberneticImplants2",
+      "name": "Cybernetic Implants",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cybernetic2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_CyberneticUplink2",
+      "name": "Cybernetic Uplink",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cybernetic-uplink-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_CyberneticUplink3",
+      "name": "Cybernetic Uplink III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cybernetic-uplink-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Distancing",
+      "name": "Exiles I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/exiles1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Distancing2",
+      "name": "Exiles II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/exiles2.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Diversify1",
+      "name": "Stand United",
+      "icon": "assets/maps/tft/icons/augments/hexcore/standunited1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Electrocharge1",
+      "name": "Electrocharge I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/electrocharge-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Electrocharge2",
+      "name": "Electrocharge II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/electrocharge-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_ForceOfNature",
+      "name": "New Recruit",
+      "icon": "assets/maps/tft/icons/augments/hexcore/newrecruit3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_ForceOfNaturePlus",
+      "name": "New Recruit+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/newrecruit3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_GachaAddict",
+      "name": "Prismatic Ticket",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldenticket3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_HyperRoll",
+      "name": "Hustler",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hyperroll2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_ItemGrabBag1",
+      "name": "Item Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/itemgrabbag1.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Keepers1",
+      "name": "Keepers I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/keepers-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Keepers2",
+      "name": "Keepers II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/keepers-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_MakeshiftArmor1",
+      "name": "Makeshift Armor I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/makeshift1.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_MakeshiftArmor2",
+      "name": "Makeshift Armor II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/makeshift2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_MaxLevel10",
+      "name": "Level Up!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/levelup3.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_OneTwoFive",
+      "name": "One, Two, Five!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/one-two-five-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_PandorasItems",
+      "name": "Pandora's Items",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandora1.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_PortableForge",
+      "name": "Portable Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/portableforge2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_RadiantRelics",
+      "name": "Radiant Relics",
+      "icon": "assets/maps/tft/icons/augments/hexcore/radiantrelic-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Recombobulator",
+      "name": "Recombobulator",
+      "icon": "assets/maps/tft/icons/augments/hexcore/recombobulator-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_SalvageBin",
+      "name": "Salvage Bin",
+      "icon": "assets/maps/tft/icons/augments/hexcore/salvage2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_SalvageBinHR",
+      "name": "Salvage Bin",
+      "icon": "assets/maps/tft/icons/augments/hexcore/salvage2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_SecondWind1",
+      "name": "Second Wind",
+      "icon": "assets/maps/tft/icons/augments/hexcore/second--wind-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_SecondWind2",
+      "name": "Second Wind II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/second--wind-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_SunfireBoard",
+      "name": "Sunfire Board",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sunfireboard2.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_TheGoldenEgg",
+      "name": "The Golden Egg",
+      "icon": "assets/maps/tft/icons/augments/hexcore/the-golden-egg-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_ThriftShop",
+      "name": "Wise Spending",
+      "icon": "assets/maps/tft/icons/augments/hexcore/wisespending3.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_TinyTitans",
+      "name": "Tiny Titans",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tiny-titans-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_TradeSector",
+      "name": "Trade Sector",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trade2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_TradeSector2",
+      "name": "Commerce Core",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trade3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT6_Augment_Twins2",
+      "name": "Double Trouble",
+      "icon": "assets/maps/tft/icons/augments/hexcore/double-trouble-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_AFK",
+      "name": "AFK",
+      "icon": "assets/maps/tft/icons/augments/hexcore/afk-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_BandOfThieves1",
+      "name": "Band of Thieves",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bandthieves1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_BestFriends1",
+      "name": "Best Friends I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/best-friends-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_BestFriends2",
+      "name": "Best Friends II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/best-friends-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_BigFriend",
+      "name": "Big Friend I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/big-friend-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_BigFriend2",
+      "name": "Big Friend II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/big-friend-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_BirthdayPresents",
+      "name": "Birthday Present",
+      "icon": "assets/maps/tft/icons/augments/hexcore/golden-gifts-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_ClutteredMind",
+      "name": "Cluttered Mind",
+      "icon": "assets/maps/tft/icons/augments/hexcore/dizzy-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_CursedCrown",
+      "name": "Cursed Crown",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cursedcrown-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_LategameSpecialist",
+      "name": "Late Game Specialist",
+      "icon": "assets/maps/tft/icons/augments/hexcore/late-game-specialist-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_LivingForge",
+      "name": "Living Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/living-forge-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_LuckyGloves",
+      "name": "Lucky Gloves",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lucky-gloves-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_LuckyGlovesPlus",
+      "name": "Lucky Gloves+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lucky-gloves-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_PandorasBench",
+      "name": "Pandora's Bench",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandoras-bench-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_Preparation",
+      "name": "Preparation I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/preparation-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_Preparation2",
+      "name": "Preparation II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/preparation-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT7_Augment_UrfsGrabBag2",
+      "name": "Urf's Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/urfs-grab-bag-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT8_Augment_SalvageBinPlus",
+      "name": "Salvage Bin+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/salvage2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_AllThatShimmers",
+      "name": "All That Shimmers",
+      "icon": "assets/maps/tft/icons/augments/hexcore/all-that-shimmers-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_ArmyBuilding",
+      "name": "Team Building",
+      "icon": "assets/maps/tft/icons/augments/hexcore/building-an-army-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_BardPlaybook1",
+      "name": "Caretaker's Ally",
+      "icon": "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_BardPlaybook2",
+      "name": "Caretaker's Favor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_BardPlaybook3",
+      "name": "Caretaker's Chosen",
+      "icon": "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_BigGrabBag",
+      "name": "Big Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_BuildingACollectionPlusPlus",
+      "name": "Buried Treasures",
+      "icon": "assets/maps/tft/icons/augments/hexcore/buried-treasures-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_Commander_Ascension",
+      "name": "Ascension",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ascension2.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_Commander_FinalAscension",
+      "name": "Final Ascension",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ascension3.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_Commander_PartialAscension",
+      "name": "Partial Ascension",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ascension1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_Commander_RollingForDays",
+      "name": "Rolling For Days I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/rolling-for-days-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_Commander_TeamingUp1",
+      "name": "Teaming Up",
+      "icon": "assets/maps/tft/icons/augments/hexcore/teaming-up-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_CustomerIsAlwaysRight",
+      "name": "Component Buffet",
+      "icon": "assets/maps/tft/icons/augments/hexcore/the-customer-is-always-right-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_DravenSpoilsOfWar",
+      "name": "Spoils of War I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spoils-of-war-legend-i.png",
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_DravenSpoilsOfWar2",
+      "name": "Spoils of War II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spoils-of-war-legend-ii.png",
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_DravenSpoilsOfWar3",
+      "name": "Spoils of War III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spoils-of-war-legend-iii.png",
+      "categories": [
+        "special"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_GreaterJeweledLotus",
+      "name": "Jeweled Lotus II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/jeweled-lotus-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_HealingOrbsI",
+      "name": "Healing Orbs I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/healing-orbs-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_HealingOrbsII",
+      "name": "Healing Orbs II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/healing-orbs-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_HedgeFund",
+      "name": "Hedge Fund",
+      "icon": "assets/maps/tft/icons/augments/hexcore/richgetricher3.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_HedgeFundPlus",
+      "name": "Hedge Fund+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/richgetricher3.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_HighEndSector",
+      "name": "Shopping Spree",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silver-ticket-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_IronAssets",
+      "name": "Iron Assets",
+      "icon": "assets/maps/tft/icons/augments/hexcore/iron-assets-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_JeweledLotus",
+      "name": "Jeweled Lotus I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/jeweled-lotus-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_KnowYourEnemy",
+      "name": "Know Your Enemy",
+      "icon": "assets/maps/tft/icons/augments/hexcore/know-your-enemy-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_LearningFromExperience2",
+      "name": "Patient Study",
+      "icon": "assets/maps/tft/icons/augments/hexcore/learning-from-experience-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_Legend_HighEndSector",
+      "name": "Shopping Spree",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silver-ticket-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_LongTimeCrafting",
+      "name": "Latent Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/long-time-crafting-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_MissedConnections",
+      "name": "Missed Connections",
+      "icon": "assets/maps/tft/icons/augments/hexcore/missed-connections-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_OneTwosThree",
+      "name": "One Two Three",
+      "icon": "assets/maps/tft/icons/augments/hexcore/threes-company-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_PandorasItems2",
+      "name": "Pandora's Items II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandora2.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_PandorasRadiantBox",
+      "name": "Pandora's Items III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pandora3.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_PumpingUp",
+      "name": "Pumping Up I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pumping-up-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_PumpingUp2",
+      "name": "Pumping Up II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pumping-up-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_PumpingUp3",
+      "name": "Pumping Up III",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pumping-up-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_RiskyMoves",
+      "name": "Risky Moves",
+      "icon": "assets/maps/tft/icons/augments/hexcore/risky-moves-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_RollTheDice",
+      "name": "Radiant Rascal",
+      "icon": "assets/maps/tft/icons/augments/hexcore/roll-the-dice-iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_SilverSpoon",
+      "name": "Silver Spoon",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silver-spoon-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_StarsAreBorn",
+      "name": "Stars Are Born",
+      "icon": "assets/maps/tft/icons/augments/hexcore/stars-are-born-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_StarterKit",
+      "name": "Starter Kit",
+      "icon": "assets/maps/tft/icons/augments/hexcore/starter-kit-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_TiniestTitanPlus",
+      "name": "Tiniest Titan",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tiniest-titaniii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_TonsOfStats",
+      "name": "Tons of Stats!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tons-of-stats-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_YouHaveMyBow",
+      "name": "You Have My Bow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/you-have-my-bow-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT9_Augment_YoungAndWildAndFree",
+      "name": "Young and Wild and Free",
+      "icon": "assets/maps/tft/icons/augments/hexcore/young-and-wild-and-free-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AdvancedLoan",
+      "name": "Advanced Loan",
+      "icon": "assets/maps/tft/icons/augments/hexcore/advancedloan_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AdvancedLoanPlus",
+      "name": "Advanced Loan+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/advancedloan_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AimForTheTop",
+      "name": "Aim For The Top!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/aimforthetop_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AllThatShimmersPlus",
+      "name": "All That Shimmers+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/all-that-shimmers-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AnExaltedAdventure",
+      "name": "An Exalted Adventure",
+      "icon": "assets/maps/tft/icons/augments/hexcore/exaltedadventure_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AnotherOne",
+      "name": "Another One!",
+      "icon": "assets/maps/tft/icons/augments/hexcore/anotherone_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AnotherOnePlus",
+      "name": "Another One!+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/anotherone_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ArcaneViktory",
+      "name": "Arcane Viktor-y",
+      "icon": "assets/maps/tft/icons/augments/hexcore/arcaneviktory_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AuraFarming",
+      "name": "Aura Farming",
+      "icon": "assets/maps/tft/icons/augments/hexcore/aurafarming_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_AwakenedSoul",
+      "name": "Soul Awakening",
+      "icon": "assets/maps/tft/icons/augments/hexcore/awakenedsoul_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BacklineBlueprint",
+      "name": "Backline Blueprint",
+      "icon": "assets/maps/tft/icons/augments/hexcore/backlineblueprint_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BackupDancers",
+      "name": "Backup Dancers",
+      "icon": "assets/maps/tft/icons/augments/hexcore/backupdancers_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BeltOverflow",
+      "name": "Belt Overflow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/beltoverflow_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BirthdayReunion",
+      "name": "Birthday Reunion",
+      "icon": "assets/maps/tft/icons/augments/hexcore/birthdayreunion_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BlazingSoul",
+      "name": "Blazing Soul I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/blazing-soul-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BlazingSoul2",
+      "name": "Blazing Soul II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/blazing-soul-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BloodRage",
+      "name": "Blood Rage",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bloodrage_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BodyguardTraining",
+      "name": "Bodyguard Training",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bodyguardstraining_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BoosterPack",
+      "name": "Booster Pack",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boosterpack1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BoosterPackPlus",
+      "name": "Booster Pack+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boosterpack1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BoosterPackPlusPlus",
+      "name": "Booster Pack++",
+      "icon": "assets/maps/tft/icons/augments/choiceui/boosterpack1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BoxingLessons",
+      "name": "Boxing Lessons",
+      "icon": "assets/maps/tft/icons/augments/hexcore/boxinglessons_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BranchingOut",
+      "name": "Branching Out",
+      "icon": "assets/maps/tft/icons/augments/hexcore/branching-out-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BranchingOutPlus",
+      "name": "Branching Out+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/branching-out-i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BronzeForLife2",
+      "name": "Bronze For Life II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bronzeforlife_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_BronzeForLifeI",
+      "name": "Bronze For Life I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bronzeforlife_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CalledShot",
+      "name": "Called Shot",
+      "icon": "assets/maps/tft/icons/augments/hexcore/calledshot_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ChaosEvolution",
+      "name": "Chaotic Evolution",
+      "icon": "assets/maps/tft/icons/augments/hexcore/chaosevolution_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ChargeTransfer1",
+      "name": "Charge Transfer I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/chargetransfer1_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ChargeTransfer2",
+      "name": "Charge Transfer II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/chargetransfer2_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ClimbTheLadder1",
+      "name": "Climb The Ladder I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/climbtheladder_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ClimbTheLadder2",
+      "name": "Climb The Ladder II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/climbtheladder_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ClockworkAccelerator",
+      "name": "Clockwork Accelerator",
+      "icon": "assets/maps/tft/icons/augments/hexcore/clockworkaccelerator_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CloningFacility",
+      "name": "Cloning Facility",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trickmirror_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CognitiveOverload",
+      "name": "Cognitive Overload",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cognitiveoverload_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CognitiveTax",
+      "name": "Cognitive Tax",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cognitivetax_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CognitiveTaxPlus",
+      "name": "Cognitive Tax+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cognitivetax_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ComebackStory",
+      "name": "Comeback Story",
+      "icon": "assets/maps/tft/icons/augments/hexcore/comebackstory_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ComponentQuestBow",
+      "name": "Backup Bows",
+      "icon": "assets/maps/tft/icons/augments/hexcore/recurvewrecker_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ComponentQuestRod",
+      "name": "Continuous Conjuration",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hyperbolicrodextender_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ComponentQuestSword",
+      "name": "Carve a Path",
+      "icon": "assets/maps/tft/icons/augments/hexcore/carveapath_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ComponentQuestTear",
+      "name": "Flowing Tears",
+      "icon": "assets/maps/tft/icons/augments/hexcore/griefofthegreatgoddess_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ConstructACompanion",
+      "name": "Construct a Companion",
+      "icon": "assets/maps/tft/icons/augments/hexcore/constructacompanion_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CookingPot",
+      "name": "Cooking Pot",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cookingpot_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Coronation",
+      "name": "Coronation",
+      "icon": "assets/maps/tft/icons/augments/hexcore/coronation_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Corrosion",
+      "name": "Corrosion",
+      "icon": "assets/maps/tft/icons/augments/hexcore/corrosion_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CosmicRestart",
+      "name": "Cosmic Restart",
+      "icon": "assets/maps/tft/icons/augments/hexcore/cosmicrestart_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CraftedCrafting",
+      "name": "Crafted Crafting",
+      "icon": "assets/maps/tft/icons/augments/hexcore/craftedcrafting_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Crossfire2",
+      "name": "Piercing Sight",
+      "icon": "assets/maps/tft/icons/augments/hexcore/crossfire_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CrownguardSpirit",
+      "name": "Crown's Will",
+      "icon": "assets/maps/tft/icons/augments/hexcore/will-of-the-crown-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_CryMeARiver",
+      "name": "Cry Me A River",
+      "icon": "assets/maps/tft/icons/augments/hexcore/crymeariver_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_DeadlierCaps",
+      "name": "Deadlier Caps",
+      "icon": "assets/maps/tft/icons/augments/hexcore/deadliercaps_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Dhampyr1",
+      "name": "Vampiric Vitality I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/dhampyr_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Dummify",
+      "name": "Dummify",
+      "icon": "assets/maps/tft/icons/augments/hexcore/dummify_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_DuoQueue",
+      "name": "Duo Queue",
+      "icon": "assets/maps/tft/icons/augments/hexcore/duoqueue_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_EarlyLearning",
+      "name": "Early Learnings",
+      "icon": "assets/maps/tft/icons/augments/hexcore/earlylearning_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_EfficientShopper",
+      "name": "Efficient Shopper",
+      "icon": "assets/maps/tft/icons/augments/hexcore/efficientshopper_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_EpicRolldown",
+      "name": "Epic Rolldown",
+      "icon": "assets/maps/tft/icons/augments/hexcore/epicrolldown_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_EvilBeyondMeasure",
+      "name": "Evil Beyond Measure",
+      "icon": "assets/maps/tft/icons/augments/hexcore/evilbeyondmeasure_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ExclusiveCustomization",
+      "name": "Exclusive Customization",
+      "icon": "assets/maps/tft/icons/augments/hexcore/exclusivecustomization_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ExclusiveCustomization2",
+      "name": "Exclusive Customization II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/exclusivecustomization_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ExpectedUnexpectedness",
+      "name": "Expected Unexpectedness",
+      "icon": "assets/maps/tft/icons/augments/hexcore/addicted-to-rolling-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Expedition",
+      "name": "Expedition",
+      "icon": "assets/maps/tft/icons/augments/hexcore/expedition_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ExplosiveGrowth",
+      "name": "Explosive Growth",
+      "icon": "assets/maps/tft/icons/augments/hexcore/explosivegrowth_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ExplosiveGrowthPlus",
+      "name": "Explosive Growth+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/explosivegrowth_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_EyeForAnEye",
+      "name": "Eye For An Eye",
+      "icon": "assets/maps/tft/icons/augments/hexcore/eyeforaneye_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_EyeForAnEyePlus",
+      "name": "Eye For An Eye+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/eyeforaneye_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FeedTheFlames",
+      "name": "Feed the Flames",
+      "icon": "assets/maps/tft/icons/augments/hexcore/feedtheflames_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FeelingLucky",
+      "name": "Feeling Lucky",
+      "icon": "assets/maps/tft/icons/augments/hexcore/feelinglucky_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FindYourCenter",
+      "name": "Find Your Center",
+      "icon": "assets/maps/tft/icons/augments/hexcore/findyourcenter_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FiresalePlus",
+      "name": "Firesale",
+      "icon": "assets/maps/tft/icons/augments/hexcore/firesale_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Flexible",
+      "name": "Flexible",
+      "icon": "assets/maps/tft/icons/augments/hexcore/flexible_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FoodfightTactics",
+      "name": "Mess Hall",
+      "icon": "assets/maps/tft/icons/augments/hexcore/foodfighttactics_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ForgeAFriend",
+      "name": "Forge a Friend",
+      "icon": "assets/maps/tft/icons/augments/hexcore/constructacompanion_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ForgeRod",
+      "name": "Staffsmith",
+      "icon": "assets/maps/tft/icons/augments/hexcore/rodsmith_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ForgeSword",
+      "name": "Swordsmith",
+      "icon": "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ForgedInStrength",
+      "name": "Forged in Strength",
+      "icon": "assets/maps/tft/icons/augments/hexcore/forgedinstrength_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ForwardThinking",
+      "name": "Forward Thinking",
+      "icon": "assets/maps/tft/icons/augments/hexcore/forwardthinking_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FrontlineFoundation",
+      "name": "Frontline Foundation",
+      "icon": "assets/maps/tft/icons/augments/hexcore/frontlinefoundation_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_FuriousBlows",
+      "name": "Kahunahuna",
+      "icon": "assets/maps/tft/icons/augments/hexcore/furiousblows_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GainGold",
+      "name": "Gain @Gold@ Gold",
+      "icon": "assets/maps/tft/icons/augments/hexcore/windfall2.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GiantAndMighty",
+      "name": "Giant and Mighty",
+      "icon": "assets/maps/tft/icons/augments/hexcore/giantandmighty_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GildedSteel",
+      "name": "Gilded Steel",
+      "icon": "assets/maps/tft/icons/augments/hexcore/gildedsteel_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GlassCannonI",
+      "name": "Glass Cannon I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/glasscannon_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GlassCannonII",
+      "name": "Glass Cannon II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/glasscannon_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldDestiny",
+      "name": "Gold Destiny",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldendestiny_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldDestinyPlus",
+      "name": "Gold Destiny+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldendestiny_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldForDummies",
+      "name": "Gold For Dummies",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldfordummies_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldenGamble",
+      "name": "Golden Gamble",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldengamble_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldenGamblePlus",
+      "name": "Golden Gamble+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldengamble_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldenGamblePlusPlus",
+      "name": "Golden Gamble++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/goldengamble_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GoldenQuest",
+      "name": "A Golden Quest",
+      "icon": "assets/maps/tft/icons/augments/hexcore/agoldenquest_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Golemify",
+      "name": "Golemify",
+      "icon": "assets/maps/tft/icons/augments/hexcore/golemify_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GroupHug1",
+      "name": "Group Hug I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grouphug1_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GroupHug2",
+      "name": "Group Hug II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/grouphug2_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_GuardbreakerSpirit",
+      "name": "Mace's Will",
+      "icon": "assets/maps/tft/icons/augments/hexcore/will-of-the-flail-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HardBargain",
+      "name": "Hard Bargain",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hardbargain_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HardCommit",
+      "name": "Hard Commit",
+      "icon": "assets/maps/tft/icons/augments/hexcore/hardcommit_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HeadStart",
+      "name": "Delayed Start",
+      "icon": "assets/maps/tft/icons/augments/hexcore/headstart_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HeavyIsTheCrown",
+      "name": "Heavy Is the Crown",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heavyisthecrown_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HeftyRolls",
+      "name": "Hefty Rolls",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heftyrolls_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HeroicGrabBagPlus",
+      "name": "Heroic Grab Bag+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HeroicGrabBagPlusPlus",
+      "name": "Heroic Grab Bag++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HighVoltage",
+      "name": "High Voltage",
+      "icon": "assets/maps/tft/icons/augments/hexcore/highvoltage_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HoldTheLine",
+      "name": "Hold the Line",
+      "icon": "assets/maps/tft/icons/augments/hexcore/holdtheline_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HomeCooking",
+      "name": "Care Package",
+      "icon": "assets/maps/tft/icons/augments/hexcore/carepackage_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_HowlingGale",
+      "name": "Howling Gale",
+      "icon": "assets/maps/tft/icons/augments/hexcore/howlinggale_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Incoming",
+      "name": "Lit Fuse",
+      "icon": "assets/maps/tft/icons/augments/hexcore/incoming_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_InfinityProtection",
+      "name": "Infinity Protection",
+      "icon": "assets/maps/tft/icons/augments/hexcore/infinityprotection_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_InvestedPlus",
+      "name": "Invested+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/invested-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_InvestedPlusPlus",
+      "name": "Invested++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/invested-iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_InvestmentStrategy1",
+      "name": "Investment Strategy I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_InvestmentStrategy2",
+      "name": "Investment Strategy II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ItemCollector1",
+      "name": "Item Collector I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/itemcollector_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ItemCollector2",
+      "name": "Item Collector II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/itemcollector_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ItemGargoyleStoneplate",
+      "name": "Solo Plate",
+      "icon": "assets/maps/tft/icons/augments/hexcore/soloplate_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ItemSpiritVisage",
+      "name": "Spirit of Redemption",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spiritofredemption_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_JustSlayer",
+      "name": "Indiscriminate Killer",
+      "icon": "assets/maps/tft/icons/augments/hexcore/indiscriminateslayer_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_KickStart",
+      "name": "Kick Start",
+      "icon": "assets/maps/tft/icons/augments/hexcore/kickstart_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_LastSecondSave",
+      "name": "Last Second Save",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lastsecondsave_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_LateGameScaling",
+      "name": "Late Game Scaling",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lategamescaling_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_LegionOfThrees",
+      "name": "Legion of Threes",
+      "icon": "assets/maps/tft/icons/augments/hexcore/legionofthrees_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Lineup",
+      "name": "Lineup",
+      "icon": "assets/maps/tft/icons/augments/hexcore/lineup-i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_LuxurySubscription",
+      "name": "Luxury Subscription",
+      "icon": "assets/maps/tft/icons/augments/hexcore/luxurysubscription_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MagicRoll",
+      "name": "A Magic Roll",
+      "icon": "assets/maps/tft/icons/augments/hexcore/a-magical-roll-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MagicRollMinus",
+      "name": "Slightly Magic Roll",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slightlymagicroll_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MarksMan",
+      "name": "Focused Fire",
+      "icon": "assets/maps/tft/icons/augments/hexcore/marksman_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MaxBuild",
+      "name": "Max Build",
+      "icon": "assets/maps/tft/icons/augments/hexcore/maxbuild_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MinMaxer",
+      "name": "Min-Max",
+      "icon": "assets/maps/tft/icons/augments/hexcore/minmax_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MirroredMonetization",
+      "name": "Malicious Monetization",
+      "icon": "assets/maps/tft/icons/augments/hexcore/mirroredmonetization_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Misfits",
+      "name": "Misfits",
+      "icon": "assets/maps/tft/icons/augments/hexcore/misfits_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MoneyHungry",
+      "name": "Money Hungry",
+      "icon": "assets/maps/tft/icons/augments/hexcore/moneyhungry1_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MoneyMonsoon",
+      "name": "Money Monsoon",
+      "icon": "assets/maps/tft/icons/augments/hexcore/moneymonsoon_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Moonlight",
+      "name": "Moonlight",
+      "icon": "assets/maps/tft/icons/augments/hexcore/moonlight_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_MuseumHeist",
+      "name": "Component Heist",
+      "icon": "assets/maps/tft/icons/augments/hexcore/museumheist_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_NineLives",
+      "name": "Nine Lives",
+      "icon": "assets/maps/tft/icons/augments/hexcore/ninelives_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_NoScoutNoPivot",
+      "name": "NO SCOUT NO PIVOT",
+      "icon": "assets/maps/tft/icons/augments/hexcore/noscoutnopivot_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_NobleSacrifice",
+      "name": "Noble Sacrifice",
+      "icon": "assets/maps/tft/icons/augments/hexcore/anoblesacrifice_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_OneBuffTwoBuff",
+      "name": "One Buff, Two Buff",
+      "icon": "assets/maps/tft/icons/augments/hexcore/onebufftwobuff_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Overheal",
+      "name": "Overheal",
+      "icon": "assets/maps/tft/icons/augments/hexcore/overheal_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PatienceIsAVirtue",
+      "name": "Patience is a Virtue",
+      "icon": "assets/maps/tft/icons/augments/hexcore/patienceisavirtue_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Pilfer",
+      "name": "Pilfer",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pilfer_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Placebo",
+      "name": "Placebo",
+      "icon": "assets/maps/tft/icons/augments/hexcore/placebo_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PlaceboPlus",
+      "name": "Placebo+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/placebo_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PlotArmor",
+      "name": "Plot Armor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/plotarmor_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PocketRecombobulator",
+      "name": "Pocket Recombobulator",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pocketrecombulator_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PowerUp",
+      "name": "Augmented Power",
+      "icon": "assets/maps/tft/icons/augments/hexcore/powerup_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PrismaticDestiny",
+      "name": "Prismatic Destiny",
+      "icon": "assets/maps/tft/icons/augments/hexcore/prismaticdestiny_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Protagonist",
+      "name": "Protagonist",
+      "icon": "assets/maps/tft/icons/augments/hexcore/protaganist_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_PsychicForge",
+      "name": "Psychic Forge",
+      "icon": "assets/maps/tft/icons/augments/hexcore/psychicforge_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Pyromaniac",
+      "name": "Pyromaniac",
+      "icon": "assets/maps/tft/icons/augments/hexcore/pyromaniac_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_QualityOverQuantity",
+      "name": "Quality Over Quantity",
+      "icon": "assets/maps/tft/icons/augments/hexcore/qualityoverquantity_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_QuietQuitting",
+      "name": "Quiet Quitting",
+      "icon": "assets/maps/tft/icons/augments/hexcore/quietquitting_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Replication",
+      "name": "Replication",
+      "icon": "assets/maps/tft/icons/augments/hexcore/replication-ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_RerollTransfer",
+      "name": "Reroll Transfer",
+      "icon": "assets/maps/tft/icons/augments/hexcore/reroll-transfer-i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_RestartMission",
+      "name": "Restart Mission",
+      "icon": "assets/maps/tft/icons/augments/hexcore/restartmission_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Retribution",
+      "name": "Retribution",
+      "icon": "assets/maps/tft/icons/augments/hexcore/retribution_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_RiggedShopPlus",
+      "name": "Rigged Shop+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/riggedshop_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SavingsAccount",
+      "name": "Savings Account",
+      "icon": "assets/maps/tft/icons/augments/hexcore/savingsaccount_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SeraphimsStaff",
+      "name": "Seraphim's Staff",
+      "icon": "assets/maps/tft/icons/augments/hexcore/seraphimsstaff_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ShimmerscaleEssence",
+      "name": "Shimmerscale Essence",
+      "icon": "assets/maps/tft/icons/augments/hexcore/shimmerscaleessence_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ShojinSpirit",
+      "name": "Spear's Will",
+      "icon": "assets/maps/tft/icons/augments/hexcore/will-of-the-spear-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SideEffects",
+      "name": "Side Effects",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sideeffects_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SilverDestiny",
+      "name": "Silver Destiny",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SilverDestinyPlus",
+      "name": "Silver Destiny+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SilverDestinyPlusPlus",
+      "name": "Silver Destiny++",
+      "icon": "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SizeMatters",
+      "name": "Size Matters",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sizematters_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SliceOfLife",
+      "name": "Slice of Life",
+      "icon": "assets/maps/tft/icons/augments/hexcore/slice_of_life_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SmallGrabBag",
+      "name": "Small Grab Bag",
+      "icon": "assets/maps/tft/icons/augments/hexcore/smallgrabbag_i.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SoloLeveling",
+      "name": "Solo Leveling",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sololeveling_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SpeedyDoubleKill",
+      "name": "Speedy Double Kill",
+      "icon": "assets/maps/tft/icons/augments/hexcore/speedydoublekill_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SpiritLink1",
+      "name": "Spirit Link",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spiritlink_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SpreadingRoots",
+      "name": "Spreading Roots",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spreadingroots_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SpreadingRootsPlus",
+      "name": "Spreading Roots+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/spreadingroots_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_StoryOfSeven",
+      "name": "A Story of Seven",
+      "icon": "assets/maps/tft/icons/augments/hexcore/questfortheseven_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SubscriptionService",
+      "name": "Subscription Service",
+      "icon": "assets/maps/tft/icons/augments/hexcore/subscriptionservice_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Survivor",
+      "name": "Survivor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/survivor_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SweetTreats",
+      "name": "Sweet Treats",
+      "icon": "assets/maps/tft/icons/augments/hexcore/sweettreats_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_SwordOverflow",
+      "name": "Sword Overflow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/bladeoverflow_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TableScraps",
+      "name": "Table Scraps",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tablescraps_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TacticiansKitchen",
+      "name": "Tactician's Kitchen",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tacticianskitchen_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TeslaCoil",
+      "name": "Tesla Coil",
+      "icon": "assets/maps/tft/icons/augments/hexcore/teslacoil_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TheBaronsLair",
+      "name": "Baron's Lair",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thebaronslair_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TheDarkinBlade",
+      "name": "Blood Offering",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trailofblood_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TheGoldenDragon",
+      "name": "The Golden Dragon",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thegoldendragon_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TheTower",
+      "name": "The Tower",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thetower_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TheVidalion",
+      "name": "Woven Magic",
+      "icon": "assets/maps/tft/icons/augments/hexcore/wovenmagic_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_ThornPlatedArmor",
+      "name": "Thorn-Plated Armor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thornplatedarmor_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TimeSkip",
+      "name": "Time Skip",
+      "icon": "assets/maps/tft/icons/augments/hexcore/timeskip_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TitanicTitan",
+      "name": "Titanic Titan",
+      "icon": "assets/maps/tft/icons/augments/hexcore/titanictitan_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TombRaider1",
+      "name": "Tomb Raider I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tombraider_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TombRaider2",
+      "name": "Tomb Raider II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/tombraider_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TragicalBlade",
+      "name": "Deadlier Blades",
+      "icon": "assets/maps/tft/icons/augments/hexcore/deadlierblades_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TraitTree",
+      "name": "The Trait Tree",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thetraittree_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TraitTreePlus",
+      "name": "The Trait Tree+",
+      "icon": "assets/maps/tft/icons/augments/hexcore/thetraittree_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TreasureHunt",
+      "name": "Treasure Hunt",
+      "icon": "assets/maps/tft/icons/augments/hexcore/treasurehunt_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Trifecta1",
+      "name": "Trifecta I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trifecta-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Trifecta2",
+      "name": "Trifecta II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/trifecta-iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TwinGuardians",
+      "name": "Twin Guardians",
+      "icon": "assets/maps/tft/icons/augments/hexcore/twinguardians_i.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TwoMuchValue",
+      "name": "Two Much Value",
+      "icon": "assets/maps/tft/icons/augments/hexcore/twomuchvalue_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TwoTanky",
+      "name": "Two Tanky",
+      "icon": "assets/maps/tft/icons/augments/hexcore/two-tanky-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_TwoTrick",
+      "name": "Two Trick",
+      "icon": "assets/maps/tft/icons/augments/hexcore/two-trick-ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Underdogs",
+      "name": "Underdogs",
+      "icon": "assets/maps/tft/icons/augments/hexcore/underdogs1.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Unforgotten",
+      "name": "Warlord's Honor",
+      "icon": "assets/maps/tft/icons/augments/hexcore/unforgotten_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_UnlimitedPower",
+      "name": "Unlimited Power",
+      "icon": "assets/maps/tft/icons/augments/hexcore/unlimitedpower_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_UpwardMobility",
+      "name": "Upward Mobility",
+      "icon": "assets/maps/tft/icons/augments/hexcore/upwardmobility_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_UrfsGambit",
+      "name": "Urf's Gambit",
+      "icon": "assets/maps/tft/icons/augments/hexcore/urfsgambit_ii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WandOverflow",
+      "name": "Wand Overflow",
+      "icon": "assets/maps/tft/icons/augments/hexcore/wandoverflow_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WarmogsBuckle",
+      "name": "Heart of Steel",
+      "icon": "assets/maps/tft/icons/augments/hexcore/healthygains_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Warpath",
+      "name": "Warpath",
+      "icon": "assets/maps/tft/icons/augments/hexcore/warpath_ii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WaterLotus1",
+      "name": "Water Lotus I",
+      "icon": "assets/maps/tft/icons/augments/hexcore/waterlotus_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WaterLotus2",
+      "name": "Water Lotus II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/waterlotus_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_Waverider",
+      "name": "On a Roll",
+      "icon": "assets/maps/tft/icons/augments/hexcore/onaroll_i.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WeStickTogether",
+      "name": "We Stick Together",
+      "icon": "assets/maps/tft/icons/augments/hexcore/westicktogether_iii.png",
+      "categories": [
+        "item"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WinOut",
+      "name": "Win Out",
+      "icon": "assets/maps/tft/icons/augments/hexcore/winout_iii.png",
+      "categories": [
+        "econ"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WorthTheWaitGold",
+      "name": "Worth the Wait",
+      "icon": "assets/maps/tft/icons/augments/hexcore/worththewait_ii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    },
+    {
+      "id": "TFT_Augment_WorthTheWaitPrismatic",
+      "name": "Worth the Wait II",
+      "icon": "assets/maps/tft/icons/augments/hexcore/worththewait_iii.png",
+      "categories": [
+        "combat"
+      ],
+      "guessed": true
+    }
   ]
 }
