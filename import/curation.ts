@@ -66,3 +66,11 @@ export const AUGMENT_CATEGORY_OVERRIDES: Record<string, AugmentCategory[]> = {};
 
 // Items to leave out although they look like craftable items. Keyed by item id.
 export const EXCLUDED_ITEM_IDS: string[] = [];
+
+// Units on tftacademy boards that are not champions, for example trait plants. They are left out of the boards.
+// Any other unknown unit fails the import.
+export const IGNORED_UNIT_IDS: string[] = [
+  "DA_Elderwood18_Lifeblossom",
+  "DA_Elderwood18_Protector",
+  "DA_Elderwood18_StonebarkTree",
+];

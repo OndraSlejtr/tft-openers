@@ -1,3 +1,4 @@
+import { stringify, unflatten } from "devalue";
 import { describe, expect, it } from "vitest";
 import academyFixture from "./fixtures/academy.json" with { type: "json" };
 import cdragonFixture from "./fixtures/cdragon.json" with { type: "json" };
@@ -28,7 +29,8 @@ describe("transform", () => {
     const luxes = bundle.champions.filter(({ name }) => name.startsWith("Lux"));
     expect(luxes).toHaveLength(1);
     expect(luxes[0]).toMatchObject({ id: "DA_Lux18_Base", name: "Lux", cost: 5 });
-    expect(luxes[0].variantIds).toEqual(["DA_Lux18_Base", "DA_Lux18_Blackthorn", "DA_18_Lux_Fae"]);
+    expect(luxes[0].variantIds).toHaveLength(10);
+    expect(luxes[0].variantIds).toEqual(expect.arrayContaining(["DA_Lux18_Base", "DA_Lux18_Blackthorn", "DA_18_Lux_Fae"]));
   });
 
   it("gives other champions only their own id as variant", () => {
@@ -162,10 +164,8 @@ describe("transform components", () => {
 
   it("leaves a component without curation uncategorized", () => {
     const uncurated = withCatalog((catalog, set18) => {
-      const rod = entryOf(catalog, "DA_Component_NeedlesslyLargeRod");
-      rod.apiName = "DA_Component_NewThing";
-      set18.items = set18.items.map((id) => (id === "DA_Component_NeedlesslyLargeRod" ? "DA_Component_NewThing" : id));
-      for (const item of catalog) item.composition = item.composition.map((id) => (id === "DA_Component_NeedlesslyLargeRod" ? "DA_Component_NewThing" : id));
+      catalog.push({ ...entryOf(catalog, "DA_Component_NeedlesslyLargeRod"), apiName: "DA_Component_NewThing" });
+      set18.items.push("DA_Component_NewThing");
     });
     const component = transform(uncurated).components.find(({ id }) => id === "DA_Component_NewThing");
     expect(component).toMatchObject({ side: null, guessed: false });
@@ -222,8 +222,8 @@ describe("transform completed items", () => {
 
   it("imports items without curation as uncategorized", () => {
     const uncurated = withCatalog((catalog, set18) => {
-      entryOf(catalog, "DA_InfinityEdge").apiName = "DA_BrandNewItem";
-      set18.items = set18.items.map((id) => (id === "DA_InfinityEdge" ? "DA_BrandNewItem" : id));
+      catalog.push({ ...entryOf(catalog, "DA_InfinityEdge"), apiName: "DA_BrandNewItem" });
+      set18.items.push("DA_BrandNewItem");
     });
     const item = transform(uncurated).items.find(({ id }) => id === "DA_BrandNewItem");
     expect(item).toMatchObject({ categories: [], guessed: false });
@@ -259,7 +259,8 @@ describe("transform augments", () => {
   };
 
   it("includes every augment of the set", () => {
-    expect(augments).toHaveLength(9);
+    const set18 = cdragonFixture.setData.find(({ mutator }) => mutator === "TFTSet18")!;
+    expect(augments.map(({ id }) => id)).toEqual(set18.augments);
   });
 
   it("marks every category as guessed", () => {
@@ -381,12 +382,169 @@ describe("transform review rules", () => {
 
   it("detects emblems by name", () => {
     const renamed = withCatalog((catalog, set18) => {
-      entryOf(catalog, "DA_18_EmblemBlossom").apiName = "DA_18_SpatulaBlossom";
-      set18.items = set18.items.map((id) => (id === "DA_18_EmblemBlossom" ? "DA_18_SpatulaBlossom" : id));
+      catalog.push({ ...entryOf(catalog, "DA_18_EmblemBlossom"), apiName: "DA_18_SpatulaBlossom" });
+      set18.items.push("DA_18_SpatulaBlossom");
     });
     expect(transform(renamed).items.find(({ id }) => id === "DA_18_SpatulaBlossom")).toMatchObject({
       emblem: true,
       categories: ["utility"],
     });
+  });
+});
+
+type Guide = {
+  compSlug: string;
+  set: number;
+  isPublic: boolean;
+  mainChampion: { apiName: string };
+  earlyComp: { apiName: string; items: string[] }[];
+  finalComp: { apiName: string; items: string[] }[];
+  carousel: { apiName: string }[];
+  augments: { apiName: string; disabled: boolean }[];
+};
+
+// Decodes the guides from the fixture, applies a change and encodes them again.
+const withGuides = (change: (guides: Guide[]) => Guide[] | void) => {
+  const copy = structuredClone(academyFixture) as { nodes: { data: unknown[] }[] };
+  const guides = (unflatten(copy.nodes[2].data) as { guides: Guide[] }).guides;
+  copy.nodes[2].data = JSON.parse(stringify({ guides: change(guides) ?? guides }));
+  return { ...sources, academy: copy };
+};
+
+const compOf = (bundle: ReturnType<typeof transform>, slug: string) => bundle.comps.find((comp) => comp.slug === slug)!;
+
+describe("transform comps", () => {
+  const bundle = transform(sources);
+  const azirRammus = compOf(bundle, "set-18-azir-rammus");
+
+  it("imports only public guides", () => {
+    expect(bundle.comps.map(({ slug }) => slug)).toEqual([
+      "set-18-azir-rammus",
+      "set-18-riftbeast-reroll",
+      "set-18-woodblossom",
+    ]);
+  });
+
+  it("decodes the comp fields", () => {
+    expect(azirRammus).toMatchObject({
+      title: "Azir Rammus",
+      tier: "S",
+      style: "3-Cost Reroll",
+      difficulty: "EASY",
+      mainChampionId: "DA_18_Azir",
+      augmentTypes: ["ITEMS", "ECON", "COMBAT"],
+    });
+    expect(azirRammus.updated).toBe("2026-10-15 17:58:46.538Z");
+  });
+
+  it("decodes early and final boards with items and stars", () => {
+    expect(azirRammus.earlyBoard.map(({ championId }) => championId)).toEqual([
+      "DA_Karma18",
+      "DA_18_Yorick",
+      "DA_18_Yunara",
+      "DA_18_Azir",
+    ]);
+    expect(azirRammus.earlyBoard[3]).toEqual({ championId: "DA_18_Azir", itemIds: ["DA_GuinsoosRageblade"], stars: 1 });
+    expect(azirRammus.finalBoard.find(({ championId }) => championId === "DA_18_Azir")).toEqual({
+      championId: "DA_18_Azir",
+      itemIds: ["DA_GuinsoosRageblade", "DA_RabadonsDeathcap", "DA_HextechGunblade"],
+      stars: 3,
+    });
+  });
+
+  it("decodes carousel items and stage tips", () => {
+    expect(azirRammus.carouselItemIds).toEqual([
+      "DA_GargoyleStoneplate",
+      "DA_Component_NeedlesslyLargeRod",
+      "DA_Component_RecurveBow",
+      "DA_Component_BFSword",
+    ]);
+    expect(azirRammus.stageTips).toHaveLength(3);
+    expect(azirRammus.stageTips[0]).toMatchObject({ stage: "Stage 2" });
+  });
+
+  it("keeps the augments that exist in the bundle in their order", () => {
+    const known = new Set(bundle.augments.map(({ id }) => id));
+    expect(azirRammus.augmentIds.length).toBeGreaterThan(0);
+    expect(azirRammus.augmentIds.every((id) => known.has(id))).toBe(true);
+  });
+
+  it("skips augments that Community Dragon does not know", () => {
+    const comp = compOf(bundle, "set-18-riftbeast-reroll");
+    expect(comp.augmentIds).not.toContain("DA_NestingDolls");
+    expect(comp.augmentIds).not.toContain("DA_CursedCrown");
+    expect(comp.augmentIds.length).toBeGreaterThan(0);
+  });
+
+  it("leaves out ignored non-champion units", () => {
+    const ids = compOf(bundle, "set-18-woodblossom").finalBoard.map(({ championId }) => championId);
+    expect(ids.length).toBeGreaterThan(0);
+    expect(ids.some((id) => id.startsWith("DA_Elderwood18_"))).toBe(false);
+  });
+
+  it("maps a Lux variant to the collapsed Lux champion", () => {
+    const lux = withGuides((guides) => {
+      guides[0].mainChampion.apiName = "DA_18_Lux_Fae";
+    });
+    expect(compOf(transform(lux), "set-18-azir-rammus").mainChampionId).toBe("DA_Lux18_Base");
+  });
+
+  it("imports public guides with an empty early board", () => {
+    const empty = withGuides((guides) => {
+      guides[0].earlyComp = [];
+    });
+    expect(compOf(transform(empty), "set-18-azir-rammus").earlyBoard).toEqual([]);
+  });
+
+  it("fails on an unknown champion", () => {
+    const broken = withGuides((guides) => {
+      guides[0].finalComp[0].apiName = "DA_18_Nobody";
+    });
+    expect(() => transform(broken)).toThrow(/unknown champion DA_18_Nobody/);
+  });
+
+  it("fails on an unknown main champion", () => {
+    const broken = withGuides((guides) => {
+      guides[0].mainChampion.apiName = "DA_18_Nobody";
+    });
+    expect(() => transform(broken)).toThrow(/unknown champion DA_18_Nobody/);
+  });
+
+  it("fails on an unknown board item", () => {
+    const broken = withGuides((guides) => {
+      guides[0].finalComp[0].items = ["DA_NoSuchItem"];
+    });
+    expect(() => transform(broken)).toThrow(/unknown item DA_NoSuchItem/);
+  });
+
+  it("fails on an unknown carousel item", () => {
+    const broken = withGuides((guides) => {
+      guides[0].carousel[0].apiName = "DA_NoSuchItem";
+    });
+    expect(() => transform(broken)).toThrow(/unknown item DA_NoSuchItem/);
+  });
+
+  it("fails on a duplicate slug", () => {
+    const broken = withGuides((guides) => {
+      guides[1].compSlug = guides[0].compSlug;
+    });
+    expect(() => transform(broken)).toThrow(/duplicate comp slug/);
+  });
+
+  it("fails on a guide from another set", () => {
+    const broken = withGuides((guides) => {
+      guides[0].set = 17;
+    });
+    expect(() => transform(broken)).toThrow(/set 17/);
+  });
+
+  it("fails when no public guide is left", () => {
+    const broken = withGuides((guides) => guides.map((guide) => ({ ...guide, isPublic: false })));
+    expect(() => transform(broken)).toThrow(/no public comps/);
+  });
+
+  it("fails when the response has no guides", () => {
+    const broken = { ...sources, academy: { nodes: academyFixture.nodes.slice(0, 2) } };
+    expect(() => transform(broken)).toThrow(/no guides/);
   });
 });

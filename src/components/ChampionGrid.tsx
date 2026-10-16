@@ -14,9 +14,11 @@ const BORDER_BY_COST: Record<Cost, string> = {
 type ChampionGridProps = {
   champions: Champion[];
   traitsById: Map<string, Trait>;
+  selectedChampionIds: readonly string[];
+  onToggleChampion: (championId: string) => void;
 };
 
-export const ChampionGrid = ({ champions, traitsById }: ChampionGridProps) => {
+export const ChampionGrid = ({ champions, traitsById, selectedChampionIds, onToggleChampion }: ChampionGridProps) => {
   const tiers = COSTS.map((cost) => ({ cost, tier: champions.filter((champion) => champion.cost === cost) })).filter(
     ({ tier }) => tier.length > 0,
   );
@@ -30,9 +32,16 @@ export const ChampionGrid = ({ champions, traitsById }: ChampionGridProps) => {
           <ul className="flex flex-wrap gap-2">
             {tier.map((champion) => (
               <li key={champion.id} className="group relative">
-                <div className={`size-14 overflow-hidden rounded border-2 bg-black/40 ${BORDER_BY_COST[cost]}`}>
+                <button
+                  type="button"
+                  aria-pressed={selectedChampionIds.includes(champion.id)}
+                  onClick={() => onToggleChampion(champion.id)}
+                  className={`block size-14 overflow-hidden rounded border-2 bg-black/40 ${BORDER_BY_COST[cost]} ${
+                    selectedChampionIds.includes(champion.id) ? "ring-2 ring-white" : "opacity-80 hover:opacity-100"
+                  }`}
+                >
                   <img src={iconUrl(champion.icon ?? PLACEHOLDER_ICON)} alt={champion.name} loading="lazy" className="size-full object-cover" />
-                </div>
+                </button>
                 <div
                   role="tooltip"
                   className="pointer-events-none absolute left-1/2 top-full z-10 mt-1 hidden -translate-x-1/2 rounded border border-white/10 bg-gray-900 p-2 text-xs shadow-lg group-hover:block"

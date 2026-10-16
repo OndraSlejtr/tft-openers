@@ -33,3 +33,8 @@ export const toIconPath = (gamePath: string, path: string): string => {
   if (!gamePath.endsWith(".tex")) throw new ImportError(`unexpected icon path "${gamePath}" at ${path}`);
   return gamePath.toLowerCase().replace(/\.tex$/, ".png");
 };
+
+export const expectBoolean = (value: unknown, path: string): boolean => {
+  if (typeof value !== "boolean") throw new ImportError(`expected a boolean at ${path}`);
+  return value;
+};
