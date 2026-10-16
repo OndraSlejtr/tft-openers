@@ -17,6 +17,8 @@ network:
     # Issues, branches and PRs for this repo
     - "github.com"
     - "api.github.com"
+  # Vite dev server, open http://localhost:5173 on the host
+  ports: ["5173:5173"]
   dns:
     rebind_protection: true
   tls:

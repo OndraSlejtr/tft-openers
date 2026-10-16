@@ -12,6 +12,34 @@ nvm use                # or `fnm use`, both read .nvmrc
 pnpm install
 ```
 
+## Development
+
+```bash
+pnpm dev                  # Vite dev server on http://localhost:5173
+pnpm run test             # Vitest
+pnpm run import           # refreshes game and comp data from Community Dragon and tftacademy
+```
+
+`dev` and `import` are added by the first implementation issue (#2). CI runs `pnpm run test` as the required `test` check on every PR.
+
+## Working with agents
+
+Each issue on GitHub is one vertical slice. Agents work in the sandbox and follow the rules in `CLAUDE.md`.
+
+- **Start a run:** `pnpm sandbox`, then for example "work through #2, #3, #4, #5 in order".
+- **Flow per issue:** branch `<issue>-<slug>`, PR with `Closes #<issue>`, auto-merge turned on, merged by GitHub once the required `test` check passes. No approval is needed.
+- **When you're needed:** only for issues labeled `blocked` and for the report at the end of a run. A blocked issue has a comment saying what's needed. The agent skips it and continues with issues that don't depend on it.
+- **Unblocking:** answer in the issue comment or install the requested package on the host, remove the `blocked` label, then start a new run.
+- **Reviewing:** read the merged PRs, or open the dev server at `http://localhost:5173` while the agent runs it.
+
+`main` is protected by the `main-protect` ruleset: no direct pushes, no force pushes, squash merge only, and the `test` check must pass. This applies to you as well, so all changes go through PRs.
+
+Manual settings agents can't change:
+
+- GitHub Pages source (Settings, Pages, Source: GitHub Actions), needed for #15
+- ruleset and repository settings
+- the sandbox token's permissions
+
 ## Sandboxed agents
 
 The coding agent (Claude Code) can run in a [microsandbox](https://microsandbox.dev/) VM with default-deny network egress. The config is `msb-config.yaml`, and the image is built from `.sandbox/Dockerfile` by a GitHub Action on every push to `main` that touches `.sandbox/`.
@@ -50,6 +78,8 @@ pnpm sandbox -- bash      # runs another command in the sandbox instead
 pnpm sandbox:stop         # stops the sandbox, conversations are kept
 pnpm sandbox:remove       # deletes the sandbox and everything on its disk
 ```
+
+Port 5173 is published, so a dev server the agent starts with `--host` opens on the host at `http://localhost:5173`. Only one sandbox at a time can publish it.
 
 Each worktree gets its own sandbox. The repo is mounted live at `/workspace`, so host edits and sandbox edits share the working tree. Commits made in the sandbox use your host git name and email, read when the sandbox is created. `.env` and `.env.local` are masked with `.env.example`, so the agent never sees real values. Other `.env.*` files (for example `.env.production.local`) are not masked, so keep secrets in those two.
 
