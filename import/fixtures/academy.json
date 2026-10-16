@@ -1,0 +1,41 @@
+{
+  "type": "data",
+  "nodes": [
+    {
+      "type": "data",
+      "data": [
+        {
+          "patch": 1,
+          "notifications": 2,
+          "authUser": 3
+        },
+        "18.4b",
+        [],
+        null
+      ],
+      "uses": {
+        "dependencies": [
+          "layout:notifications"
+        ]
+      }
+    },
+    {
+      "type": "data",
+      "data": [
+        {
+          "queriedGuide": 1,
+          "lastUpdated": 2
+        },
+        null,
+        "2026-10-16 04:03:52.163Z"
+      ],
+      "uses": {
+        "params": [
+          "compSlug",
+          "secondarySlug"
+        ],
+        "url": 1
+      }
+    }
+  ]
+}

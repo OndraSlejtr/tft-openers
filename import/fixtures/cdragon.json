@@ -1,0 +1,166 @@
+{
+  "setData": [
+    {
+      "mutator": "TFTSet17",
+      "name": "Set17",
+      "number": 17,
+      "champions": [
+        {
+          "apiName": "TFT_BlueGolem",
+          "name": "Golem",
+          "cost": 1,
+          "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+          "traits": []
+        }
+      ],
+      "traits": []
+    },
+    {
+      "mutator": "TFTSet18",
+      "name": "Set10",
+      "number": 18,
+      "champions": [
+        {
+          "apiName": "DA_18_Azir",
+          "name": "Azir",
+          "cost": 3,
+          "tileIcon": "assets/characters/tft18_azir/tft18_azir_square.tex",
+          "traits": [
+            "Blackthorn",
+            "Executioner",
+            "Summoner"
+          ]
+        },
+        {
+          "apiName": "DA_Karma18",
+          "name": "Karma",
+          "cost": 1,
+          "tileIcon": "assets/characters/tft18_karma/tft18_karma_square.tex",
+          "traits": [
+            "Blossom",
+            "Spellweaver"
+          ]
+        },
+        {
+          "apiName": "DA_18_RekSai",
+          "name": "Rek'Sai",
+          "cost": 1,
+          "tileIcon": "assets/characters/tft18_reksai/tft18_reksai_square.tex",
+          "traits": [
+            "Blackthorn",
+            "Brawler"
+          ]
+        },
+        {
+          "apiName": "DA_18_Yunara",
+          "name": "Yunara",
+          "cost": 2,
+          "tileIcon": "assets/characters/tft18_yunara/tft18_yunara_square.tex",
+          "traits": [
+            "Blossom",
+            "Executioner"
+          ]
+        },
+        {
+          "apiName": "DA_18_Teemo",
+          "name": "Teemo",
+          "cost": 2,
+          "tileIcon": "assets/characters/tft18_teemo/tft18_teemo_square.tex",
+          "traits": [
+            "Sprykin",
+            "Invoker"
+          ]
+        },
+        {
+          "apiName": "DA_Fiddlesticks18",
+          "name": "Fiddlesticks",
+          "cost": 3,
+          "tileIcon": "assets/characters/tft18_fiddlesticks/tft18_fiddlesticks_square.tex",
+          "traits": [
+            "Flora Fatalis",
+            "Defender",
+            "Spellweaver"
+          ]
+        },
+        {
+          "apiName": "DA_Taric18",
+          "name": "Taric",
+          "cost": 5,
+          "tileIcon": "assets/characters/tft18_taric/tft18_taric_square.tex",
+          "traits": [
+            "Emerald Aspect",
+            "Vanguard"
+          ]
+        },
+        {
+          "apiName": "DA_18_ElderDragon",
+          "name": "Elder Dragon",
+          "cost": 5,
+          "tileIcon": "assets/characters/tft18_elderdragon/hud/tft18_elderdragon_square.tex",
+          "traits": [
+            "Apex Predator",
+            "Riftbeast"
+          ]
+        },
+        {
+          "apiName": "DA_Lux18_Base",
+          "name": "Lux",
+          "cost": 5,
+          "tileIcon": "assets/characters/tft18_lux/tft18_lux_square.tex",
+          "traits": [
+            "Avatar"
+          ]
+        },
+        {
+          "apiName": "DA_Lux18_Blackthorn",
+          "name": "Lux (Blackthorn)",
+          "cost": 5,
+          "tileIcon": "assets/characters/tft18_lux/tft18_lux_blackthorn_square.tex",
+          "traits": [
+            "Blackthorn",
+            "Avatar"
+          ]
+        },
+        {
+          "apiName": "DA_18_Lux_Fae",
+          "name": "Lux (Fae)",
+          "cost": 5,
+          "tileIcon": "assets/characters/tft18_lux/tft18_lux_fae_square.tex",
+          "traits": [
+            "Fae",
+            "Avatar"
+          ]
+        },
+        {
+          "apiName": "TFT_TrainingDummy",
+          "name": "Training Dummy",
+          "cost": 1,
+          "tileIcon": "assets/characters/tft_trainingdummy/hud/icons2d/tft_trainingdummy_donothing.tex",
+          "traits": []
+        },
+        {
+          "apiName": "TFT_BlueGolem",
+          "name": "Golem",
+          "cost": 1,
+          "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+          "traits": []
+        },
+        {
+          "apiName": "TFT5_EmblemArmoryKey",
+          "name": "Tome of Traits",
+          "cost": 8,
+          "tileIcon": "assets/characters/tft8_teamupprop/hud/icons2d/tft5_emblemarmorykey_square.tex",
+          "traits": []
+        },
+        {
+          "apiName": "TFT6_MercenaryChest",
+          "name": "Mercenary Chest",
+          "cost": 11,
+          "tileIcon": "assets/characters/tft_itemunknown/skins/skin0/tft_item_unknown.tex",
+          "traits": []
+        }
+      ],
+      "traits": []
+    }
+  ]
+}
