@@ -10,6 +10,28 @@
     "sandbox": ".sandbox/with-secrets.sh msb exec --tty $(.sandbox/name.sh)",
     "sandbox:create": "mkdir -p node_modules && .sandbox/with-secrets.sh msb create --name $(.sandbox/name.sh) --conf msb-config.yaml",
     "sandbox:stop": "msb stop $(.sandbox/name.sh)",
-    "sandbox:remove": "msb remove --force $(.sandbox/name.sh)"
+    "sandbox:remove": "msb remove --force $(.sandbox/name.sh)",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "devalue": "^6.0.3",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
   }
 }

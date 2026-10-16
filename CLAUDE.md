@@ -9,16 +9,27 @@ Static web app for looking up Teamfight Tactics Set 18 openers and the comps the
 - Never push to `main`. Open a pull request whose body contains `Closes #<issue number>`.
 - After opening the pull request, turn on auto-merge with `gh pr merge --auto --squash`. GitHub merges it once the required `test` check passes. Never merge any other way, and never bypass or disable checks.
 - If the `test` check fails, fix it on the same branch. Don't open a new pull request.
-- When asked to work through several issues, take them in dependency order. Before starting the next one, wait until the previous pull request is merged (`gh pr checks --watch`, then `gh pr view --json state`), then update `main` and branch from it.
 - Keep the PR to the issue's scope. Note anything out of scope as a comment on the issue instead of building it.
-- If the issue is ambiguous or conflicts with the spec, stop and comment on the issue with the question and your recommended answer. Don't guess on decisions that change the data model or user-facing behavior.
-- If you hit an unforeseen problem with the agreed approach, stop and explain it in a comment instead of working around it.
+- If the issue is ambiguous or conflicts with the spec, stop work on it and treat it as blocked (see below). Put the question and your recommended answer in the comment. Don't guess on decisions that change the data model or user-facing behavior.
+- If you hit an unforeseen problem with the agreed approach, treat the issue as blocked and explain the problem instead of working around it.
+
+## Running several issues
+
+- Work in dependency order, using each issue's "Blocked by" list.
+- Before starting the next issue, wait until the previous pull request is merged (`gh pr checks --watch`, then `gh pr view --json state`). Then update `main` and branch from it.
+- An issue is blocked when the spec is unclear, the `test` check still fails after 3 fix attempts, or you need a package installed on the host. Then:
+  - comment on the issue (and its pull request, if one exists) with the reason and what you need from the user
+  - add the `blocked` label to the issue
+  - continue with the next issue that doesn't depend on the blocked one
+- When no unblocked issue is left, stop and print a short report: what merged (with PR links), what is blocked and why, and what the user needs to do.
 
 ## Tooling
 
 - Node 24 (`.nvmrc`) and pnpm (`packageManager`). Don't add other package managers.
 - `pnpm run test` must pass before every commit.
-- Install packages only on the host. In the sandbox `node_modules` is read-only, so ask the user.
+- The stack from the spec is already installed: react, react-dom, react-router, @dnd-kit (core, sortable, utilities), vite, @vitejs/plugin-react, typescript, tailwindcss with @tailwindcss/vite, vitest, devalue, tsx and @types for react and Node 24. Use these before reaching for anything new.
+- Install packages only on the host. In the sandbox `node_modules` is read-only, so ask the user, and say which package and why.
+- Run the dev server with `--host` on port 5173 so the user can open it on the host at `http://localhost:5173`.
 
 ## Code style
 

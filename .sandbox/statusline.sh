@@ -71,9 +71,14 @@ fmt_limit() {
 
 parts=()
 
-# Repo name, skipped in the sandbox where the repo is always /workspace
+# Repo name from the origin remote, so the sandbox shows it too (its folder is always /workspace)
 repo_root=$(git --no-optional-locks -C "$cwd" rev-parse --show-toplevel 2>/dev/null)
-[ -n "$repo_root" ] && [ "$repo_root" != "/workspace" ] && parts+=("📁 $CYAN${repo_root##*/}$RESET")
+if [ -n "$repo_root" ]; then
+  repo_name=$(git --no-optional-locks -C "$repo_root" remote get-url origin 2>/dev/null)
+  repo_name=${repo_name%.git}
+  repo_name=${repo_name##*/}
+  parts+=("📁 $CYAN${repo_name:-${repo_root##*/}}$RESET")
+fi
 
 branch=$(git --no-optional-locks -C "$cwd" branch --show-current 2>/dev/null)
 [ -n "$branch" ] && parts+=("🔀 $GREEN$branch$RESET")

@@ -13,6 +13,7 @@ You are running inside an isolated sandbox (microsandbox), not a full developer 
 - `/workspace` is the host repository mounted into the sandbox. `node_modules` is mounted read-only, so `pnpm install` does not work. Ask the user to install packages on the host.
 - `.env` and `.env.local` are masked with `.env.example`. You never see the real values, so ask the user when a task needs one.
 - `GH_TOKEN` is a fine-grained token limited to this repository. `gh` and `git push` use it. It cannot reach other repositories.
+- Port 5173 is published to the host. Start the Vite dev server with `--host` so the user can open `http://localhost:5173`.
 - Only mounted paths and the sandbox's own disk persist. `/tmp` is cleared on restart.
 
 ## Logging sandbox issues

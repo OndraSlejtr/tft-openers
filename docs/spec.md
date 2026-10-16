@@ -252,8 +252,7 @@ Openers are mine. I build them in a drag and drop editor by pulling champions in
 
 ## Further notes
 
-- The project folder is currently empty with no git repo. The repo gets initialized as the first implementation step. This spec should be filed as an issue labeled `ready-for-agent` once a GitHub remote exists.
-- Node 22 and pnpm are installed locally. nvm is not installed.
+- Repo setup, tooling, the dev sandbox and the agent workflow are described in `README.md` and `CLAUDE.md`. This file is the source of truth for the spec, and issue #1 is a copy.
 - The augment tier tag in cdragon is an inferred hash, but tiers are out of scope, so this doesn't matter.
 - I couldn't confirm tftacademy's terms of use regarding automated fetching. robots.txt allows the endpoint. The import should run rarely (once per patch) and identify itself with a plain user agent.
 - At research time tftacademy listed 68 Set 18 comps on patch 18.4b. Community Dragon listed 74 Set 18 champion entries (65 shop units plus 9 Lux variants) and about 400 unique augments.
