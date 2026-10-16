@@ -1,5 +1,5 @@
 import { unflatten } from "devalue";
-import type { Champion, Cost, DataBundle } from "../src/data/types.ts";
+import type { Champion, Cost, DataBundle, Trait } from "../src/data/types.ts";
 import { ImportError, expectArray, expectNumber, expectRecord, expectString } from "./shape.ts";
 
 export const SET_NUMBER = 18;
@@ -17,7 +17,7 @@ const toIconPath = (gamePath: string, path: string) => {
   return gamePath.toLowerCase().replace(/\.tex$/, ".png");
 };
 
-type RawChampion = { apiName: string; name: string; cost: number; icon: string };
+type RawChampion = { apiName: string; name: string; cost: number; icon: string; traitNames: string[] };
 
 const readChampions = (setEntry: Record<string, unknown>): RawChampion[] =>
   expectArray(setEntry.champions, "setData[].champions").map((raw, index) => {
@@ -29,6 +29,9 @@ const readChampions = (setEntry: Record<string, unknown>): RawChampion[] =>
       cost: expectNumber(champion.cost, `${path}.cost`),
       // Entries without a shop icon are not shop units, so a missing icon is read as empty.
       icon: typeof champion.tileIcon === "string" ? champion.tileIcon : "",
+      traitNames: expectArray(champion.traits, `${path}.traits`).map((trait, traitIndex) =>
+        expectString(trait, `${path}.traits[${traitIndex}]`),
+      ),
     };
   });
 
@@ -40,7 +43,7 @@ const VARIANT_NAME = /^(.+) \(.+\)$/;
 const baseNameOf = ({ name }: RawChampion) => VARIANT_NAME.exec(name)?.[1];
 
 // Variants are named "Base (Trait)". They collapse into the entry named "Base".
-const collapseVariants = (champions: RawChampion[]): Champion[] => {
+const collapseVariants = (champions: RawChampion[], traitIdByName: Map<string, string>): Champion[] => {
   const baseNames = new Set(champions.filter((champion) => baseNameOf(champion) === undefined).map(({ name }) => name));
   const isVariant = (champion: RawChampion) => {
     const baseName = baseNameOf(champion);
@@ -49,14 +52,30 @@ const collapseVariants = (champions: RawChampion[]): Champion[] => {
   const variants = champions.filter(isVariant);
   return champions
     .filter((champion) => !isVariant(champion))
-    .map(({ apiName, name, cost, icon }) => ({
+    .map(({ apiName, name, cost, icon, traitNames }) => ({
       id: apiName,
       name,
       cost: cost as Cost,
       icon: toIconPath(icon, `champion ${apiName} tileIcon`),
+      traitIds: traitNames.map((traitName) => {
+        const traitId = traitIdByName.get(traitName);
+        if (traitId === undefined) throw new ImportError(`champion ${apiName} has unknown trait "${traitName}"`);
+        return traitId;
+      }),
       variantIds: [apiName, ...variants.filter((variant) => baseNameOf(variant) === name).map((variant) => variant.apiName)],
     }));
 };
+
+const readTraits = (setEntry: Record<string, unknown>): Trait[] =>
+  expectArray(setEntry.traits, "setData[].traits").map((raw, index) => {
+    const path = `traits[${index}]`;
+    const trait = expectRecord(raw, path);
+    return {
+      id: expectString(trait.apiName, `${path}.apiName`),
+      name: expectString(trait.name, `${path}.name`),
+      icon: toIconPath(expectString(trait.icon, `${path}.icon`), `${path}.icon`),
+    };
+  });
 
 const readPatch = (academy: unknown): string => {
   const root = expectRecord(academy, "tftacademy response");
@@ -80,8 +99,10 @@ export const transform = ({ cdragon, academy }: RawSources): DataBundle => {
     throw new ImportError(`${SET_MUTATOR} has an unexpected set number ${String(setEntry.number)}`);
   }
 
-  const champions = collapseVariants(readChampions(setEntry).filter(isShopChampion)).toSorted(costOrder);
+  const traits = readTraits(setEntry);
+  const traitIdByName = new Map(traits.map(({ id, name }) => [name, id]));
+  const champions = collapseVariants(readChampions(setEntry).filter(isShopChampion), traitIdByName).toSorted(costOrder);
   if (champions.length === 0) throw new ImportError("no shop champions found");
 
-  return { setNumber: SET_NUMBER, patch: readPatch(academy), champions };
+  return { setNumber: SET_NUMBER, patch: readPatch(academy), traits, champions };
 };
