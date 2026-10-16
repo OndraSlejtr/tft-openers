@@ -28,3 +28,8 @@ export const expectNumber = (value: unknown, path: string): number => {
   }
   return value;
 };
+
+export const toIconPath = (gamePath: string, path: string): string => {
+  if (!gamePath.endsWith(".tex")) throw new ImportError(`unexpected icon path "${gamePath}" at ${path}`);
+  return gamePath.toLowerCase().replace(/\.tex$/, ".png");
+};

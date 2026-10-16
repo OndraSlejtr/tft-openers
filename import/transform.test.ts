@@ -118,3 +118,214 @@ describe("transform failures", () => {
     expect(() => transform({ ...sources, academy: null })).toThrow(ImportError);
   });
 });
+
+type FixtureEntry = { apiName: string; name?: string; desc?: string; composition: string[]; associatedTraits: string[]; icon: string };
+
+// Returns a copy of the fixture with changes applied to the catalog entry and the set lists.
+const withCatalog = (change: (items: FixtureEntry[], set18: { items: string[]; augments: string[] }) => void) => {
+  const copy = structuredClone(cdragonFixture) as unknown as {
+    items: FixtureEntry[];
+    setData: { mutator: string; items: string[]; augments: string[] }[];
+  };
+  change(copy.items, copy.setData.find(({ mutator }) => mutator === "TFTSet18")!);
+  return { ...sources, cdragon: copy };
+};
+
+const entryOf = (items: FixtureEntry[], apiName: string) => items.find((item) => item.apiName === apiName)!;
+
+describe("transform components", () => {
+  const { components } = transform(sources);
+
+  it("includes only the Set 18 components with their icons", () => {
+    expect(components).toHaveLength(10);
+    expect(components.every(({ id }) => id.startsWith("DA_Component_"))).toBe(true);
+    expect(components.find(({ id }) => id === "DA_Component_BFSword")?.icon).toMatch(/tft_item_bfsword\.png$/);
+  });
+
+  it("links each component to the completed items it builds into", () => {
+    const rod = components.find(({ id }) => id === "DA_Component_NeedlesslyLargeRod");
+    expect(rod?.builtInto).toEqual(
+      expect.arrayContaining(["DA_GuinsoosRageblade", "DA_RabadonsDeathcap", "DA_18_EmblemBlossom"]),
+    );
+    expect(rod?.builtInto).not.toContain("DA_WarmogsArmor");
+  });
+
+  it("lists a component once for items built from two copies of it", () => {
+    const belt = components.find(({ id }) => id === "DA_Component_GiantsBelt");
+    expect(belt?.builtInto.filter((id) => id === "DA_WarmogsArmor")).toHaveLength(1);
+  });
+
+  it("marks curated sides as guessed", () => {
+    const chainVest = components.find(({ id }) => id === "DA_Component_ChainVest");
+    expect(chainVest).toMatchObject({ side: "frontline", guessed: true });
+  });
+
+  it("leaves a component without curation uncategorized", () => {
+    const uncurated = withCatalog((catalog, set18) => {
+      const rod = entryOf(catalog, "DA_Component_NeedlesslyLargeRod");
+      rod.apiName = "DA_Component_NewThing";
+      set18.items = set18.items.map((id) => (id === "DA_Component_NeedlesslyLargeRod" ? "DA_Component_NewThing" : id));
+      for (const item of catalog) item.composition = item.composition.map((id) => (id === "DA_Component_NeedlesslyLargeRod" ? "DA_Component_NewThing" : id));
+    });
+    const component = transform(uncurated).components.find(({ id }) => id === "DA_Component_NewThing");
+    expect(component).toMatchObject({ side: null, guessed: false });
+  });
+});
+
+describe("transform completed items", () => {
+  const { items } = transform(sources);
+
+  it("keeps craftable items and emblems with their recipes", () => {
+    const rageblade = items.find(({ id }) => id === "DA_GuinsoosRageblade");
+    expect(rageblade).toMatchObject({
+      emblem: false,
+      componentIds: ["DA_Component_RecurveBow", "DA_Component_NeedlesslyLargeRod"],
+    });
+    expect(items.find(({ id }) => id === "DA_18_EmblemBlossom")?.emblem).toBe(true);
+  });
+
+  it("excludes radiants, consumables and legacy items", () => {
+    const ids = items.map(({ id }) => id);
+    expect(ids).not.toContain("DA_GuinsoosRagebladeRadiant");
+    expect(ids).not.toContain("DA_Consumable_ItemRemover");
+    expect(ids).not.toContain("TFT_Item_GuinsoosRageblade");
+  });
+
+  it("excludes artifacts even when they carry a recipe", () => {
+    const withRecipe = withCatalog((catalog, set18) => {
+      const artifact = entryOf(catalog, "DA_Artifact_Fishbones");
+      artifact.composition = ["DA_Component_RecurveBow", "DA_Component_BFSword"];
+      set18.items.push("DA_Artifact_Fishbones");
+    });
+    expect(transform(withRecipe).items.map(({ id }) => id)).not.toContain("DA_Artifact_Fishbones");
+  });
+
+  it("excludes radiants even when they carry a recipe", () => {
+    const withRecipe = withCatalog((catalog) => {
+      entryOf(catalog, "DA_GuinsoosRagebladeRadiant").composition = ["DA_Component_RecurveBow", "DA_Component_BFSword"];
+    });
+    expect(transform(withRecipe).items.map(({ id }) => id)).not.toContain("DA_GuinsoosRagebladeRadiant");
+  });
+
+  it("pre-fills curated categories and marks them guessed", () => {
+    expect(items.find(({ id }) => id === "DA_GuinsoosRageblade")).toMatchObject({
+      categories: ["AD", "AP"],
+      guessed: true,
+    });
+    expect(items.find(({ id }) => id === "DA_RabadonsDeathcap")?.categories).toEqual(["AP"]);
+    expect(items.find(({ id }) => id === "DA_WarmogsArmor")?.categories).toEqual(["tanky"]);
+  });
+
+  it("categorizes emblems as utility", () => {
+    expect(items.find(({ id }) => id === "DA_18_EmblemBlossom")).toMatchObject({ categories: ["utility"], guessed: true });
+  });
+
+  it("imports items without curation as uncategorized", () => {
+    const uncurated = withCatalog((catalog, set18) => {
+      entryOf(catalog, "DA_InfinityEdge").apiName = "DA_BrandNewItem";
+      set18.items = set18.items.map((id) => (id === "DA_InfinityEdge" ? "DA_BrandNewItem" : id));
+    });
+    const item = transform(uncurated).items.find(({ id }) => id === "DA_BrandNewItem");
+    expect(item).toMatchObject({ categories: [], guessed: false });
+  });
+
+  it("fails when a recipe references an unknown component", () => {
+    const broken = withCatalog((catalog) => {
+      entryOf(catalog, "DA_GuinsoosRageblade").composition = ["DA_Component_Nope", "DA_Component_BFSword"];
+    });
+    expect(() => transform(broken)).toThrow(/unknown component DA_Component_Nope/);
+  });
+
+  it("fails when a set item is missing from the item list", () => {
+    const broken = withCatalog((_, set18) => {
+      set18.items.push("DA_Missing");
+    });
+    expect(() => transform(broken)).toThrow(/unknown id DA_Missing/);
+  });
+});
+
+describe("transform augments", () => {
+  const { augments } = transform(sources);
+  const augmentOf = (id: string) => augments.find((augment) => augment.id === id);
+
+  // Replaces one fixture augment's text so each wording bucket is tested on its own.
+  const guessFor = (text: { name?: string; desc: string }) => {
+    const changed = withCatalog((catalog) => {
+      const entry = entryOf(catalog, "DA_18_ResidualMagic");
+      entry.desc = text.desc;
+      if (text.name !== undefined) entry.name = text.name;
+    });
+    return transform(changed).augments.find(({ id }) => id === "DA_18_ResidualMagic");
+  };
+
+  it("includes every augment of the set", () => {
+    expect(augments).toHaveLength(9);
+  });
+
+  it("marks every category as guessed", () => {
+    expect(augments.every(({ guessed, categories }) => guessed && categories.length === 1)).toBe(true);
+  });
+
+  it("makes augments with associated traits special", () => {
+    expect(augmentOf("DA_18_BlossomTraitAugment")?.categories).toEqual(["special"]);
+  });
+
+  it("makes augments tied to a hero special", () => {
+    expect(augmentOf("TFT9_Augment_DravenSpoilsOfWar")?.categories).toEqual(["special"]);
+  });
+
+  it("keeps special ahead of wording", () => {
+    const changed = withCatalog((catalog) => {
+      entryOf(catalog, "DA_18_BlossomTraitAugment").desc = "Gain 10 gold.";
+    });
+    expect(transform(changed).augments.find(({ id }) => id === "DA_18_BlossomTraitAugment")?.categories).toEqual(["special"]);
+  });
+
+  it("guesses econ from gold wording", () => {
+    expect(guessFor({ desc: "Gain <b>@Amount@</b> gold now." })?.categories).toEqual(["econ"]);
+  });
+
+  it("guesses econ from interest wording", () => {
+    expect(guessFor({ desc: "You earn more interest." })?.categories).toEqual(["econ"]);
+  });
+
+  it("guesses econ from XP wording", () => {
+    expect(guessFor({ desc: "Gain 8 XP." })?.categories).toEqual(["econ"]);
+  });
+
+  it("guesses item from component wording", () => {
+    expect(guessFor({ desc: "Gain a random component." })?.categories).toEqual(["item"]);
+  });
+
+  it("guesses item from item wording", () => {
+    expect(guessFor({ desc: "Your item holders deal more damage." })?.categories).toEqual(["item"]);
+  });
+
+  it("prefers econ over item when both wordings appear", () => {
+    expect(guessFor({ desc: "Gain 3 random components and 10 gold." })?.categories).toEqual(["econ"]);
+  });
+
+  it("guesses combat for everything else", () => {
+    expect(guessFor({ desc: "Your team gains 10% attack speed." })?.categories).toEqual(["combat"]);
+  });
+
+  it("ignores wording inside variable placeholders", () => {
+    expect(guessFor({ desc: "Your team gains @GoldBonus@ attack speed." })?.categories).toEqual(["combat"]);
+  });
+
+  it("does not read part of a word as a keyword", () => {
+    expect(guessFor({ desc: "Heroic itemization of golden xps." })?.categories).toEqual(["combat"]);
+  });
+
+  it("falls back to no icon for placeholder icons", () => {
+    expect(augmentOf("DA_18_WispRebatePlus")?.icon).toBeNull();
+    expect(augmentOf("DA_AdvancedLoan")?.icon).toMatch(/\.png$/);
+  });
+
+  it("fails when an augment is missing from the item list", () => {
+    const broken = withCatalog((_, set18) => {
+      set18.augments.push("DA_Missing");
+    });
+    expect(() => transform(broken)).toThrow(/unknown id DA_Missing/);
+  });
+});

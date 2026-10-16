@@ -1,6 +1,8 @@
 import { unflatten } from "devalue";
 import type { Champion, Cost, DataBundle, Trait } from "../src/data/types.ts";
-import { ImportError, expectArray, expectNumber, expectRecord, expectString } from "./shape.ts";
+import { buildAugments } from "./augments.ts";
+import { buildItems, readItemCatalog } from "./items.ts";
+import { ImportError, expectArray, expectNumber, expectRecord, expectString, toIconPath } from "./shape.ts";
 
 export const SET_NUMBER = 18;
 const SET_MUTATOR = `TFTSet${SET_NUMBER}`;
@@ -10,11 +12,6 @@ export type RawSources = {
   cdragon: unknown;
   // Parsed __data.json from the tftacademy comp tier list.
   academy: unknown;
-};
-
-const toIconPath = (gamePath: string, path: string) => {
-  if (!gamePath.endsWith(".tex")) throw new ImportError(`unexpected icon path "${gamePath}" at ${path}`);
-  return gamePath.toLowerCase().replace(/\.tex$/, ".png");
 };
 
 type RawChampion = { apiName: string; name: string; cost: number; icon: string; traitNames: string[] };
@@ -104,5 +101,9 @@ export const transform = ({ cdragon, academy }: RawSources): DataBundle => {
   const champions = collapseVariants(readChampions(setEntry).filter(isShopChampion), traitIdByName).toSorted(costOrder);
   if (champions.length === 0) throw new ImportError("no shop champions found");
 
-  return { setNumber: SET_NUMBER, patch: readPatch(academy), traits, champions };
+  const catalog = readItemCatalog(root);
+  const { components, items } = buildItems(setEntry, catalog);
+  const augments = buildAugments(setEntry, catalog, champions);
+
+  return { setNumber: SET_NUMBER, patch: readPatch(academy), traits, champions, components, items, augments };
 };
