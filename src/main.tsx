@@ -3,12 +3,14 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createHashRouter } from "react-router";
 import { DataPage } from "./DataPage.tsx";
 import { MainScreen } from "./MainScreen.tsx";
+import { OpenerDetailPage } from "./OpenerDetailPage.tsx";
 import { OpenerEditorPage } from "./OpenerEditorPage.tsx";
 import "./index.css";
 
 const router = createHashRouter([
   { path: "/", element: <MainScreen /> },
   { path: "/data", element: <DataPage /> },
+  { path: "/opener/:openerId", element: <OpenerDetailPage /> },
   { path: "/opener/:openerId/edit", element: <OpenerEditorPage /> },
 ]);
 

@@ -1,4 +1,4 @@
-import type { AugmentCategory, Comp, DataBundle, Opener } from "../data/types.ts";
+import type { Augment, AugmentCategory, Champion, Comp, CompletedItem, Component, DataBundle, Opener } from "../data/types.ts";
 import { type Overlay, emptyOverlay, parseOverlay, serializeOverlay } from "./overlay.ts";
 import { type StorageAdapter, createMemoryStorage } from "./storage.ts";
 
@@ -8,6 +8,31 @@ export type StoreState = {
   openers: readonly Opener[];
   // Set when reading or writing storage failed, shown to the user until dismissed.
   storageError: string | null;
+};
+
+export type CarryItem = {
+  itemId: string;
+  // Null for items outside the bundle's item list, such as artifacts and radiants.
+  item: CompletedItem | null;
+  components: Component[];
+};
+
+export type CompRow =
+  | { dead: true; slug: string }
+  | {
+      dead: false;
+      comp: Comp;
+      // Units on the final board that the opener's core does not cover, cheapest first.
+      missingUnits: Champion[];
+      carry: { champion: Champion; items: CarryItem[] } | null;
+      keyAugments: Augment[];
+    };
+
+export type OpenerDetail = {
+  opener: Opener;
+  displayName: string;
+  // One row per linked comp, in link order.
+  compRows: CompRow[];
 };
 
 export type RankedOpener = {
@@ -56,6 +81,8 @@ export type Store = {
   unlinkComp: (openerId: string, compSlug: string) => void;
   // Name to show, generated from the core champions when the opener has no name.
   displayName: (opener: Opener) => string;
+  // Null when the opener does not exist.
+  openerDetail: (openerId: string) => OpenerDetail | null;
 };
 
 export type ChampionList = "core" | "target";
@@ -85,6 +112,10 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
   const championNames = new Map(bundle.champions.map(({ id, name }) => [id, name]));
   const itemIds = new Set(bundle.items.map(({ id }) => id));
   const augmentIds = new Set(bundle.augments.map(({ id }) => id));
+  const championsById = new Map(bundle.champions.map((champion) => [champion.id, champion]));
+  const itemsById = new Map(bundle.items.map((item) => [item.id, item]));
+  const componentsById = new Map(bundle.components.map((component) => [component.id, component]));
+  const augmentsById = new Map(bundle.augments.map((augment) => [augment.id, augment]));
   const compsBySlug = new Map(bundle.comps.map((comp) => [comp.slug, comp]));
   const listeners = new Set<() => void>();
 
@@ -154,6 +185,39 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
     };
     saveOverlay({ ...overlay, openers: [...overlay.openers, opener] });
     return opener.id;
+  };
+
+  const compRow = (opener: Opener, slug: string): CompRow => {
+    const comp = compsBySlug.get(slug);
+    if (comp === undefined) return { dead: true, slug };
+    const missingUnits = [...new Set(comp.finalBoard.map(({ championId }) => championId))]
+      .filter((id) => !opener.coreChampionIds.includes(id))
+      .map((id) => championsById.get(id))
+      .filter((champion): champion is Champion => champion !== undefined)
+      .toSorted((a, b) => a.cost - b.cost || a.name.localeCompare(b.name));
+    const carryChampion = championsById.get(comp.mainChampionId);
+    const carryUnit = comp.finalBoard.find(({ championId }) => championId === comp.mainChampionId);
+    return {
+      dead: false,
+      comp,
+      missingUnits,
+      carry:
+        carryChampion === undefined
+          ? null
+          : {
+              champion: carryChampion,
+              items: (carryUnit?.itemIds ?? []).map((itemId) => {
+                const item = itemsById.get(itemId) ?? null;
+                const components = (item?.componentIds ?? [])
+                  .map((id) => componentsById.get(id))
+                  .filter((component): component is Component => component !== undefined);
+                return { itemId, item, components };
+              }),
+            },
+      keyAugments: comp.augmentIds
+        .map((id) => augmentsById.get(id))
+        .filter((augment): augment is Augment => augment !== undefined),
+    };
   };
 
   const bestTier = ({ compSlugs }: Opener) =>
@@ -252,6 +316,11 @@ export const createStore = (bundle: DataBundle, storage: StorageAdapter = create
     unlinkComp: (openerId, compSlug) =>
       updateExisting(openerId, (opener) => ({ ...opener, compSlugs: opener.compSlugs.filter((slug) => slug !== compSlug) })),
     displayName,
+    openerDetail: (openerId) => {
+      const opener = state.openers.find(({ id }) => id === openerId);
+      if (opener === undefined) return null;
+      return { opener, displayName: displayName(opener), compRows: opener.compSlugs.map((slug) => compRow(opener, slug)) };
+    },
     rankedOpeners: () =>
       state.openers
         .filter(({ status }) => status === "active")
