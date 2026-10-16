@@ -51,6 +51,50 @@ describe("transform", () => {
   });
 });
 
+describe("transform traits", () => {
+  const bundle = transform(sources);
+
+  it("includes traits with lowercased png icons", () => {
+    expect(bundle.traits).toContainEqual({
+      id: "DA_18_Elderwood",
+      name: "Elderwood",
+      icon: "assets/ux/traiticons/trait_icon_18_elderwood.png",
+    });
+    expect(bundle.traits).toHaveLength(36);
+  });
+
+  it("references traits by id on each champion", () => {
+    const azir = bundle.champions.find(({ id }) => id === "DA_18_Azir");
+    expect(azir?.traitIds).toEqual(["DA_18_Blackthorn", "DA_18_Executioner", "DA_18_Summoner"]);
+  });
+
+  it("gives champions without traits an empty list", () => {
+    const withoutTraits = structuredClone(cdragonFixture);
+    const set18 = withoutTraits.setData.find(({ mutator }) => mutator === "TFTSet18")!;
+    set18.champions.find(({ apiName }) => apiName === "DA_18_Azir")!.traits = [];
+    const azir = transform({ ...sources, cdragon: withoutTraits }).champions.find(({ id }) => id === "DA_18_Azir");
+    expect(azir?.traitIds).toEqual([]);
+  });
+
+  it("keeps the base Lux traits when variants collapse", () => {
+    const lux = bundle.champions.find(({ id }) => id === "DA_Lux18_Base");
+    expect(lux?.traitIds).toEqual(["DA_18_LuxUniqueTrait"]);
+  });
+
+  it("fails when a champion references an unknown trait", () => {
+    const broken = structuredClone(cdragonFixture);
+    const set18 = broken.setData.find(({ mutator }) => mutator === "TFTSet18")!;
+    set18.champions.find(({ apiName }) => apiName === "DA_18_Azir")!.traits.push("Nonexistent");
+    expect(() => transform({ ...sources, cdragon: broken })).toThrow(/unknown trait "Nonexistent"/);
+  });
+
+  it("fails when the trait list is missing", () => {
+    const broken = structuredClone(cdragonFixture) as { setData: Record<string, unknown>[] };
+    Reflect.deleteProperty(broken.setData[1], "traits");
+    expect(() => transform({ ...sources, cdragon: broken })).toThrow(/traits/);
+  });
+});
+
 describe("transform failures", () => {
   it("fails when Set 18 is missing", () => {
     const withoutSet18 = { setData: cdragonFixture.setData.filter(({ mutator }) => mutator !== "TFTSet18") };
