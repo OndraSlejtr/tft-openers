@@ -33,7 +33,9 @@ export const OpenerList = ({ openers }: { openers: readonly Opener[] }) => (
     <ul className="flex flex-col gap-1">
       {openers.map((opener) => (
         <li key={opener.id} className="flex items-center gap-2 rounded border border-white/10 px-2 py-1 text-sm">
-          <span className="truncate">{store.displayName(opener)}</span>
+          <Link to={`/opener/${opener.id}`} className="truncate hover:underline">
+            {store.displayName(opener)}
+          </Link>
           <OpenerActions openerId={opener.id} />
         </li>
       ))}

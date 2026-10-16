@@ -515,3 +515,91 @@ describe("opener items, augments and comps", () => {
     expect(rankedIds(store)).toEqual(["b", "a"]);
   });
 });
+
+describe("opener detail", () => {
+  const detailBundle: DataBundle = {
+    ...bundle,
+    champions: [
+      { ...champion("azir"), name: "Azir", cost: 4 as const },
+      { ...champion("karma"), name: "Karma", cost: 2 as const },
+      { ...champion("teemo"), name: "Teemo", cost: 1 as const },
+      { ...champion("lux"), name: "Lux", cost: 1 as const },
+    ],
+    components: [
+      { id: "bf-sword", name: "B.F. Sword", icon: "", side: "backline", guessed: false, builtInto: ["bf"] },
+      { id: "rod", name: "Needlessly Large Rod", icon: "", side: "backline", guessed: false, builtInto: ["bf"] },
+    ],
+    items: bundle.items.map((item) => (item.id === "bf" ? { ...item, name: "Big Sword", componentIds: ["bf-sword", "rod"] as [string, string] } : item)),
+    augments: bundle.augments,
+    comps: [
+      {
+        ...comp("azir-karma", "S", ["azir", "karma", "teemo", "teemo"]),
+        title: "Azir Karma",
+        mainChampionId: "azir",
+        finalBoard: [
+          { championId: "azir", itemIds: ["bf", "radiant-thing"], stars: 2 },
+          { championId: "karma", itemIds: [], stars: 1 },
+          { championId: "teemo", itemIds: [], stars: 1 },
+          { championId: "lux", itemIds: [], stars: 1 },
+        ],
+        augmentIds: ["rich", "gone-augment"],
+        augmentTypes: ["ITEMS", "ECON"],
+      },
+    ],
+  };
+
+  const detailStore = (openers: Opener[]) =>
+    createStore(detailBundle, createMemoryStorage(serializeOverlay({ version: 1, openers })));
+
+  const aliveRow = (store: ReturnType<typeof createStore>, openerId: string, index = 0) => {
+    const row = store.openerDetail(openerId)?.compRows[index];
+    if (row === undefined || row.dead) throw new Error("Expected a live comp row");
+    return row;
+  };
+
+  it("returns null for an unknown opener", () => {
+    expect(detailStore([]).openerDetail("nope")).toBeNull();
+  });
+
+  it("lists the final board units the core does not cover, cheapest first, without duplicates", () => {
+    const store = detailStore([opener("a", { coreChampionIds: ["karma"], compSlugs: ["azir-karma"] })]);
+    expect(aliveRow(store, "a").missingUnits.map(({ name }) => name)).toEqual(["Lux", "Teemo", "Azir"]);
+  });
+
+  it("lists every final board unit when the core is empty and none when it covers the board", () => {
+    const empty = detailStore([opener("a", { compSlugs: ["azir-karma"] })]);
+    expect(aliveRow(empty, "a").missingUnits).toHaveLength(4);
+    const covered = detailStore([opener("a", { coreChampionIds: ["azir", "karma", "teemo", "lux"], compSlugs: ["azir-karma"] })]);
+    expect(aliveRow(covered, "a").missingUnits).toEqual([]);
+  });
+
+  it("shows the carry's items with their components and keeps items outside the item list", () => {
+    const store = detailStore([opener("a", { compSlugs: ["azir-karma"] })]);
+    const carry = aliveRow(store, "a").carry;
+    expect(carry?.champion.name).toBe("Azir");
+    expect(carry?.items.map(({ itemId }) => itemId)).toEqual(["bf", "radiant-thing"]);
+    expect(carry?.items[0].item?.name).toBe("Big Sword");
+    expect(carry?.items[0].components.map(({ name }) => name)).toEqual(["B.F. Sword", "Needlessly Large Rod"]);
+    expect(carry?.items[1]).toMatchObject({ item: null, components: [] });
+  });
+
+  it("returns tier, style, augment priority and the key augments that exist", () => {
+    const store = detailStore([opener("a", { compSlugs: ["azir-karma"] })]);
+    const row = aliveRow(store, "a");
+    expect(row.comp).toMatchObject({ tier: "S", style: "Fast 8", augmentTypes: ["ITEMS", "ECON"] });
+    expect(row.keyAugments.map(({ id }) => id)).toEqual(["rich"]);
+  });
+
+  it("returns one row per linked comp in link order and flags dead links", () => {
+    const store = detailStore([opener("a", { compSlugs: ["gone", "azir-karma"] })]);
+    const detail = store.openerDetail("a");
+    expect(detail?.compRows[0]).toEqual({ dead: true, slug: "gone" });
+    expect(detail?.compRows[1]).toMatchObject({ dead: false });
+    expect(detail?.compRows).toHaveLength(2);
+  });
+
+  it("includes the opener and its display name", () => {
+    const store = detailStore([opener("a", { name: "", coreChampionIds: ["azir"] })]);
+    expect(store.openerDetail("a")).toMatchObject({ displayName: "Azir" });
+  });
+});

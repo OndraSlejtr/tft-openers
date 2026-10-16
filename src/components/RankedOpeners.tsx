@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { bundle } from "../data/bundle.ts";
 import type { RankedOpener } from "../domain/store.ts";
 import { OpenerActions } from "./OpenerList.tsx";
@@ -19,7 +20,9 @@ export const RankedOpeners = ({ rankedOpeners, hasSelection }: RankedOpenersProp
         <li key={opener.id} className="rounded border border-white/10 p-2">
           <div className="flex flex-wrap items-center gap-2">
             {bestTier !== null && <span className="rounded bg-white/15 px-1.5 py-0.5 text-xs font-semibold">Tier {bestTier}</span>}
-            <span className="text-sm font-medium">{displayName}</span>
+            <Link to={`/opener/${opener.id}`} className="text-sm font-medium hover:underline">
+              {displayName}
+            </Link>
             <OpenerActions openerId={opener.id} />
           </div>
           <p className="mt-1 text-xs text-gray-400">
