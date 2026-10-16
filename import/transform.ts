@@ -14,7 +14,7 @@ export type RawSources = {
   academy: unknown;
 };
 
-type RawChampion = { apiName: string; name: string; cost: number; icon: string; traitNames: string[] };
+type RawChampion = { apiName: string; name: string; cost: number; icon: string | null; traitNames: string[] };
 
 const readChampions = (setEntry: Record<string, unknown>): RawChampion[] =>
   expectArray(setEntry.champions, "setData[].champions").map((raw, index) => {
@@ -24,16 +24,19 @@ const readChampions = (setEntry: Record<string, unknown>): RawChampion[] =>
       apiName: expectString(champion.apiName, `${path}.apiName`),
       name: expectString(champion.name, `${path}.name`),
       cost: expectNumber(champion.cost, `${path}.cost`),
-      // Entries without a shop icon are not shop units, so a missing icon is read as empty.
-      icon: typeof champion.tileIcon === "string" ? champion.tileIcon : "",
+      icon: typeof champion.tileIcon === "string" ? champion.tileIcon : null,
       traitNames: expectArray(champion.traits, `${path}.traits`).map((trait, traitIndex) =>
         expectString(trait, `${path}.traits[${traitIndex}]`),
       ),
     };
   });
 
-const isShopChampion = ({ apiName, cost, icon }: RawChampion) =>
-  apiName.startsWith("DA_") && Number.isInteger(cost) && cost >= 1 && cost <= 5 && icon !== "";
+const isShopChampion = ({ apiName, cost }: RawChampion) =>
+  apiName.startsWith("DA_") && Number.isInteger(cost) && cost >= 1 && cost <= 5;
+
+// A champion without a usable icon stays in the grid and gets the placeholder in the app.
+const toChampionIcon = (icon: string | null, apiName: string) =>
+  icon !== null && icon.endsWith(".tex") ? toIconPath(icon, `champion ${apiName} tileIcon`) : null;
 
 const VARIANT_NAME = /^(.+) \(.+\)$/;
 
@@ -53,7 +56,7 @@ const collapseVariants = (champions: RawChampion[], traitIdByName: Map<string, s
       id: apiName,
       name,
       cost: cost as Cost,
-      icon: toIconPath(icon, `champion ${apiName} tileIcon`),
+      icon: toChampionIcon(icon, apiName),
       traitIds: traitNames.map((traitName) => {
         const traitId = traitIdByName.get(traitName);
         if (traitId === undefined) throw new ImportError(`champion ${apiName} has unknown trait "${traitName}"`);
@@ -99,6 +102,11 @@ export const transform = ({ cdragon, academy }: RawSources): DataBundle => {
   const traits = readTraits(setEntry);
   const traitIdByName = new Map(traits.map(({ id, name }) => [name, id]));
   const champions = collapseVariants(readChampions(setEntry).filter(isShopChampion), traitIdByName).toSorted(costOrder);
+  // A variant name that does not collapse means the naming scheme changed.
+  const uncollapsed = champions.find(({ name }) => VARIANT_NAME.test(name));
+  if (uncollapsed !== undefined) {
+    throw new ImportError(`champion "${uncollapsed.name}" looks like a variant but has no base champion`);
+  }
   if (champions.length === 0) throw new ImportError("no shop champions found");
 
   const catalog = readItemCatalog(root);

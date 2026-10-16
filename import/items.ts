@@ -1,5 +1,5 @@
 import type { Component, CompletedItem } from "../src/data/types.ts";
-import { COMPONENT_SIDES, EMBLEM_CATEGORIES, ITEM_CATEGORIES } from "./curation.ts";
+import { COMPONENT_SIDES, EMBLEM_CATEGORIES, EXCLUDED_ITEM_IDS, ITEM_CATEGORIES } from "./curation.ts";
 import { ImportError, expectArray, expectRecord, expectString, toIconPath } from "./shape.ts";
 
 export type CatalogEntry = {
@@ -58,8 +58,13 @@ const EXCLUDED_ITEM_NAME = /artifact|radiant/i;
 
 const isComponent = ({ apiName, tags }: CatalogEntry) => apiName.startsWith("DA_") && tags.includes("component");
 
+const isExcludedItem = ({ apiName, name }: CatalogEntry) =>
+  EXCLUDED_ITEM_IDS.includes(apiName) || EXCLUDED_ITEM_NAME.test(apiName) || EXCLUDED_ITEM_NAME.test(String(name));
+
+const isEmblem = ({ apiName, name }: CatalogEntry) => /emblem/i.test(apiName) || /emblem/i.test(String(name));
+
 const isCompletedItem = (entry: CatalogEntry) =>
-  entry.apiName.startsWith("DA_") && entry.composition.length === 2 && !EXCLUDED_ITEM_NAME.test(entry.apiName);
+  entry.apiName.startsWith("DA_") && entry.composition.length === 2 && !isExcludedItem(entry);
 
 export const buildItems = (
   setEntry: Record<string, unknown>,
@@ -77,7 +82,7 @@ export const buildItems = (
       }
       return componentId;
     });
-    const emblem = entry.apiName.includes("Emblem");
+    const emblem = isEmblem(entry);
     const categories = emblem ? EMBLEM_CATEGORIES : (ITEM_CATEGORIES[entry.apiName] ?? []);
     return {
       id: entry.apiName,

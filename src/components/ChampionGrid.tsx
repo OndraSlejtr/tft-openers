@@ -1,4 +1,4 @@
-import { iconUrl } from "../data/bundle.ts";
+import { PLACEHOLDER_ICON, iconUrl } from "../data/bundle.ts";
 import type { Champion, Cost, Trait } from "../data/types.ts";
 
 const COSTS: Cost[] = [1, 2, 3, 4, 5];
@@ -31,7 +31,7 @@ export const ChampionGrid = ({ champions, traitsById }: ChampionGridProps) => {
             {tier.map((champion) => (
               <li key={champion.id} className="group relative">
                 <div className={`size-14 overflow-hidden rounded border-2 bg-black/40 ${BORDER_BY_COST[cost]}`}>
-                  <img src={iconUrl(champion.icon)} alt={champion.name} loading="lazy" className="size-full object-cover" />
+                  <img src={iconUrl(champion.icon ?? PLACEHOLDER_ICON)} alt={champion.name} loading="lazy" className="size-full object-cover" />
                 </div>
                 <div
                   role="tooltip"
