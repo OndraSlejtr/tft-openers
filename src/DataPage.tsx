@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { useStoreState } from "./domain/useStore.ts";
 import { AugmentIcon } from "./components/AugmentIcon.tsx";
+import { CategoryToggle } from "./components/CategoryToggle.tsx";
 import { bundle, iconUrl } from "./data/bundle.ts";
 import { type CategoryStatus, categoryStatus } from "./data/categoryStatus.ts";
 
@@ -8,26 +10,14 @@ type StatusFilter = CategoryStatus | "all";
 
 const FILTERS: StatusFilter[] = ["all", "guessed", "confirmed", "uncategorized"];
 
-const sortedItems = bundle.items.toSorted((a, b) => a.name.localeCompare(b.name));
-const sortedAugments = bundle.augments.toSorted((a, b) => a.name.localeCompare(b.name));
-
-const Chips = ({ categories, status }: { categories: string[]; status: CategoryStatus }) => (
-  <span className="flex flex-wrap items-center gap-1 text-xs">
-    {categories.map((category) => (
-      <span key={category} className="rounded bg-white/10 px-1.5 py-0.5">
-        {category}
-      </span>
-    ))}
-    <span className={status === "uncategorized" ? "text-amber-400" : "text-gray-400"}>{status}</span>
-  </span>
-);
 
 export const DataPage = () => {
+  const { items: effectiveItems, augments: effectiveAugments } = useStoreState();
   const [filter, setFilter] = useState<StatusFilter>("all");
   const matches = (entry: { categories: string[]; guessed: boolean }) =>
     filter === "all" || categoryStatus(entry) === filter;
-  const items = sortedItems.filter(matches);
-  const augments = sortedAugments.filter(matches);
+  const items = effectiveItems.toSorted((a, b) => a.name.localeCompare(b.name)).filter(matches);
+  const augments = effectiveAugments.toSorted((a, b) => a.name.localeCompare(b.name)).filter(matches);
 
   return (
     <div className="mx-auto max-w-5xl p-4">
@@ -38,7 +28,7 @@ export const DataPage = () => {
         </Link>
       </header>
       <p className="mb-4 text-sm text-gray-400">
-        Set {bundle.setNumber}, patch {bundle.patch}. Read only.
+        Set {bundle.setNumber}, patch {bundle.patch}. Changing a category confirms it.
       </p>
       <div className="mb-4 flex flex-wrap gap-2" role="group" aria-label="Filter by category status">
         {FILTERS.map((option) => (
@@ -64,7 +54,7 @@ export const DataPage = () => {
               <img src={iconUrl(item.icon)} alt="" loading="lazy" className="size-10 shrink-0 rounded" />
               <div className="min-w-0">
                 <p className="truncate text-sm">{item.name}</p>
-                <Chips categories={item.categories} status={categoryStatus(item)} />
+                <CategoryToggle kind="item" id={item.id} />
               </div>
             </li>
           ))}
@@ -79,7 +69,7 @@ export const DataPage = () => {
               <AugmentIcon augment={augment} />
               <div className="min-w-0">
                 <p className="truncate text-sm">{augment.name}</p>
-                <Chips categories={augment.categories} status={categoryStatus(augment)} />
+                <CategoryToggle kind="augment" id={augment.id} />
               </div>
             </li>
           ))}

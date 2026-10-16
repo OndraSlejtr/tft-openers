@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router";
 import { AugmentIcon } from "./components/AugmentIcon.tsx";
+import { CategoryPopover } from "./components/CategoryToggle.tsx";
 import { ChampionIcon } from "./components/ChampionTile.tsx";
 import { bundle, iconUrl } from "./data/bundle.ts";
 import type { Opener } from "./data/types.ts";
@@ -16,8 +17,19 @@ const SectionTitle = ({ children }: { children: string }) => (
 
 const CarryItemView = ({ itemId, item, components }: CarryItem) => (
   <li className="flex items-center gap-2 text-sm">
-    {item ? <img src={iconUrl(item.icon)} alt="" className="size-8 rounded" /> : <span className="size-8 rounded bg-white/10" />}
-    <span>{item?.name ?? itemId}</span>
+    {item ? (
+      <CategoryPopover kind="item" id={item.id}>
+        <span className="flex items-center gap-2">
+          <img src={iconUrl(item.icon)} alt="" className="size-8 rounded" />
+          {item.name}
+        </span>
+      </CategoryPopover>
+    ) : (
+      <>
+        <span className="size-8 rounded bg-white/10" />
+        <span>{itemId}</span>
+      </>
+    )}
     {components.length > 0 && (
       <span className="flex items-center gap-1 text-xs text-gray-400">
         {components.map(({ id, name, icon }) => (
@@ -85,7 +97,9 @@ const CompRowView = ({ row }: { row: CompRow }) => {
             <ul className="flex flex-wrap gap-1">
               {keyAugments.map((augment) => (
                 <li key={augment.id} title={augment.name}>
-                  <AugmentIcon augment={augment} />
+                  <CategoryPopover kind="augment" id={augment.id}>
+                    <AugmentIcon augment={augment} />
+                  </CategoryPopover>
                 </li>
               ))}
             </ul>
@@ -131,7 +145,9 @@ const OpenerGuidance = ({ opener }: { opener: Opener }) => (
               const augment = augmentsById.get(id);
               return augment && (
                 <li key={id} title={augment.name}>
-                  <AugmentIcon augment={augment} />
+                  <CategoryPopover kind="augment" id={id}>
+                    <AugmentIcon augment={augment} />
+                  </CategoryPopover>
                 </li>
               );
             })}

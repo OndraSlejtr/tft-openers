@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { bundle } from "../data/bundle.ts";
 import { filterByText } from "../domain/filterByText.ts";
+import { CategoryPopover } from "./CategoryToggle.tsx";
 import { AugmentIcon } from "./AugmentIcon.tsx";
 
 const sortedAugments = bundle.augments.toSorted((a, b) => a.name.localeCompare(b.name));
@@ -28,8 +29,16 @@ export const AugmentPicker = ({ selectedAugmentIds, onAdd, onRemove }: AugmentPi
           const augment = augmentsById.get(augmentId);
           return (
             <li key={augmentId} className="flex items-center gap-2 rounded border border-white/10 py-1 pl-1 pr-2 text-sm">
-              {augment && <AugmentIcon augment={augment} />}
-              <span>{augment?.name ?? augmentId}</span>
+              {augment ? (
+                <CategoryPopover kind="augment" id={augmentId}>
+                  <span className="flex items-center gap-2">
+                    <AugmentIcon augment={augment} />
+                    {augment.name}
+                  </span>
+                </CategoryPopover>
+              ) : (
+                <span>{augmentId}</span>
+              )}
               <button type="button" aria-label={`Remove ${augment?.name ?? augmentId}`} onClick={() => onRemove(augmentId)} className="text-gray-400 hover:text-red-400">
                 ×
               </button>
