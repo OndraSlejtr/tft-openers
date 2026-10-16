@@ -36,7 +36,7 @@ Each issue on GitHub is one vertical slice. Agents work in the sandbox and follo
 
 Manual settings agents can't change:
 
-- GitHub Pages source (Settings, Pages, Source: GitHub Actions), needed for #15
+- GitHub Pages source (Settings, Pages, Source: GitHub Actions), already set. The `Deploy` workflow publishes on every push to `main` and can be rerun by hand from the Actions tab
 - ruleset and repository settings
 - the sandbox token's permissions
 
