@@ -20,7 +20,7 @@ pnpm run test             # Vitest
 pnpm run import           # refreshes game and comp data from Community Dragon and tftacademy
 ```
 
-`dev` and `import` are added by the first implementation issue (#2). CI runs `pnpm run test` as the required `test` check on every PR.
+CI runs `pnpm run test` as the required `test` check on every PR.
 
 ## Working with agents
 

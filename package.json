@@ -11,7 +11,11 @@
     "sandbox:create": "mkdir -p node_modules && .sandbox/with-secrets.sh msb create --name $(.sandbox/name.sh) --conf msb-config.yaml",
     "sandbox:stop": "msb stop $(.sandbox/name.sh)",
     "sandbox:remove": "msb remove --force $(.sandbox/name.sh)",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run",
+    "dev": "vite --configLoader native",
+    "build": "vite build --configLoader native",
+    "import": "tsx import/run.ts",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
